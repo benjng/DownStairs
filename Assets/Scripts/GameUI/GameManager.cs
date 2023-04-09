@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class UI : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     [HideInInspector]
-    public bool gameStarted = false;
+    public static bool gameStarted = false;
 
     [SerializeField] private TMP_Text count;
 
@@ -15,7 +15,7 @@ public class UI : MonoBehaviour
         StartCoroutine(CountStart());
     }
 
-    private IEnumerator CountStart()
+    IEnumerator CountStart()
     {
         count.fontSize = 700;
         count.text = "3";

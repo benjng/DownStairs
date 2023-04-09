@@ -13,18 +13,10 @@ public class DepthIndicator : MonoBehaviour
     //private float depth;
     void Start()
     {
-        upSpeed = FindFirstObjectByType<StepsSpawner>().upSpeed;
-
+        upSpeed = StepsSpawner.stepUpSpeed;
         depthTransf = GetComponent<RectTransform>();
         depthTransf.localPosition = new Vector3(0, -1000, 0);
-        if (gameObject.name == "DepthIndicator(Clone)")
-        {
-            depthTMP.text = "--- " + (upSpeed * 100).ToString("F1");
-        } else
-        {
-            depthTMP.text = "-";
-        }
-        
+        depthTMP.text = "--- " + (upSpeed * 100).ToString("F1");
     }
 
     private void Update()

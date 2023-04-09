@@ -1,112 +1,173 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using TMPro;
 
 public class Character : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 10;
-    [SerializeField] private float characterGravity = 1.1f;
-    [SerializeField] private GameObject UI;
+    public float moveSpeed = 10;
 
-    private Rigidbody2D rb;
-    private Animator Animator;
-    private string currentState = "isIdle";
-    private int xInput;
-    private bool isFalling = true;
+    [SerializeField]
+    private float characterGravity = 1.1f;
+
+    [SerializeField]
+    private GameObject gameManager; 
+
+    public Rigidbody2D rb;
+    public Animator animator;
+    public string currentState = "firstFall";
+    public bool isFalling = true;
     private bool gameStarted = false;
-    private float ScreenLx, ScreenRx;
-
+    public float screenLx,screenRx;
+    
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
-        Animator = GetComponent<Animator>();
-        Animator.SetTrigger("startFalling");
-        ScreenLx = -Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0, 0)).x;
-        ScreenRx = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0, 0)).x;
+        animator = GetComponent<Animator>();
+        // Animator.SetTrigger("startFalling"); // Starts game with startfalling animation
+        screenRx = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0, 0)).x;
+        screenLx = -screenRx;
     }
 
-    private void AnimationStateController(float xInput)
+    private void OnCollisionEnter2D(Collision2D other) {
+        if (currentState != "firstFall")
+            return;
+    
+        if (rb.velocity.y > -0.01) {
+            currentState = "isIdle"; 
+            animator.SetBool(currentState, true);
+        }
+    }
+    
+    public virtual void AnimationStateController(int xInput)
     {
+        if (currentState == "firstFall"){
+            return;
+        }
         if (rb.velocity.y < -0.5)
         {
-            if (isFalling) return;
-            Animator.SetTrigger("startFalling");
+            if (isFalling) // Return if already isFalling
+                return;
+            animator.SetTrigger("startFalling");
             isFalling = true;
             return;
         }
-        isFalling = false;
 
+        // Not falling
+        isFalling = false;
         string newState;
-        if (xInput < 0)
-        {
+
+        if (xInput < 0) {
             newState = "isWalkingLeft";
-        }
-        else if (xInput > 0)
-        {
+        } else if (xInput > 0) {
             newState = "isWalkingRight";
-        }
-        else
-        {
+        } else {
             newState = "isIdle";
         }
-        
-        if (newState == currentState)
-        {
+
+        // Return if new is current
+        if (newState == currentState) {
             return;
         }
-        Animator.SetBool(currentState, false);
-        Animator.SetBool(newState, true);
+
+        // Disable current and Enable new. Set new to current
+        animator.SetBool(currentState, false);
+        animator.SetBool(newState, true);
         currentState = newState;
     }
 
-    void FixedUpdate()
+    public int Control()
     {
-        if (!gameStarted)
-        {
-            gameStarted = UI.GetComponent<UI>().gameStarted;
-            return;
-        }
-        if (rb.gravityScale == 0)
-        {
-            rb.gravityScale = characterGravity;
-        }
-
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
-            if (touch.position.x > Screen.width/2)
+            if (touch.position.x > Screen.width / 2)
             {
-                xInput = 1;
-            } else
-            {
-                xInput = -1;
+                return 1;
             }
-        } else
-        {
-            xInput = 0;
+            return -1;
         }
-        AnimationStateController(xInput);
+        return 0;
+    }
 
+    public void Movement(int xInput)
+    {
         float currentMovement = xInput * moveSpeed * Time.fixedDeltaTime;
         transform.position += new Vector3(currentMovement, 0, 0);
         
-        if (transform.position.x < ScreenLx)
+        // Character Warpping
+        if (transform.position.x < screenLx)
         {
-            transform.position = new Vector3(ScreenRx, transform.position.y, transform.position.z);
-        }
-        else if (transform.position.x > ScreenRx)
+            transform.position = new Vector3(screenRx, transform.position.y, transform.position.z);
+        } else if (transform.position.x > screenRx)
         {
-            transform.position = new Vector3(ScreenLx, transform.position.y, transform.position.z);
+            transform.position = new Vector3(screenLx, transform.position.y, transform.position.z);
         }
+    }
 
+    public void InitCharGravity(float gravity){
+        // Character Gravity Init
+        if (rb.gravityScale == 0)
+        {
+            rb.gravityScale = gravity;
+        }
+    }
+
+    public void CheckCharSurvive(){
         // When character touching bottom
         if (transform.position.y <= -Camera.main.orthographicSize)
         {
             //SceneManager.LoadScene(2);
+        }
+    }
+    
+    void FixedUpdate()
+    {
+        // Check if game has started by UI counter
+        if (!gameStarted)
+        {
+            gameStarted = GameManager.gameStarted;
+            return;
+        }
+
+        InitCharGravity(characterGravity);
+        int xInput = Control();
+        AnimationStateController(xInput);
+        Movement(xInput);
+        CheckCharSurvive();
+    }
+
+    public class CharacterStub : Character 
+    {
+        public override void AnimationStateController(int xInput)
+        {
+            if (currentState == "firstFall"){
+                return;
+            }
+            if (rb.velocity.y < -0.5)
+            {
+                if (isFalling) // Return if already isFalling
+                    return;
+                isFalling = true;
+                return;
+            }
+
+            // Not falling
+            isFalling = false;
+            string newState;
+
+            if (xInput < 0) {
+                newState = "isWalkingLeft";
+            } else if (xInput > 0) {
+                newState = "isWalkingRight";
+            } else {
+                newState = "isIdle";
+            }
+
+            // Return if new is current
+            if (newState == currentState) {
+                return;
+            }
+            currentState = newState;
         }
     }
 }

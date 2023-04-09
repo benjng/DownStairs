@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Step : MonoBehaviour
@@ -14,9 +12,9 @@ public class Step : MonoBehaviour
 
     void FixedUpdate()
     {
-        upSpeed = FindFirstObjectByType<StepsSpawner>().upSpeed;
+        upSpeed = StepsSpawner.stepUpSpeed;
         transform.position += new Vector3(0, upSpeed, 0) * Time.fixedDeltaTime;
-        if (transform.position.y >= 8)
+        if (transform.position.y >= Camera.main.ViewportToWorldPoint(new Vector3(0, 1, 0)).y)
         {
             Destroy(gameObject);
         }
