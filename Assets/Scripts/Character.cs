@@ -3,31 +3,30 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    public string currentState = "firstFall";
-    public bool isFalling = true;
-    public float screenLx,screenRx;
-    public Rigidbody2D Rb { get; set; }
-    public Animator Animator {get; set;}
+    [SerializeField] private float characterGravity = 1.1f;
+    [SerializeField] private GameObject gameManager; 
 
+    private bool isFalling = true;
     private float moveSpeed = 10;
-    public float MoveSpeed { get => moveSpeed; set => moveSpeed = value; }
-
-    [SerializeField]
-    private float characterGravity = 1.1f;
-    [SerializeField]
-    private GameObject gameManager; 
-
-
+    private string currentState = "firstFall";
+    private Animator animator;
     private bool gameStarted = false;
     
+    public float ScreenLx { get; set; }
+    public float ScreenRx { get; set; }
+    public Rigidbody2D Rb { get; set; }
+    public float MoveSpeed { get => moveSpeed; set => moveSpeed = value; }
+    public string CurrentState { get => currentState; set => currentState = value; }
+    public bool IsFalling { get => isFalling; set => isFalling = value; }
+
     private void Start()
     {
         Rb = GetComponent<Rigidbody2D>();
         Rb.gravityScale = 0;
-        Animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         // Animator.SetTrigger("startFalling"); // Starts game with startfalling animation
-        screenRx = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0, 0)).x;
-        screenLx = -screenRx;
+        ScreenRx = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0, 0)).x;
+        ScreenLx = -ScreenRx;
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
@@ -36,7 +35,7 @@ public class Character : MonoBehaviour
     
         if (Rb.velocity.y > -0.01) {
             currentState = "isIdle"; 
-            Animator.SetBool(currentState, true);
+            animator.SetBool(currentState, true);
         }
     }
     
@@ -49,7 +48,7 @@ public class Character : MonoBehaviour
         {
             if (isFalling) // Return if already isFalling
                 return;
-            Animator.SetTrigger("startFalling");
+            animator.SetTrigger("startFalling");
             isFalling = true;
             return;
         }
@@ -72,8 +71,8 @@ public class Character : MonoBehaviour
         }
 
         // Disable current and Enable new. Set new to current
-        Animator.SetBool(currentState, false);
-        Animator.SetBool(newState, true);
+        animator.SetBool(currentState, false);
+        animator.SetBool(newState, true);
         currentState = newState;
     }
 
@@ -97,12 +96,12 @@ public class Character : MonoBehaviour
         transform.position += new Vector3(currentMovement, 0, 0);
         
         // Character Warpping
-        if (transform.position.x < screenLx)
+        if (transform.position.x < ScreenLx)
         {
-            transform.position = new Vector3(screenRx, transform.position.y, transform.position.z);
-        } else if (transform.position.x > screenRx)
+            transform.position = new Vector3(ScreenRx, transform.position.y, transform.position.z);
+        } else if (transform.position.x > ScreenRx)
         {
-            transform.position = new Vector3(screenLx, transform.position.y, transform.position.z);
+            transform.position = new Vector3(ScreenLx, transform.position.y, transform.position.z);
         }
     }
 

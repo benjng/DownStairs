@@ -18,8 +18,8 @@ public class TestCharacter
     {
         // Arrange
         float originalXPos = character.transform.position.x;
-        character.screenRx = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0, 0)).x;
-        character.screenLx = -character.screenRx;
+        character.ScreenRx = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0, 0)).x;
+        character.ScreenLx = -character.ScreenRx;
         int xInput = -1;
 
         // Act
@@ -36,28 +36,28 @@ public class TestCharacter
         // Arrange
         // character.animator = characterGameObject.AddComponent<Animator>();
         character.Rb.velocity = new Vector2(0, 0); // Velocity NOT falling
-        character.isFalling = true; 
-        character.currentState = "isIdle"; // Say the character is idle now
+        character.IsFalling = true; 
+        character.CurrentState = "isIdle"; // Say the character is idle now
 
         // Act
         character.AnimationStateController(1); // From current state to new state, go Right
         // Assert
         string expectedNewState = "isWalkingRight";
-        string actualNewState = character.currentState;
+        string actualNewState = character.CurrentState;
         Assert.AreEqual(expectedNewState, actualNewState, "Not having the expected animation.");
 
         // Act2
         character.AnimationStateController(-1); // Go Left
         // Assert2
         expectedNewState = "isWalkingLeft";
-        actualNewState = character.currentState;
+        actualNewState = character.CurrentState;
         Assert.AreEqual(expectedNewState, actualNewState, "Not having the expected animation.");
 
         // Act3
         character.AnimationStateController(0); // Go Left
         // Assert3
         expectedNewState = "isIdle";
-        actualNewState = character.currentState;
+        actualNewState = character.CurrentState;
         Assert.AreEqual(expectedNewState, actualNewState, "Not having the expected animation.");
     }
 
