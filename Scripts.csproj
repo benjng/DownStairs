@@ -42,7 +42,7 @@
      <Compile Include="Assets\Scripts\ScriptableObjs\ItemData.cs" />
      <Compile Include="Assets\Scripts\StepsSpawner.cs" />
      <Compile Include="Assets\Scripts\GameUI\DepthIndicator.cs" />
-     <Compile Include="Assets\Scripts\InventoryUI.cs" />
+     <Compile Include="Assets\Scripts\GameUI\InventoryUI.cs" />
      <Compile Include="Assets\Scripts\MenuUI\StartMenu.cs" />
      <Compile Include="Assets\Scripts\Character.cs" />
      <Compile Include="Assets\Scripts\Inventory.cs" />

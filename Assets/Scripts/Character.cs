@@ -24,7 +24,6 @@ public class Character : MonoBehaviour
         Rb = GetComponent<Rigidbody2D>();
         Rb.gravityScale = 0;
         animator = GetComponent<Animator>();
-        // Animator.SetTrigger("startFalling"); // Starts game with startfalling animation
         ScreenRx = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0, 0)).x;
         ScreenLx = -ScreenRx;
     }
@@ -76,7 +75,7 @@ public class Character : MonoBehaviour
         currentState = newState;
     }
 
-    public int Control()
+    public int TouchCheck()
     {
         if (Input.touchCount > 0)
         {
@@ -131,7 +130,7 @@ public class Character : MonoBehaviour
         }
 
         InitCharGravity(characterGravity);
-        int xInput = Control();
+        int xInput = TouchCheck();
         AnimationStateController(xInput);
         Movement(xInput);
         CheckCharSurvive();

@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class InventoryUI : MonoBehaviour
 {
-    public Transform[] itemsLayouts;
-    
+    [SerializeField] private Transform[] itemsLayouts; // [0]: right, [1]: left
     [SerializeField] private InventoryItem newItem; // for Instantiate 
-    private Inventory inventory;
+    private Transform leftLayout, rightLayout;
     private InventoryItem[] layoutItems;
+
     void Start()
     {
-        inventory = Inventory.instance;
-        // inventory.OnInventoryChanged += UpdateUI;
+        rightLayout = itemsLayouts[0];
+        leftLayout = itemsLayouts[1];
     }
 
     // Called when inventory has changes (item added, removed etc)
@@ -29,9 +29,9 @@ public class InventoryUI : MonoBehaviour
         // Choose layout
         Transform layoutToParent;
         if (item.isUsable){
-            layoutToParent = itemsLayouts[0]; // Right panel
+            layoutToParent = rightLayout;
         } else {
-            layoutToParent = itemsLayouts[1]; // Light panel
+            layoutToParent = leftLayout;
         }
         // Add new item to slots
         InventoryItem thisItem = Instantiate(newItem, layoutToParent);

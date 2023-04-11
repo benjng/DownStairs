@@ -15,7 +15,7 @@ public class TestInventory
         inventory = new GameObject().AddComponent<Inventory>();
         testItem = ScriptableObject.CreateInstance<ItemData>();
         testItem.name = "A Test Item";
-        inventory.inventoryUI = new GameObject().AddComponent<InventoryUIStub>();
+        inventory.InventoryUI = new GameObject().AddComponent<InventoryUIStub>();
     }
 
     [Test]
@@ -23,7 +23,7 @@ public class TestInventory
     {
         // Arrange
         // Ensure inventory is empty before adding item
-        Assert.IsEmpty(inventory.items);
+        Assert.IsEmpty(inventory.Items);
 
         // Act
         inventory.AddItem(testItem);
@@ -31,18 +31,18 @@ public class TestInventory
         // Assert
         int expectedItemsCount = 1;
         int expectedItemQty = 1;
-        Assert.AreEqual(expectedItemsCount, inventory.items.Count);
-        Assert.AreEqual(expectedItemQty, inventory.items[testItem.name]);
+        Assert.AreEqual(expectedItemsCount, inventory.Items.Count);
+        Assert.AreEqual(expectedItemQty, inventory.Items[testItem.name]);
     }
 
     [Test]
     public void Test_Add_Existing_Item_To_Inventory()
     {
         // Arrange
-        inventory.items.Add(testItem.name, 1);
+        inventory.Items.Add(testItem.name, 1);
 
         // Make sure inventory has one item before adding item
-        Assert.AreEqual(1, inventory.items.Count);
+        Assert.AreEqual(1, inventory.Items.Count);
 
         // Act
         inventory.AddItem(testItem);
@@ -51,7 +51,7 @@ public class TestInventory
         int expectedItemsCount = 1;
         int expectedItemQty = 2;
         // Make sure no duplicated addition
-        Assert.AreEqual(expectedItemsCount, inventory.items.Count);
-        Assert.AreEqual(expectedItemQty, inventory.items[testItem.name]);
+        Assert.AreEqual(expectedItemsCount, inventory.Items.Count);
+        Assert.AreEqual(expectedItemQty, inventory.Items[testItem.name]);
     }
 }
