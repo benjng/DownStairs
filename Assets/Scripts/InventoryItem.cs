@@ -5,36 +5,36 @@ using UnityEngine.UI;
 // UI item
 public class InventoryItem : MonoBehaviour
 {
-    public int itemQty;
-    public TMP_Text amountText;
+    private TMP_Text amountText;
     
-    [HideInInspector] public ItemData item;
+    public int ItemQty { get; set; }
+    public ItemData Item { get; set; }
 
-    void Start(){
-        gameObject.name = item.name;
-        gameObject.GetComponentInChildren<Image>().sprite = item.icon;
-        itemQty = 1;
+    void Start(){ // Init UI item behaviour (sprite, qty text, button appearance/interatability)
+        gameObject.name = Item.name;
+        gameObject.GetComponentInChildren<Image>().sprite = Item.icon;
+        ItemQty = 1;
         amountText = GetComponentInChildren<TMP_Text>();
-        if (!item.isUsable) {
+        if (!Item.isUsable) {
             gameObject.GetComponentInChildren<Button>().interactable = false;
         }
     }
 
     void Update(){
-        amountText.text = itemQty.ToString();
-        if (itemQty <= 0){
+        amountText.text = ItemQty.ToString();
+        if (ItemQty <= 0){
             RemoveItem();
         }
     }
 
     // Item button reference
     public void UseItem(){
-        Debug.Log("Use this item with ability: " + item.ability);
+        Debug.Log("Use this item with ability: " + Item.ability);
         // Deduct 1 from item slot
-        itemQty--;
+        ItemQty--;
 
         // Ability check when used
-        switch (item.ability){
+        switch (Item.ability){
             case ItemData.Abilities.MultiplyCharRunSpeed_110Per:
                 AbilityManager.instance.MultiplyCharRunSpeed(1.05f);
                 break;
@@ -48,7 +48,7 @@ public class InventoryItem : MonoBehaviour
     }
 
     // Clear slot when all items on that slot are used up
-    public void RemoveItem(){
+    private void RemoveItem(){
         Destroy(gameObject);
     }
 }

@@ -21,15 +21,15 @@ public class TestAbilityManager
         // Arrange
         float testMultiplier = 1.6f;
         float testMoveSpeed = 10;
-        abilityManager.character = new GameObject().AddComponent<Character>();
-        abilityManager.character.MoveSpeed = testMoveSpeed;
+        abilityManager.Character = new GameObject().AddComponent<Character>();
+        abilityManager.Character.MoveSpeed = testMoveSpeed;
 
         // Act
         abilityManager.MultiplyCharRunSpeed(testMultiplier);
         
         // Assert
         float expectedCharMoveSpeed = testMoveSpeed*testMultiplier;
-        var actualCharMoveSpeed = abilityManager.character.MoveSpeed;
+        var actualCharMoveSpeed = abilityManager.Character.MoveSpeed;
         Assert.AreEqual(expectedCharMoveSpeed, actualCharMoveSpeed);
     }
 

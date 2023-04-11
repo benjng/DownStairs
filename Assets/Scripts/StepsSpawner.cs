@@ -6,10 +6,7 @@ using TMPro;
 public class StepsSpawner : MonoBehaviour
 {
     #region Singleton
-
-    // Only One single list in game
     public static StepsSpawner instance;
-
     private void Awake()
     {
         if (instance != null)
@@ -19,8 +16,8 @@ public class StepsSpawner : MonoBehaviour
         }
         instance = this; // Create the unique instance of StepsSpawner
     }
-
     #endregion
+    
     public GameObject step;
     public GameObject[] spawnItems;
     // Coin, Potion_R, Laser, Potion_F, Remote_Step

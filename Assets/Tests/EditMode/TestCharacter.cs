@@ -17,11 +17,12 @@ public class TestCharacter
     public void Test_Character_Movement()
     {
         // Arrange
-        float originalXPos = character.transform.position.x;
         character.ScreenRx = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0, 0)).x;
         character.ScreenLx = -character.ScreenRx;
+        float originalXPos = character.transform.position.x;
         int xInput = -1;
 
+        Debug.Log(originalXPos);
         // Act
         character.Movement(xInput);
 

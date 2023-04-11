@@ -20,7 +20,7 @@ public class InventoryUI : MonoBehaviour
             foreach (InventoryItem layoutItem in layoutItems){
                 // if found existing item, do not add new item to slots
                 if (layoutItem.name == item.name) {
-                    layoutItem.itemQty++;
+                    layoutItem.ItemQty++;
                     return;
                 } 
             }
@@ -35,7 +35,7 @@ public class InventoryUI : MonoBehaviour
         }
         // Add new item to slots
         InventoryItem thisItem = Instantiate(newItem, layoutToParent);
-        thisItem.item = item;
+        thisItem.Item = item;
     }
 }
 
