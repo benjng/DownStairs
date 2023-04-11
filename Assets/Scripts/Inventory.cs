@@ -5,7 +5,6 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     #region Singleton
-    // Only One single list in game
     public static Inventory instance;
     public void Awake()
     {
@@ -14,28 +13,28 @@ public class Inventory : MonoBehaviour
             Debug.LogWarning("Duplicated Inventory instance found.");
             return;
         }
-        instance = this; // Create the unique instance of inventory
+        instance = this;
     }
     #endregion
 
     // public delegate void InventoryChangedEventHandler();
     // public event InventoryChangedEventHandler OnInventoryChanged;
 
-    public InventoryUI InventoryUI { get; set; }
+    [SerializeField] private InventoryUI inventoryUI;
     private Dictionary<string, int> items = new Dictionary<string, int>();
 
     public Dictionary<string, int> Items { get => items; set => items = value; }
+    public InventoryUI InventoryUI { get => inventoryUI; set => inventoryUI = value; }
 
     public void AddItem(ItemData item)
     {
         if (items.ContainsKey(item.name)){
-            items[item.name]++;
+            items[item.name]++; // Add 1 to existing item
         } else {
-            items.Add(item.name, 1);
-            // Debug.Log("Added new Inventory: " + item.name.ToString());
+            items.Add(item.name, 1); // Add new item to player inventory
         }
         // OnInventoryChanged?.Invoke(); // Inform there is a change in inventory list, so inventoryUI can update
-        InventoryUI.UpdateUI(item); // Update UI
+        inventoryUI.UpdateUI(item);
     }
 
     public void RemoveItem()

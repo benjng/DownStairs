@@ -884,7 +884,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa250f8f3be8f194dbd3d41fbfe82f07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameStarted: 0
   count: {fileID: 327157030}
 --- !u!1 &972541822
 GameObject:
@@ -922,6 +921,12 @@ MonoBehaviour:
   - {fileID: 4939185341357209996, guid: bc3de5bbe531183468ccd71506ae6122, type: 3}
   - {fileID: 5721252602456165130, guid: 88d93c5516b095940ae577ed761f146e, type: 3}
   - {fileID: 5721252602456165130, guid: 5f6f7113c1c623447a6780d7bdcc2b34, type: 3}
+  probabilities:
+  - 0.2
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.1
   spawnInterval: 1
 --- !u!4 &972541824
 Transform:
@@ -1205,7 +1210,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fee9e10cf4ec62441bb754bb3bfc824e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
   characterGravity: 1.6
   gameManager: {fileID: 853141548}
 --- !u!95 &1187674048
