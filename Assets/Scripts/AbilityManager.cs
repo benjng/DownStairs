@@ -23,7 +23,7 @@ public class AbilityManager : MonoBehaviour
     }
 
     public void MultiplyCharRunSpeed(float multiplier){
-        character.moveSpeed *= multiplier;
+        character.MoveSpeed *= multiplier;
     }
     public void MultiplyStepSpeed(float multiplier){
         StepsSpawner.stepUpSpeed *= multiplier;

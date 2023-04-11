@@ -3,26 +3,28 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    public float moveSpeed = 10;
+    public string currentState = "firstFall";
+    public bool isFalling = true;
+    public float screenLx,screenRx;
+    public Rigidbody2D Rb { get; set; }
+    public Animator Animator {get; set;}
+
+    private float moveSpeed = 10;
+    public float MoveSpeed { get => moveSpeed; set => moveSpeed = value; }
 
     [SerializeField]
     private float characterGravity = 1.1f;
-
     [SerializeField]
     private GameObject gameManager; 
 
-    public Rigidbody2D rb;
-    public Animator animator;
-    public string currentState = "firstFall";
-    public bool isFalling = true;
+
     private bool gameStarted = false;
-    public float screenLx,screenRx;
     
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        rb.gravityScale = 0;
-        animator = GetComponent<Animator>();
+        Rb = GetComponent<Rigidbody2D>();
+        Rb.gravityScale = 0;
+        Animator = GetComponent<Animator>();
         // Animator.SetTrigger("startFalling"); // Starts game with startfalling animation
         screenRx = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0, 0)).x;
         screenLx = -screenRx;
@@ -32,9 +34,9 @@ public class Character : MonoBehaviour
         if (currentState != "firstFall")
             return;
     
-        if (rb.velocity.y > -0.01) {
+        if (Rb.velocity.y > -0.01) {
             currentState = "isIdle"; 
-            animator.SetBool(currentState, true);
+            Animator.SetBool(currentState, true);
         }
     }
     
@@ -43,11 +45,11 @@ public class Character : MonoBehaviour
         if (currentState == "firstFall"){
             return;
         }
-        if (rb.velocity.y < -0.5)
+        if (Rb.velocity.y < -0.5)
         {
             if (isFalling) // Return if already isFalling
                 return;
-            animator.SetTrigger("startFalling");
+            Animator.SetTrigger("startFalling");
             isFalling = true;
             return;
         }
@@ -70,8 +72,8 @@ public class Character : MonoBehaviour
         }
 
         // Disable current and Enable new. Set new to current
-        animator.SetBool(currentState, false);
-        animator.SetBool(newState, true);
+        Animator.SetBool(currentState, false);
+        Animator.SetBool(newState, true);
         currentState = newState;
     }
 
@@ -106,9 +108,9 @@ public class Character : MonoBehaviour
 
     public void InitCharGravity(float gravity){
         // Character Gravity Init
-        if (rb.gravityScale == 0)
+        if (Rb.gravityScale == 0)
         {
-            rb.gravityScale = gravity;
+            Rb.gravityScale = gravity;
         }
     }
 
@@ -143,7 +145,7 @@ public class Character : MonoBehaviour
             if (currentState == "firstFall"){
                 return;
             }
-            if (rb.velocity.y < -0.5)
+            if (Rb.velocity.y < -0.5)
             {
                 if (isFalling) // Return if already isFalling
                     return;

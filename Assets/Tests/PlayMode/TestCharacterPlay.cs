@@ -21,11 +21,11 @@ public class TestCharacterPlay
         // character.Movement(xInput, screenLx);
 
         // Assert
-        float expectedXPos = originalXPos + xInput * character.moveSpeed * Time.fixedDeltaTime;
+        float expectedXPos = originalXPos + xInput * character.MoveSpeed * Time.fixedDeltaTime;
         float actualXPos = character.transform.position.x;
 
         Debug.Log("originalXPos " + originalXPos);
-        Debug.Log("character.moveSpeed " + character.moveSpeed);
+        Debug.Log("character.moveSpeed " + character.MoveSpeed);
         Debug.Log("Time.fixedDeltaTime " + Time.fixedDeltaTime);
         Debug.Log("expectedXPos " + expectedXPos);
         Debug.Log("actualXPos " + actualXPos);

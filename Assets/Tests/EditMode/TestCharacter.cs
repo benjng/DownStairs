@@ -10,7 +10,7 @@ public class TestCharacter
     [SetUp]
     public void Setup(){
         character = new GameObject().AddComponent<Character.CharacterStub>();
-        character.rb = new GameObject().AddComponent<Rigidbody2D>();
+        character.Rb = new GameObject().AddComponent<Rigidbody2D>();
     }
 
     [Test]
@@ -26,7 +26,7 @@ public class TestCharacter
         character.Movement(xInput);
 
         // Assert
-        float expectedXPos = originalXPos + xInput * character.moveSpeed * Time.fixedDeltaTime;
+        float expectedXPos = originalXPos + xInput * character.MoveSpeed * Time.fixedDeltaTime;
         float actualXPos = character.transform.position.x;
         Assert.AreEqual(expectedXPos, actualXPos, 0.001f);
     }
@@ -35,7 +35,7 @@ public class TestCharacter
     public void Test_Character_Animation_WalkLeftRight(){
         // Arrange
         // character.animator = characterGameObject.AddComponent<Animator>();
-        character.rb.velocity = new Vector2(0, 0); // Velocity NOT falling
+        character.Rb.velocity = new Vector2(0, 0); // Velocity NOT falling
         character.isFalling = true; 
         character.currentState = "isIdle"; // Say the character is idle now
 
@@ -67,19 +67,19 @@ public class TestCharacter
         float expectedGravity, actualGravity;
 
         // Act
-        character.rb.gravityScale = 0;
+        character.Rb.gravityScale = 0;
         character.InitCharGravity(10);
         // Assert
         expectedGravity = 10;
-        actualGravity = character.rb.gravityScale;
+        actualGravity = character.Rb.gravityScale;
         Assert.AreEqual(expectedGravity, actualGravity);
 
         // Act2
-        character.rb.gravityScale = 15;
+        character.Rb.gravityScale = 15;
         character.InitCharGravity(10);
         // Assert2
         expectedGravity = 15;
-        actualGravity = character.rb.gravityScale;
+        actualGravity = character.Rb.gravityScale;
         Assert.AreEqual(expectedGravity, actualGravity);
     }
 }
