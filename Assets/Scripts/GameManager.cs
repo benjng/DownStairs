@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,15 +7,15 @@ public class GameManager : MonoBehaviour
         Simple,
         Normal
     }
-    public static GameMode gameMode;
+    public static GameMode gameMode = GameMode.Simple;
     public void StartSimpleGame()
     {
         gameMode = GameMode.Simple;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
     public void StartNormalGame()
     {
         gameMode = GameMode.Normal;
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 }

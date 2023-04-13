@@ -45,7 +45,10 @@ public class StepsSpawner : MonoBehaviour
         GameObject thisStep = Instantiate(step, gameObject.transform);
         thisStep.SetActive(true);
 
-        CreateItemByChance(thisStep);
+        // No item generate for simple mode
+        if (GameManager.gameMode != GameManager.GameMode.Simple) {
+            CreateItemByChance(thisStep);
+        }
     }
 
     public void CreateItemByChance(GameObject thisStep){
