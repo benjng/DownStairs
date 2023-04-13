@@ -8,16 +8,28 @@ public class GameManager : MonoBehaviour
         Normal
     }
     public static GameMode gameMode = GameMode.Normal;
+
+    void Start(){
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
     public void StartSimpleGame()
     {
-        gameMode = GameMode.Simple;
-        SceneManager.LoadScene(2);
-        SceneManager.LoadScene(1, LoadSceneMode.Additive);
+        SceneManager.LoadScene(1);
     }
     public void StartNormalGame()
     {
-        gameMode = GameMode.Normal;
-        SceneManager.LoadScene(3);
-        SceneManager.LoadScene(1, LoadSceneMode.Additive);
+        SceneManager.LoadScene(2);
+    }
+
+    public void OnSceneLoaded(Scene scene, LoadSceneMode mode){
+        if (scene.buildIndex == 1){
+            gameMode = GameMode.Simple;
+            return;
+        }
+        if (scene.buildIndex == 2){
+            gameMode = GameMode.Normal;
+            return;
+        }
     }
 }

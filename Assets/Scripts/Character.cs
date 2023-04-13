@@ -117,7 +117,7 @@ public class Character : MonoBehaviour
         // When character touching bottom
         if (transform.position.y <= -Camera.main.orthographicSize)
         {
-            SceneManager.LoadScene(4);
+            // SceneManager.LoadScene(3);
         }
     }
     

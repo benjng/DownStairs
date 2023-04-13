@@ -47,6 +47,7 @@ public class StepsSpawner : MonoBehaviour
 
         // No item generate for simple mode
         if (GameManager.gameMode != GameManager.GameMode.Simple) {
+            Debug.Log("Not simple mode, creating extra item");
             CreateItemByChance(thisStep);
         }
     }
