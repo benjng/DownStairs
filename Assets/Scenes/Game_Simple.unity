@@ -1625,7 +1625,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   depthIndicator: {fileID: 3198044069341132467, guid: 622511bd41c5f1748b38273d4be008a0, type: 3}
-  depthMarker: {fileID: 71615579281449112, guid: dc8f6466186bdee47b1db1a4414e1205, type: 3}
 --- !u!224 &1937037701 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2321599939888467161, guid: 1dc926bdc5ae8f24fa9224c62399100f, type: 3}
@@ -1647,7 +1646,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1948028836
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,32 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
 public class DepthIndicator : MonoBehaviour
 {
     [SerializeField] private TMP_Text depthTMP;
-
-    private RectTransform depthTransf;
-
     private float upSpeed;
-    //private float depth;
+    private float parentHeight;
+
     void Start()
     {
-        upSpeed = StepsSpawner.stepUpSpeed;
-        depthTransf = GetComponent<RectTransform>();
-        depthTransf.localPosition = new Vector3(0, -1000, 0);
-        depthTMP.text = "--- " + (upSpeed * 100).ToString("F1");
+        upSpeed = StepsSpawner.stepUpSpeed * 100;
+
+        parentHeight = transform.parent.GetComponent<RectTransform>().rect.height;
+        transform.localPosition = new Vector3(0, -(parentHeight/2) ,0);
+        depthTMP.text = "--- " + upSpeed.ToString("F1");
     }
 
     private void Update()
     {
         UpdatePointPos();
-        if (depthTransf.localPosition.y > 1400) Destroy(gameObject);
+        if (transform.localPosition.y > 1400) Destroy(gameObject);
     }
 
     private void UpdatePointPos()
     {
-        depthTransf.localPosition += new Vector3(0, upSpeed * 100, 0) * Time.deltaTime;
+        transform.localPosition += new Vector3(0, upSpeed, 0) * Time.deltaTime;
     }
 }
