@@ -7,15 +7,17 @@ public class GameManager : MonoBehaviour
         Simple,
         Normal
     }
-    public static GameMode gameMode = GameMode.Simple;
+    public static GameMode gameMode = GameMode.Normal;
     public void StartSimpleGame()
     {
         gameMode = GameMode.Simple;
         SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1, LoadSceneMode.Additive);
     }
     public void StartNormalGame()
     {
         gameMode = GameMode.Normal;
         SceneManager.LoadScene(3);
+        SceneManager.LoadScene(1, LoadSceneMode.Additive);
     }
 }
