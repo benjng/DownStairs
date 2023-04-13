@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +9,8 @@ public class GameManager : MonoBehaviour
         Normal
     }
     public static GameMode gameMode = GameMode.Normal;
+    public Animator transition;
+    public float transitionTime = 1f;
 
     void Start(){
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -15,11 +18,17 @@ public class GameManager : MonoBehaviour
 
     public void StartSimpleGame()
     {
-        SceneManager.LoadScene(1);
+        StartCoroutine(LoadLevel(1));
     }
     public void StartNormalGame()
     {
-        SceneManager.LoadScene(2);
+        StartCoroutine(LoadLevel(2));
+    }
+
+    IEnumerator LoadLevel(int levelIndex){
+        transition.SetTrigger("Start");
+        yield return new WaitForSeconds(transitionTime);
+        SceneManager.LoadScene(levelIndex);
     }
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode){
