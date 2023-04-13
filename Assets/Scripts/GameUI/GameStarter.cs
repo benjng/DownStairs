@@ -1,9 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class GameManager : MonoBehaviour
+public class GameStarter : MonoBehaviour
 {
     [HideInInspector]
     public static bool gameStarted = false;

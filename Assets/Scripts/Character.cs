@@ -125,7 +125,7 @@ public class Character : MonoBehaviour
         // Check if game has started by UI counter
         if (!gameStarted)
         {
-            gameStarted = GameManager.gameStarted;
+            gameStarted = GameStarter.gameStarted;
             return;
         }
 

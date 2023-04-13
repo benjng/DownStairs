@@ -702,6 +702,7 @@ GameObject:
   - component: {fileID: 670886283}
   - component: {fileID: 670886282}
   - component: {fileID: 670886281}
+  - component: {fileID: 670886284}
   m_Layer: 5
   m_Name: UICanvas
   m_TagString: Untagged
@@ -792,6 +793,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &670886284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670886279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3228c59763d638742a94ff9afb76fd24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  count: {fileID: 327157030}
 --- !u!1 &720085329
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,9 +860,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 853141549}
-  - component: {fileID: 853141550}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -872,19 +885,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &853141550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 853141548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa250f8f3be8f194dbd3d41fbfe82f07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  count: {fileID: 327157030}
 --- !u!1 &972541822
 GameObject:
   m_ObjectHideFlags: 0

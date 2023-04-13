@@ -43,14 +43,14 @@
      <Compile Include="Assets\Scripts\StepsSpawner.cs" />
      <Compile Include="Assets\Scripts\GameUI\DepthIndicator.cs" />
      <Compile Include="Assets\Scripts\GameUI\InventoryUI.cs" />
-     <Compile Include="Assets\Scripts\MenuUI\StartMenu.cs" />
      <Compile Include="Assets\Scripts\Character.cs" />
      <Compile Include="Assets\Scripts\Inventory.cs" />
      <Compile Include="Assets\Scripts\Step.cs" />
      <Compile Include="Assets\Scripts\InventoryItem.cs" />
      <Compile Include="Assets\Scripts\GameUI\Background.cs" />
-     <Compile Include="Assets\Scripts\GameUI\GameManager.cs" />
      <Compile Include="Assets\Scripts\Item.cs" />
+     <Compile Include="Assets\Scripts\GameUI\GameStarter.cs" />
+     <Compile Include="Assets\Scripts\MenuUI\GameManager.cs" />
      <None Include="Assets\Scripts\Scripts.asmdef" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.19f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
