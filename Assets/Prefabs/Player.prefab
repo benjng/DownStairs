@@ -150,6 +150,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterGravity: 1.6
   gameManager: {fileID: 0}
+  LBtn: {fileID: 0}
+  RBtn: {fileID: 0}
 --- !u!95 &5146237268904041088
 Animator:
   serializedVersion: 5

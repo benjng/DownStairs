@@ -147,8 +147,8 @@ public class Character : MonoBehaviour
         CheckCharSurvive();
     }
 
-    public void testText(){
-        Debug.Log("Hit");
+    public void AtkTest(){
+        Debug.Log("Attacking");
     }
 
     public class CharacterStub : Character 
