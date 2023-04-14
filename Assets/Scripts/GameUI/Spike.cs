@@ -9,7 +9,7 @@ public class Spike : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            SceneManager.LoadScene(4);
+            // SceneManager.LoadScene(4);
         }
     }
 }

@@ -1,11 +1,16 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class Character : MonoBehaviour
 {
     [SerializeField] private float characterGravity = 1.1f;
     [SerializeField] private GameObject gameManager; 
+    [SerializeField] private Button LBtn;
+    [SerializeField] private Button RBtn;
+
 
     private bool isFalling = true;
     private float moveSpeed = 10;
@@ -13,6 +18,7 @@ public class Character : MonoBehaviour
     private Animator animator;
     private bool gameStarted = false;
     
+    public int XInput { get; set; }
     public float ScreenLx { get; set; }
     public float ScreenRx { get; set; }
     public Rigidbody2D Rb { get; set; }
@@ -39,7 +45,7 @@ public class Character : MonoBehaviour
         }
     }
     
-    public virtual void AnimationStateController(int xInput)
+    public virtual void AnimationStateController()
     {
         if (currentState == "firstFall"){
             return;
@@ -57,9 +63,9 @@ public class Character : MonoBehaviour
         isFalling = false;
         string newState;
 
-        if (xInput < 0) {
+        if (XInput < 0) {
             newState = "isWalkingLeft";
-        } else if (xInput > 0) {
+        } else if (XInput > 0) {
             newState = "isWalkingRight";
         } else {
             newState = "isIdle";
@@ -76,23 +82,28 @@ public class Character : MonoBehaviour
         currentState = newState;
     }
 
-    public int TouchCheck()
+    public void SetXInputByBtn(int touchDir)
     {
-        if (Input.touchCount > 0)
-        {
-            Touch touch = Input.GetTouch(0);
-            if (touch.position.x > Screen.width / 2)
-            {
-                return 1;
-            }
-            return -1;
-        }
-        return 0;
+        XInput = touchDir;
+        // if (Input.touchCount != 1)
+        // {
+            // Touch touch = Input.GetTouch(0);
+            // if (touch.position.x > Screen.width / 2)
+            // {
+            //     return 1;
+            // }
+            // return -1;
+        //     XInput = 0;
+        // }
     }
 
-    public void Movement(int xInput)
+    public void ResetXInput(){
+        XInput = 0;
+    }
+
+    public void Movement()
     {
-        float currentMovement = xInput * moveSpeed * Time.fixedDeltaTime;
+        float currentMovement = XInput * moveSpeed * Time.fixedDeltaTime;
         transform.position += new Vector3(currentMovement, 0, 0);
         
         // Character Warpping
@@ -131,15 +142,18 @@ public class Character : MonoBehaviour
         }
 
         InitCharGravity(characterGravity);
-        int xInput = TouchCheck();
-        AnimationStateController(xInput);
-        Movement(xInput);
+        AnimationStateController();
+        Movement();
         CheckCharSurvive();
+    }
+
+    public void testText(){
+        Debug.Log("Hit");
     }
 
     public class CharacterStub : Character 
     {
-        public override void AnimationStateController(int xInput)
+        public override void AnimationStateController()
         {
             if (currentState == "firstFall"){
                 return;
@@ -156,9 +170,9 @@ public class Character : MonoBehaviour
             isFalling = false;
             string newState;
 
-            if (xInput < 0) {
+            if (XInput < 0) {
                 newState = "isWalkingLeft";
-            } else if (xInput > 0) {
+            } else if (XInput > 0) {
                 newState = "isWalkingRight";
             } else {
                 newState = "isIdle";

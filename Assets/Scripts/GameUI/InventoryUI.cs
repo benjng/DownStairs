@@ -15,7 +15,8 @@ public class InventoryUI : MonoBehaviour
 
     // Called when inventory has changes (item added, removed etc)
     public virtual void UpdateUI(ItemData item){
-        foreach (var layout in itemsLayouts){
+        // Loop through all left and right layouts, and compare each item for duplicated items
+        foreach (var layout in itemsLayouts){ 
             layoutItems = layout.GetComponentsInChildren<InventoryItem>();
             foreach (InventoryItem layoutItem in layoutItems){
                 // if found existing item, do not add new item to slots

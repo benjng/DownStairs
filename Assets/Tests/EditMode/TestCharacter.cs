@@ -11,6 +11,7 @@ public class TestCharacter
     public void Setup(){
         character = new GameObject().AddComponent<Character.CharacterStub>();
         character.Rb = new GameObject().AddComponent<Rigidbody2D>();
+        character.XInput = 0;
     }
 
     [Test]
@@ -24,7 +25,7 @@ public class TestCharacter
 
         Debug.Log(originalXPos);
         // Act
-        character.Movement(xInput);
+        character.Movement();
 
         // Assert
         float expectedXPos = originalXPos + xInput * character.MoveSpeed * Time.fixedDeltaTime;
@@ -41,21 +42,21 @@ public class TestCharacter
         character.CurrentState = "isIdle"; // Say the character is idle now
 
         // Act
-        character.AnimationStateController(1); // From current state to new state, go Right
+        character.AnimationStateController(); // From current state to new state, go Right
         // Assert
         string expectedNewState = "isWalkingRight";
         string actualNewState = character.CurrentState;
         Assert.AreEqual(expectedNewState, actualNewState, "Not having the expected animation.");
 
         // Act2
-        character.AnimationStateController(-1); // Go Left
+        character.AnimationStateController(); // Go Left
         // Assert2
         expectedNewState = "isWalkingLeft";
         actualNewState = character.CurrentState;
         Assert.AreEqual(expectedNewState, actualNewState, "Not having the expected animation.");
 
         // Act3
-        character.AnimationStateController(0); // Go Left
+        character.AnimationStateController(); // Go Left
         // Assert3
         expectedNewState = "isIdle";
         actualNewState = character.CurrentState;
