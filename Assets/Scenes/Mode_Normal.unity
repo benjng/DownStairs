@@ -225,7 +225,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5146237268904041215, guid: 54658a8a81fe3054f88708926a7e4929, type: 3}
   m_PrefabInstance: {fileID: 5146237269864918336}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1580111517}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fee9e10cf4ec62441bb754bb3bfc824e, type: 3}
@@ -300,6 +300,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab12c5912331c6f4fac69ee9f746ff3b, type: 3}
+--- !u!1 &1580111517 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5146237268904041210, guid: 54658a8a81fe3054f88708926a7e4929, type: 3}
+  m_PrefabInstance: {fileID: 5146237269864918336}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1580111524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580111517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98eec35ceaecd0a4d8c2262fd5ec3576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentEquipment: {fileID: 11400000, guid: 2178990996e6a034ca17e45fad769e87, type: 2}
+  atkBtn: {fileID: 4076024302736212918, guid: dab74bde919398e47b79235836ef224b, type: 3}
 --- !u!224 &1903870327 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7288825517818268125, guid: f04f1aacbb7ab48488749cdd675b49ba, type: 3}
@@ -471,6 +490,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 853141549}
     m_Modifications:
+    - target: {fileID: 40281901, guid: d1c8e54d9676cf241b6db4e6a7194829, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 205887006, guid: d1c8e54d9676cf241b6db4e6a7194829, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -505,6 +528,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1963611039, guid: d1c8e54d9676cf241b6db4e6a7194829, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1963611040, guid: d1c8e54d9676cf241b6db4e6a7194829, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 238062725436483206, guid: d1c8e54d9676cf241b6db4e6a7194829, type: 3}
