@@ -37,8 +37,22 @@ public class Inventory : MonoBehaviour
         inventoryUI.UpdateUI(item);
     }
 
-    public void RemoveItem()
+    public void SubtractItem(ItemData item){
+        if (items.ContainsKey(item.name)){
+            items[item.name]--;
+            Debug.Log("Item "+ item.name+ " subtracted. Current value: " + items[item.name]);
+            if (items[item.name] <= 0) {
+                RemoveItem(item);
+            }
+        } else {
+            Debug.LogWarning("Item to subtract not found!");
+        }
+    }
+
+    public void RemoveItem(ItemData item)
     {
+        items.Remove(item.name);
+        Debug.Log("Item "+ item.name+ " deleted.");
         // When time, remove the Inventory
     }
 }

@@ -29,9 +29,9 @@ public class InventoryItem : MonoBehaviour
 
     // Item button reference
     public void UseItem(){
-        Debug.Log("Use this item with ability: " + Item.ability);
         // Deduct 1 from item slot
         ItemQty--;
+        Inventory.instance.SubtractItem(Item);
 
         // Ability check when used
         switch (Item.ability){
