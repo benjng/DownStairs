@@ -44,15 +44,14 @@ public class Inventory : MonoBehaviour
             if (items[item.name] <= 0) {
                 RemoveItem(item);
             }
-        } else {
-            Debug.LogWarning("Item to subtract not found!");
+            return;
         }
+        Debug.LogWarning("Item to subtract not found!");
     }
 
     public void RemoveItem(ItemData item)
     {
         items.Remove(item.name);
         Debug.Log("Item "+ item.name+ " deleted.");
-        // When time, remove the Inventory
     }
 }
