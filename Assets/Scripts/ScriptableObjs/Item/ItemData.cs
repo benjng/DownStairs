@@ -15,7 +15,6 @@ public class ItemData : ScriptableObject
     public Sprite icon;
     public bool isCollectable;
     public bool isUsable;
-    public bool isEquippable;
     public Abilities ability = Abilities.none;
     // public virtual void Use(){
     //     Debug.Log("Use this item");

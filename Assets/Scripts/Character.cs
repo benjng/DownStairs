@@ -7,9 +7,7 @@ using UnityEngine.SceneManagement;
 public class Character : MonoBehaviour
 {
     [SerializeField] private float characterGravity = 1.1f;
-    [SerializeField] private GameObject gameManager; 
-    [SerializeField] private Button LBtn;
-    [SerializeField] private Button RBtn;
+    [SerializeField] private GameObject gameManager;
 
 
     private bool isFalling = true;
