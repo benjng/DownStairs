@@ -6,7 +6,8 @@ public class EquipmentData : ScriptableObject
 {
     public enum EqType {
         none,
-        Weapon,
+        MeleeWeapon,
+        RangedWeapon,
         Armor
     }
 

@@ -87,25 +87,6 @@ public class Character : MonoBehaviour
         currentState = newState;
     }
 
-    // public void SetXInputByBtn(int touchDir)
-    // {
-    //     XInput = touchDir;
-    //     // if (Input.touchCount != 1)
-    //     // {
-    //         // Touch touch = Input.GetTouch(0);
-    //         // if (touch.position.x > Screen.width / 2)
-    //         // {
-    //         //     return 1;
-    //         // }
-    //         // return -1;
-    //     //     XInput = 0;
-    //     // }
-    // }
-
-    // public void ResetXInput(){
-    //     XInput = 0;
-    // }
-
     public void Movement()
     {
         XInput = joystick.Horizontal;

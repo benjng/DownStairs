@@ -20,8 +20,8 @@ public class StepsSpawner : MonoBehaviour
     
     public GameObject step;
     public GameObject[] spawnItems;
-    // Coin, Potion_R, Laser, Potion_F, Remote_Step
-    public List<float> probabilities = new List<float> { 0.2f, 0.1f, 0.1f, 0.1f, 0.1f }; 
+    // Coin, Potion_R, Laser, Potion_F, Remote_Step, Poop
+    public List<float> probabilities = new List<float> { 0.2f, 0.1f, 0.1f, 0.1f, 0.1f, 0.1f }; 
 
     public float spawnInterval = 1;
     public static float stepUpSpeed = 2;

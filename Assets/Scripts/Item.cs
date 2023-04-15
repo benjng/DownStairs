@@ -1,7 +1,7 @@
 using UnityEngine;
 
 // In game item gameObject
-public class Item : MonoBehaviour
+public class Item : MonoBehaviour, ICollectable
 {
     public ItemData item;
     private Inventory inventory;
@@ -11,7 +11,7 @@ public class Item : MonoBehaviour
         // ability.OnInventoryChanged += Check;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") && item.isCollectable)
         {
