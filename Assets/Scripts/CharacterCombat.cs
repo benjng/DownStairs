@@ -19,13 +19,13 @@ public class CharacterCombat : MonoBehaviour
     
     [SerializeField] private EquipmentData currentEquipment;
     [SerializeField] private Joystick joystick;
-    [SerializeField] private Button atkBtn;
+    [SerializeField] private Button equipmentBtn;
     [SerializeField] private Animator charAnimator;
     private int currentFaceDir = -1;
 
     void Start()
     {
-        atkBtn.onClick.AddListener(AtkAnimation);
+        equipmentBtn.onClick.AddListener(AtkAnimation);
     }
     void Update()
     {
@@ -47,5 +47,9 @@ public class CharacterCombat : MonoBehaviour
             charAnimator.SetTrigger("fistAtkLeft");
             return;
         }
+    }
+
+    public void UpdateEquipment(EquipmentData equipmentData){
+        equipmentBtn.GetComponent<Image>().sprite = equipmentData.icon;
     }
 }

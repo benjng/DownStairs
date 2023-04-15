@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8453567715305052586}
   - component: {fileID: 4076024302736212918}
   m_Layer: 5
-  m_Name: AtkBtn
+  m_Name: EquipmentBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
