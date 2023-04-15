@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class CharacterCombat : MonoBehaviour
@@ -16,15 +17,35 @@ public class CharacterCombat : MonoBehaviour
     }
     #endregion
     
-    [SerializeField] EquipmentData currentEquipment;
-    [SerializeField] Button atkBtn;
+    [SerializeField] private EquipmentData currentEquipment;
+    [SerializeField] private Joystick joystick;
+    [SerializeField] private Button atkBtn;
+    [SerializeField] private Animator charAnimator;
+    private int currentFaceDir = -1;
 
     void Start()
     {
-        
+        atkBtn.onClick.AddListener(AtkAnimation);
     }
     void Update()
     {
-        
+        if (joystick.Horizontal > 0){
+            currentFaceDir = 1;
+        } else if (joystick.Horizontal < 0){
+            currentFaceDir = -1;
+        }
+    }
+
+    void AtkAnimation(){
+        if (currentFaceDir == 1){
+            Debug.Log("Attack right");
+            charAnimator.SetTrigger("fistAtkRight");
+            return;
+        }
+        if (currentFaceDir == -1){
+            Debug.Log("Attack left");
+            charAnimator.SetTrigger("fistAtkLeft");
+            return;
+        }
     }
 }

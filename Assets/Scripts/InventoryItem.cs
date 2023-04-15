@@ -15,9 +15,9 @@ public class InventoryItem : MonoBehaviour
         gameObject.GetComponentInChildren<Image>().sprite = Item.icon;
         ItemQty = 1;
         amountText = GetComponentInChildren<TMP_Text>();
-        if (!Item.isUsable) {
-            gameObject.GetComponentInChildren<Button>().interactable = false;
-        }
+        // if (!Item.isUsable) {
+        //     gameObject.GetComponentInChildren<Button>().interactable = false;
+        // }
     }
 
     void Update(){

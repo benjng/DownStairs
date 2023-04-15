@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5146237268904041215}
   - component: {fileID: 5146237268904041088}
   - component: {fileID: 5146237268904041089}
+  - component: {fileID: 1580111524}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -150,8 +151,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterGravity: 1.6
   gameManager: {fileID: 0}
-  LBtn: {fileID: 0}
-  RBtn: {fileID: 0}
+  joystick: {fileID: 0}
+  animator: {fileID: 5146237268904041088}
 --- !u!95 &5146237268904041088
 Animator:
   serializedVersion: 5
@@ -185,3 +186,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryUI: {fileID: 0}
+--- !u!114 &1580111524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5146237268904041210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98eec35ceaecd0a4d8c2262fd5ec3576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentEquipment: {fileID: 11400000, guid: 2178990996e6a034ca17e45fad769e87, type: 2}
+  atkBtn: {fileID: 0}
