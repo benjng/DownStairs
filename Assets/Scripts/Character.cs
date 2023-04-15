@@ -8,15 +8,16 @@ public class Character : MonoBehaviour
 {
     [SerializeField] private float characterGravity = 1.1f;
     [SerializeField] private GameObject gameManager;
+    [SerializeField] private Joystick joystick;
 
 
     private bool isFalling = true;
     private float moveSpeed = 10;
     private string currentState = "firstFall";
-    private Animator animator;
+    public Animator animator;
     private bool gameStarted = false;
     
-    public int XInput { get; set; }
+    public float XInput { get; set; }
     public float ScreenLx { get; set; }
     public float ScreenRx { get; set; }
     public Rigidbody2D Rb { get; set; }
@@ -28,7 +29,7 @@ public class Character : MonoBehaviour
     {
         Rb = GetComponent<Rigidbody2D>();
         Rb.gravityScale = 0;
-        animator = GetComponent<Animator>();
+        // animator = GetComponent<Animator>();
         ScreenRx = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0, 0)).x;
         ScreenLx = -ScreenRx;
     }
@@ -42,6 +43,12 @@ public class Character : MonoBehaviour
             animator.SetBool(currentState, true);
         }
     }
+
+    
+    // public void AtkTest(){
+    //     Debug.Log("Attacking");
+    //     animator.SetTrigger("123");
+    // }
     
     public virtual void AnimationStateController()
     {
@@ -80,27 +87,28 @@ public class Character : MonoBehaviour
         currentState = newState;
     }
 
-    public void SetXInputByBtn(int touchDir)
-    {
-        XInput = touchDir;
-        // if (Input.touchCount != 1)
-        // {
-            // Touch touch = Input.GetTouch(0);
-            // if (touch.position.x > Screen.width / 2)
-            // {
-            //     return 1;
-            // }
-            // return -1;
-        //     XInput = 0;
-        // }
-    }
+    // public void SetXInputByBtn(int touchDir)
+    // {
+    //     XInput = touchDir;
+    //     // if (Input.touchCount != 1)
+    //     // {
+    //         // Touch touch = Input.GetTouch(0);
+    //         // if (touch.position.x > Screen.width / 2)
+    //         // {
+    //         //     return 1;
+    //         // }
+    //         // return -1;
+    //     //     XInput = 0;
+    //     // }
+    // }
 
-    public void ResetXInput(){
-        XInput = 0;
-    }
+    // public void ResetXInput(){
+    //     XInput = 0;
+    // }
 
     public void Movement()
     {
+        XInput = joystick.Horizontal;
         float currentMovement = XInput * moveSpeed * Time.fixedDeltaTime;
         transform.position += new Vector3(currentMovement, 0, 0);
         
@@ -145,9 +153,6 @@ public class Character : MonoBehaviour
         CheckCharSurvive();
     }
 
-    public void AtkTest(){
-        Debug.Log("Attacking");
-    }
 
     public class CharacterStub : Character 
     {
