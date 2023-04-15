@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterCombat : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class CharacterCombat : MonoBehaviour
     #endregion
     
     [SerializeField] EquipmentData currentEquipment;
+    [SerializeField] Button atkBtn;
 
     void Start()
     {
