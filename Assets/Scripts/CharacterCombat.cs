@@ -25,8 +25,9 @@ public class CharacterCombat : MonoBehaviour
 
     void Start()
     {
-        equipmentBtn.onClick.AddListener(AtkAnimation);
+        equipmentBtn.onClick.AddListener(UseEquipment);
     }
+
     void Update()
     {
         if (joystick.Horizontal > 0){
@@ -49,7 +50,16 @@ public class CharacterCombat : MonoBehaviour
         }
     }
 
+    void UseEquipment(){
+        if (currentEquipment.equipmentType == EquipmentData.EqType.RangedWeapon){
+            GameObject thisProjectile = Instantiate(currentEquipment.projectile, gameObject.transform);
+            thisProjectile.GetComponent<Projectile>().enabled = true;
+        }
+        AtkAnimation();
+    }
+
     public void UpdateEquipment(EquipmentData equipmentData){
+        currentEquipment = equipmentData;
         equipmentBtn.GetComponent<Image>().sprite = equipmentData.icon;
     }
 }

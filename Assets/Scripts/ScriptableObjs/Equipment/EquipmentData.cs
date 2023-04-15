@@ -14,4 +14,5 @@ public class EquipmentData : ScriptableObject
     new public string name = "New Equipment";
     public Sprite icon;
     public EqType equipmentType = EqType.none;
+    public GameObject projectile;
 }
