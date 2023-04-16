@@ -24,6 +24,8 @@ public class CharacterCombat : MonoBehaviour
     [SerializeField] private GameObject projectilesHolder;
     private int currentFaceDir = -1;
 
+    public int CurrentFaceDir { get => currentFaceDir; set => currentFaceDir = value; }
+
     void Start()
     {
         equipmentBtn.onClick.AddListener(UseEquipment);
@@ -52,12 +54,12 @@ public class CharacterCombat : MonoBehaviour
     }
 
     void UseEquipment(){
+        AtkAnimation();
         if (currentEquipment.equipmentType == EquipmentData.EqType.RangedWeapon){
             // Shoot out the projectile
             GameObject thisProjectile = Instantiate(currentEquipment.projectile, projectilesHolder.transform);
             thisProjectile.GetComponent<Projectile>().ShootStraight();
         }
-        AtkAnimation();
     }
 
     // Update current equipment info & sprite UI

@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5146237268904041212}
   - component: {fileID: 5146237268904041211}
+  - component: {fileID: 5146237268904041088}
   - component: {fileID: 5146237268904041214}
   - component: {fileID: 5146237268904041213}
   - component: {fileID: 5146237268904041215}
-  - component: {fileID: 5146237268904041088}
-  - component: {fileID: 5146237268904041089}
   - component: {fileID: 1580111524}
+  - component: {fileID: 5146237268904041089}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -90,6 +90,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &5146237268904041088
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5146237268904041210}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 65fe9b03ac5cdef46baf7f553d79a9c8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!50 &5146237268904041214
 Rigidbody2D:
   serializedVersion: 4
@@ -152,40 +172,8 @@ MonoBehaviour:
   characterGravity: 1.4
   gameManager: {fileID: 0}
   joystick: {fileID: 0}
+  moveSpeed: 10
   animator: {fileID: 5146237268904041088}
---- !u!95 &5146237268904041088
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5146237268904041210}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 65fe9b03ac5cdef46baf7f553d79a9c8, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
---- !u!114 &5146237268904041089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5146237268904041210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 911d7f7a486f4804ea9764979575ce43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventoryUI: {fileID: 0}
 --- !u!114 &1580111524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,3 +191,16 @@ MonoBehaviour:
   equipmentBtn: {fileID: 0}
   charAnimator: {fileID: 5146237268904041088}
   projectilesHolder: {fileID: 0}
+--- !u!114 &5146237268904041089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5146237268904041210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 911d7f7a486f4804ea9764979575ce43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryUI: {fileID: 0}
