@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7686644521437580813}
   - component: {fileID: 7686644521437580814}
-  - component: {fileID: 4386529850984513014}
+  - component: {fileID: 2606993379806784490}
   - component: {fileID: 1405481768018639483}
   m_Layer: 0
-  m_Name: Poop
+  m_Name: Projectiles_Poop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9347518de74412841979662ebfaf19d4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ac69a26080910134e9ea03aa509960a5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4386529850984513014
+--- !u!114 &2606993379806784490
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,10 +95,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7686644521437580815}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18fd3c4da85445d4b8c412b11939bcdd, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d247fdcb3d4ab24383a090f54fca268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  equipment: {fileID: 11400000, guid: c6423e07545f17e4d9306de9704d26fe, type: 2}
+  projectile: {fileID: 11400000, guid: 3a04d043e416aea42931f95a791882d2, type: 2}
 --- !u!60 &1405481768018639483
 PolygonCollider2D:
   m_ObjectHideFlags: 0

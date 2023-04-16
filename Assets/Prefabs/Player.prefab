@@ -199,4 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentEquipment: {fileID: 11400000, guid: 2178990996e6a034ca17e45fad769e87, type: 2}
-  atkBtn: {fileID: 0}
+  joystick: {fileID: 0}
+  equipmentBtn: {fileID: 0}
+  charAnimator: {fileID: 5146237268904041088}
+  projectilesHolder: {fileID: 0}

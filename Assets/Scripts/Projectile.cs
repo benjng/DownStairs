@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    void Awake()
-    {
-        this.enabled = false;
+    [SerializeField] private ProjectileData projectile;
+    public void Shoot(){
+        Debug.Log("Shooting out");
+        
     }
 
-    void OnEnable() {
-        Debug.Log("Projectile Enabled");
-    }
+    // public void OnTriggerEnter2D(Collider2D collision)
+    // {
+    //     if (collision.CompareTag("Player")) 
+    //     {
+    //         Destroy(gameObject);
+    //     }
+    // }
 }

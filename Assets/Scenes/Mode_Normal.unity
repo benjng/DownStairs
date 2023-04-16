@@ -180,6 +180,7 @@ Transform:
   m_Children:
   - {fileID: 972541824}
   - {fileID: 720085331}
+  - {fileID: 2039736127}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -377,6 +378,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2039736126
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2039736127}
+  m_Layer: 0
+  m_Name: Projectiles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2039736127
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039736126}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 603388644}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &57044927536476741
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -502,10 +534,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 1963611040, guid: d1c8e54d9676cf241b6db4e6a7194829, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 300278650313852594, guid: d1c8e54d9676cf241b6db4e6a7194829, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -674,6 +702,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6747781123634611657, guid: d1c8e54d9676cf241b6db4e6a7194829, type: 3}
+      propertyPath: m_Name
+      value: EquipmentBtn
+      objectReference: {fileID: 0}
     - target: {fileID: 7157058638958020042, guid: d1c8e54d9676cf241b6db4e6a7194829, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -699,6 +731,14 @@ PrefabInstance:
       propertyPath: charAnimator
       value: 
       objectReference: {fileID: 1580111519}
+    - target: {fileID: 1580111524, guid: 54658a8a81fe3054f88708926a7e4929, type: 3}
+      propertyPath: equipmentBtn
+      value: 
+      objectReference: {fileID: 401395606}
+    - target: {fileID: 1580111524, guid: 54658a8a81fe3054f88708926a7e4929, type: 3}
+      propertyPath: projectilesHolder
+      value: 
+      objectReference: {fileID: 2039736127}
     - target: {fileID: 5146237268904041089, guid: 54658a8a81fe3054f88708926a7e4929, type: 3}
       propertyPath: inventoryUI
       value: 

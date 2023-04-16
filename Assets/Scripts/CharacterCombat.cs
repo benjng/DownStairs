@@ -21,6 +21,7 @@ public class CharacterCombat : MonoBehaviour
     [SerializeField] private Joystick joystick;
     [SerializeField] private Button equipmentBtn;
     [SerializeField] private Animator charAnimator;
+    [SerializeField] private GameObject projectilesHolder;
     private int currentFaceDir = -1;
 
     void Start()
@@ -52,12 +53,14 @@ public class CharacterCombat : MonoBehaviour
 
     void UseEquipment(){
         if (currentEquipment.equipmentType == EquipmentData.EqType.RangedWeapon){
-            GameObject thisProjectile = Instantiate(currentEquipment.projectile, gameObject.transform);
-            thisProjectile.GetComponent<Projectile>().enabled = true;
+            // Shoot out the projectile
+            GameObject thisProjectile = Instantiate(currentEquipment.projectile, projectilesHolder.transform);
+            thisProjectile.GetComponent<Projectile>().Shoot();
         }
         AtkAnimation();
     }
 
+    // Update current equipment info & sprite UI
     public void UpdateEquipment(EquipmentData equipmentData){
         currentEquipment = equipmentData;
         equipmentBtn.GetComponent<Image>().sprite = equipmentData.icon;
