@@ -5,16 +5,26 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private ProjectileData projectile;
-    public void Shoot(){
+    private bool startShooting = false;
+    public void ShootStraight(){
         Debug.Log("Shooting out");
-        
+        InitPos();
+        startShooting = true;
     }
 
-    // public void OnTriggerEnter2D(Collider2D collision)
-    // {
-    //     if (collision.CompareTag("Player")) 
-    //     {
-    //         Destroy(gameObject);
-    //     }
-    // }
+    void InitPos(){
+        transform.position = CharacterCombat.instance.transform.position;
+    }
+
+    void FixedUpdate(){
+        if (!startShooting){
+            return;
+        }
+        transform.position += new Vector3(projectile.speed, StepsSpawner.stepUpSpeed, 0) * Time.fixedDeltaTime;
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log(collision.name);
+    }
 }

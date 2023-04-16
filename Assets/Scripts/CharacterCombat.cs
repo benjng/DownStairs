@@ -55,7 +55,7 @@ public class CharacterCombat : MonoBehaviour
         if (currentEquipment.equipmentType == EquipmentData.EqType.RangedWeapon){
             // Shoot out the projectile
             GameObject thisProjectile = Instantiate(currentEquipment.projectile, projectilesHolder.transform);
-            thisProjectile.GetComponent<Projectile>().Shoot();
+            thisProjectile.GetComponent<Projectile>().ShootStraight();
         }
         AtkAnimation();
     }

@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fee9e10cf4ec62441bb754bb3bfc824e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterGravity: 1.6
+  characterGravity: 1.4
   gameManager: {fileID: 0}
   joystick: {fileID: 0}
   animator: {fileID: 5146237268904041088}

@@ -15,4 +15,4 @@ MonoBehaviour:
   name: Poop
   icon: {fileID: 21300000, guid: 9347518de74412841979662ebfaf19d4, type: 3}
   equipmentType: 2
-  equipmentPrefab: {fileID: 7686644521437580815, guid: 5edd94746af52be43a9c8e4c31a79f6e, type: 3}
+  projectile: {fileID: 7686644521437580815, guid: 085a039e6d10e0a45a8808d7d43f6c2a, type: 3}

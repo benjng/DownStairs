@@ -12,7 +12,7 @@ public class Character : MonoBehaviour
 
 
     private bool isFalling = true;
-    private float moveSpeed = 10;
+    [SerializeField ] private float moveSpeed = 10;
     private string currentState = "firstFall";
     public Animator animator;
     private bool gameStarted = false;
