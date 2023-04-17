@@ -16,4 +16,5 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: b6c869f2da76c7b4c8932c3fe83d582b, type: 3}
   isCollectable: 1
   isUsable: 0
-  ability: 
+  ability: 0
+  collectSound: {fileID: 8300000, guid: be91ab44c1cd2cc49a32b7350df7a644, type: 3}

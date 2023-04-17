@@ -2,7 +2,7 @@ using UnityEngine;
 
 [CreateAssetMenu (fileName = "New Item", menuName = "Item")]
 
-public class ItemData : ScriptableObject
+public class ItemData : ScriptableObject, IPlayCollectSound
 {
     public enum Abilities {
         none,
@@ -16,9 +16,8 @@ public class ItemData : ScriptableObject
     public bool isCollectable;
     public bool isUsable;
     public Abilities ability = Abilities.none;
-    public string collectSoundName;
+    public AudioClip collectSound;
     public virtual void PlayCollectSound(){
-        if (collectSoundName != null)
-            FindObjectOfType<AudioManager>().Play(collectSoundName);
+        FindObjectOfType<AudioManager>().Play(collectSound.name);
     }
 }

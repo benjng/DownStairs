@@ -16,3 +16,4 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 9347518de74412841979662ebfaf19d4, type: 3}
   equipmentType: 2
   projectile: {fileID: 7686644521437580815, guid: 085a039e6d10e0a45a8808d7d43f6c2a, type: 3}
+  collectSound: {fileID: 8300000, guid: f30413bf1a224c245aef9fda13e2f991, type: 3}

@@ -16,7 +16,8 @@ public class Item : MonoBehaviour, ICollectable
         if (collision.CompareTag("Player") && item.isCollectable)
         {
             inventory.AddItem(item);
-            item.PlayCollectSound();
+            if (item.collectSound != null)
+                item.PlayCollectSound();
             Destroy(gameObject);
         }
     }

@@ -32,6 +32,7 @@ public class InventoryItem : MonoBehaviour
         // Deduct 1 from item slot
         ItemQty--;
         Inventory.instance.SubtractItem(Item);
+        // TODO: Play use sound here
 
         // Ability check when used
         switch (Item.ability){
@@ -48,7 +49,11 @@ public class InventoryItem : MonoBehaviour
     }
 
     // Clear slot when all items on that slot are used up
-    private void RemoveItem(){
+    void RemoveItem(){
         Destroy(gameObject);
+    }
+
+    public void PlaySound(){
+        FindObjectOfType<AudioManager>().Play("");
     }
 }

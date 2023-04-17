@@ -387,7 +387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.992544, b: 0.7971698, a: 0.4627451}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.4627451}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -702,6 +702,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4726738507969736343, guid: dab74bde919398e47b79235836ef224b, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726738507969736343, guid: dab74bde919398e47b79235836ef224b, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726738507969736343, guid: dab74bde919398e47b79235836ef224b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -711,7 +719,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4726738507969736343, guid: dab74bde919398e47b79235836ef224b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.0000483195
       objectReference: {fileID: 0}
     - target: {fileID: 4726738507969736343, guid: dab74bde919398e47b79235836ef224b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -719,14 +727,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4726738507969736343, guid: dab74bde919398e47b79235836ef224b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4726738507969736343, guid: dab74bde919398e47b79235836ef224b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4726738507969736343, guid: dab74bde919398e47b79235836ef224b, type: 3}
       propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726738507969736343, guid: dab74bde919398e47b79235836ef224b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000061035156
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726738507969736343, guid: dab74bde919398e47b79235836ef224b, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4726738507969736343, guid: dab74bde919398e47b79235836ef224b, type: 3}
