@@ -43,7 +43,6 @@
      <Compile Include="Assets\Scripts\AbilityManager.cs" />
      <Compile Include="Assets\Scripts\GameUI\Spike.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjs\ItemData.cs" />
-     <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\StepsSpawner.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IPlayCollectSound.cs" />
      <Compile Include="Assets\Scripts\GameUI\DepthIndicator.cs" />
@@ -62,6 +61,8 @@
      <Compile Include="Assets\Scripts\AudioManager\Sound.cs" />
      <Compile Include="Assets\Scripts\Step.cs" />
      <Compile Include="Assets\Scripts\GameUI\Joystick\Editor\JoystickEditor.cs" />
+     <Compile Include="Assets\Scripts\LevelLoader.cs" />
+     <Compile Include="Assets\Scripts\GameUI\StateController.cs" />
      <Compile Include="Assets\Scripts\GameUI\Joystick\Joysticks\FloatingJoystick.cs" />
      <Compile Include="Assets\Scripts\InventoryItem.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjs\EquipmentData.cs" />
@@ -69,7 +70,6 @@
      <Compile Include="Assets\Scripts\AudioManager\AudioManager.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjs\ProjectileData.cs" />
      <Compile Include="Assets\Scripts\Item.cs" />
-     <Compile Include="Assets\Scripts\LevelLoader.cs" />
      <None Include="Assets\Scripts\Scripts.asmdef" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.19f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
