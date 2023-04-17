@@ -292,6 +292,15 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
+  - name: CollectPoop
+    clip: {fileID: 8300000, guid: f30413bf1a224c245aef9fda13e2f991, type: 3}
+    volume: 0.621
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
 --- !u!4 &1173048810
 Transform:
   m_ObjectHideFlags: 0
