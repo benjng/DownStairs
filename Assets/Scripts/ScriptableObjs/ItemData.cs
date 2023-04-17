@@ -16,7 +16,9 @@ public class ItemData : ScriptableObject
     public bool isCollectable;
     public bool isUsable;
     public Abilities ability = Abilities.none;
-    // public virtual void Use(){
-    //     Debug.Log("Use this item");
-    // }
+    public string collectSoundName;
+    public virtual void PlayCollectSound(){
+        if (collectSoundName != null)
+            FindObjectOfType<AudioManager>().Play(collectSoundName);
+    }
 }

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce767e738ca43b9498aecdeceaf3653b, type: 3}
   m_Name: Fist
   m_EditorClassIdentifier: 
-  name: New Equipment
-  icon: {fileID: 0}
+  name: Fist
+  icon: {fileID: 21300000, guid: 3a2e5768431eb2448b3c1070fea39d53, type: 3}
   equipmentType: 0
+  projectile: {fileID: 0}
