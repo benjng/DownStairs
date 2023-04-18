@@ -49,15 +49,19 @@
      <Compile Include="Assets\Scripts\CharacterCombat.cs" />
      <Compile Include="Assets\Scripts\Interfaces\ICollectable.cs" />
      <Compile Include="Assets\Scripts\SpikeSpawner.cs" />
+     <Compile Include="Assets\Scripts\Menu\MenuSystem.cs" />
      <Compile Include="Assets\Scripts\Projectile.cs" />
      <Compile Include="Assets\Scripts\GameUI\InventoryUI.cs" />
      <Compile Include="Assets\Scripts\GameUI\Joystick\Editor\DynamicJoystickEditor.cs" />
      <Compile Include="Assets\Scripts\GameUI\Joystick\Joysticks\DynamicJoystick.cs" />
      <Compile Include="Assets\Scripts\GameUI\Joystick\Editor\FloatingJoystickEditor.cs" />
      <Compile Include="Assets\Scripts\GameUI\Joystick\Base\Joystick.cs" />
+     <Compile Include="Assets\Scripts\Menu\States\AtChar.cs" />
      <Compile Include="Assets\Scripts\Character.cs" />
      <Compile Include="Assets\Scripts\GameUI\GameStarter.cs" />
      <Compile Include="Assets\Scripts\Inventory.cs" />
+     <Compile Include="Assets\Scripts\Menu\MenuState.cs" />
+     <Compile Include="Assets\Scripts\Menu\States\AtTop.cs" />
      <Compile Include="Assets\Scripts\AudioManager\Sound.cs" />
      <Compile Include="Assets\Scripts\Step.cs" />
      <Compile Include="Assets\Scripts\GameUI\Joystick\Editor\JoystickEditor.cs" />
@@ -68,10 +72,8 @@
      <Compile Include="Assets\Scripts\GameUI\Background.cs" />
      <Compile Include="Assets\Scripts\AudioManager\AudioManager.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjs\ProjectileData.cs" />
+     <Compile Include="Assets\Scripts\Menu\States\AtMode.cs" />
      <Compile Include="Assets\Scripts\Item.cs" />
-     <Compile Include="Assets\Scripts\Menu\MenuState.cs" />
-     <Compile Include="Assets\Scripts\Menu\MenuStateMachine.cs" />
-     <Compile Include="Assets\Scripts\Menu\MenuSystem.cs" />
      <None Include="Assets\Scripts\Scripts.asmdef" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.19f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>

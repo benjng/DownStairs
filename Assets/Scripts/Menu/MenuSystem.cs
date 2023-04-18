@@ -4,16 +4,26 @@ using UnityEngine;
 
 public class MenuSystem : MonoBehaviour
 {
-    public enum Skin{
-        Boy,
-        Girl
-    }
-    public Skin currentSkin;
+    #region Game Parameters
+    public enum Skin{ Boy, Girl }
+    public enum Mode{ Simple, Normal }
+    public Skin gameSkin;
+    public Mode gameMode;
+    #endregion
+    
+    [SerializeField] private MenuState currentState;
 
-    public void SetBoySkin(){
-        currentSkin = Skin.Boy;
+    void Awake(){
+        currentState.Enter();
     }
-    public void SetGirlSkin(){
-        currentSkin = Skin.Girl;
+
+    // Change state
+    public void ChangeState(MenuState newState){ 
+        if (currentState != null){ // exit currentState if exists
+            currentState.Exit();
+        }
+
+        currentState = newState;
+        currentState.Enter();
     }
 }
