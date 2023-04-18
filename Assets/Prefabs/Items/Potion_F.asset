@@ -17,3 +17,4 @@ MonoBehaviour:
   isCollectable: 1
   isUsable: 1
   ability: 2
+  collectSound: {fileID: 8300000, guid: 176e7e29d21884b408bca2d23e74be1f, type: 3}
