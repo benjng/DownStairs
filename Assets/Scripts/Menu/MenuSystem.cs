@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateController : MonoBehaviour
+public class MenuSystem : MonoBehaviour
 {
     public enum Skin{
         Boy,
@@ -10,9 +10,6 @@ public class StateController : MonoBehaviour
     }
     public Skin currentSkin;
 
-    void Awake(){
-        DontDestroyOnLoad(gameObject);
-    }
     public void SetBoySkin(){
         currentSkin = Skin.Boy;
     }

@@ -62,7 +62,6 @@
      <Compile Include="Assets\Scripts\Step.cs" />
      <Compile Include="Assets\Scripts\GameUI\Joystick\Editor\JoystickEditor.cs" />
      <Compile Include="Assets\Scripts\LevelLoader.cs" />
-     <Compile Include="Assets\Scripts\GameUI\StateController.cs" />
      <Compile Include="Assets\Scripts\GameUI\Joystick\Joysticks\FloatingJoystick.cs" />
      <Compile Include="Assets\Scripts\InventoryItem.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjs\EquipmentData.cs" />
@@ -70,6 +69,9 @@
      <Compile Include="Assets\Scripts\AudioManager\AudioManager.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjs\ProjectileData.cs" />
      <Compile Include="Assets\Scripts\Item.cs" />
+     <Compile Include="Assets\Scripts\Menu\MenuState.cs" />
+     <Compile Include="Assets\Scripts\Menu\MenuStateMachine.cs" />
+     <Compile Include="Assets\Scripts\Menu\MenuSystem.cs" />
      <None Include="Assets\Scripts\Scripts.asmdef" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.19f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>

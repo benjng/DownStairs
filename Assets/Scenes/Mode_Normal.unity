@@ -276,7 +276,7 @@ MonoBehaviour:
   sounds:
   - name: Bgm
     clip: {fileID: 8300000, guid: 1f09e42882ac52b46aff1c74e3134b5e, type: 3}
-    volume: 0.354
+    volume: 0
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
