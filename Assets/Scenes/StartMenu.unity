@@ -323,6 +323,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1501a243f0548b642bc952483e3197db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boyBtn: {fileID: 1832529144}
+  girlBtn: {fileID: 1791783304}
 --- !u!1 &303417782
 GameObject:
   m_ObjectHideFlags: 0
@@ -1915,7 +1917,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 431344ced3b449a4aa6e8e6678448e7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameSkin: 0
   gameModeText: {fileID: 1180946660}
   currentState: {fileID: 799009827}
 --- !u!1 &1570300463

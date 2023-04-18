@@ -172,6 +172,9 @@ MonoBehaviour:
   characterGravity: 1.4
   gameManager: {fileID: 0}
   joystick: {fileID: 0}
+  animatorControllers:
+  - {fileID: 9100000, guid: 65fe9b03ac5cdef46baf7f553d79a9c8, type: 2}
+  - {fileID: 9100000, guid: 9482009b6135de8409d814d9ae8919d4, type: 2}
   moveSpeed: 10
   animator: {fileID: 5146237268904041088}
 --- !u!114 &1580111524

@@ -9,6 +9,7 @@ public class Character : MonoBehaviour
     [SerializeField] private float characterGravity = 1.1f;
     [SerializeField] private GameObject gameManager;
     [SerializeField] private Joystick joystick;
+    [SerializeField] private RuntimeAnimatorController[] animatorControllers;
 
 
     private bool isFalling = true;
@@ -25,16 +26,28 @@ public class Character : MonoBehaviour
     public string CurrentState { get => currentState; set => currentState = value; }
     public bool IsFalling { get => isFalling; set => isFalling = value; }
 
-    private void Start()
+    void Start()
     {
         Rb = GetComponent<Rigidbody2D>();
         Rb.gravityScale = 0;
-        // animator = GetComponent<Animator>();
+        SelectAnimatorController();
+        SetScreenLR();
+    }
+
+    void SetScreenLR(){
         ScreenRx = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0, 0)).x;
         ScreenLx = -ScreenRx;
     }
 
-    private void OnCollisionEnter2D(Collision2D other) {
+    void SelectAnimatorController(){
+        if (MenuSystem.charSkin == CharSkin.Boy){
+            animator.runtimeAnimatorController = animatorControllers[0];
+        } else if (MenuSystem.charSkin == CharSkin.Girl) {
+            animator.runtimeAnimatorController = animatorControllers[1];
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D other) {
         if (currentState != "firstFall")
             return;
     

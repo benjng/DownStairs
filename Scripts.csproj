@@ -75,6 +75,7 @@
      <Compile Include="Assets\Scripts\Menu\States\AtMode.cs" />
      <Compile Include="Assets\Scripts\Item.cs" />
      <Compile Include="Assets\Scripts\Enums\GameMode.cs" />
+     <Compile Include="Assets\Scripts\Enums\CharSkin.cs" />
      <None Include="Assets\Scripts\Scripts.asmdef" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.19f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>

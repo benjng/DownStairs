@@ -6,8 +6,7 @@ using TMPro;
 public class MenuSystem : MonoBehaviour
 {
     #region Game Parameters
-    public enum Skin{ Boy, Girl }
-    public Skin gameSkin;
+    public static CharSkin charSkin;
     public static GameMode gameMode;
     #endregion
     
