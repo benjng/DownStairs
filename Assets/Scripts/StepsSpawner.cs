@@ -46,7 +46,7 @@ public class StepsSpawner : MonoBehaviour
         thisStep.SetActive(true);
 
         // No item generate for simple mode
-        if (LevelLoader.gameMode != LevelLoader.GameMode.Simple) {
+        if (MenuSystem.gameMode != GameMode.Simple) {
             CreateItemByChance(thisStep);
         }
     }

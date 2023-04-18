@@ -6,15 +6,14 @@ public class MenuSystem : MonoBehaviour
 {
     #region Game Parameters
     public enum Skin{ Boy, Girl }
-    public enum Mode{ Simple, Normal }
     public Skin gameSkin;
-    public Mode gameMode;
+    public static GameMode gameMode;
     #endregion
     
     [SerializeField] private MenuState currentState;
 
     void Awake(){
-        currentState.Enter();
+        currentState.Enter(); // Init state
     }
 
     // Change state

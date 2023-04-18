@@ -1893,7 +1893,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSkin: 0
-  gameMode: 0
   currentState: {fileID: 799009827}
 --- !u!1 &1570300463
 GameObject:
@@ -2011,6 +2010,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e26b40a3e86e4c44cbd54061cd46ed9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  simpleBtn: {fileID: 339297538}
+  normalBtn: {fileID: 1283011135}
 --- !u!1001 &1695773676
 PrefabInstance:
   m_ObjectHideFlags: 0

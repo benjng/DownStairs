@@ -4,11 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
-    public enum GameMode {
-        Simple,
-        Normal
-    }
-    public static GameMode gameMode = GameMode.Normal;
+    // public static GameMode gameMode = GameMode.Normal;
     public Animator transition;
     public float transitionTime = 1f;
 
@@ -16,13 +12,16 @@ public class LevelLoader : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    public void StartSimpleGame()
+    public void StartGame()
     {
-        StartCoroutine(LoadLevel(1));
-    }
-    public void StartNormalGame()
-    {
-        StartCoroutine(LoadLevel(2));
+        if (MenuSystem.gameMode == GameMode.Simple){
+            StartCoroutine(LoadLevel(1));
+            return;
+        } 
+        if (MenuSystem.gameMode == GameMode.Normal){
+            StartCoroutine(LoadLevel(2));
+            return;
+        }
     }
 
     IEnumerator LoadLevel(int levelIndex){
@@ -33,11 +32,9 @@ public class LevelLoader : MonoBehaviour
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode){
         if (scene.buildIndex == 1){
-            gameMode = GameMode.Simple;
             return;
         }
         if (scene.buildIndex == 2){
-            gameMode = GameMode.Normal;
             return;
         }
     }
