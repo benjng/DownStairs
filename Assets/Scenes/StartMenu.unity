@@ -1138,6 +1138,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 544309754}
   m_CullTransparentMesh: 1
+--- !u!114 &565265980 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8043583921615932801, guid: ab12c5912331c6f4fac69ee9f746ff3b, type: 3}
+  m_PrefabInstance: {fileID: 8320826258308855435}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcdded9f0c500324093deb3b91738854, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &799009822
 GameObject:
   m_ObjectHideFlags: 0
@@ -1285,7 +1296,7 @@ GameObject:
   - component: {fileID: 821659342}
   - component: {fileID: 821659344}
   m_Layer: 5
-  m_Name: CurrentCharImg
+  m_Name: GameStartBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1392,7 +1403,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 821659342}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 565265980}
+        m_TargetAssemblyTypeName: LevelLoader, Scripts
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1180946658
 GameObject:
   m_ObjectHideFlags: 0
@@ -1893,6 +1916,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSkin: 0
+  gameModeText: {fileID: 1180946660}
   currentState: {fileID: 799009827}
 --- !u!1 &1570300463
 GameObject:
@@ -2012,6 +2036,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   simpleBtn: {fileID: 339297538}
   normalBtn: {fileID: 1283011135}
+  gameModeText: {fileID: 1180946660}
 --- !u!1001 &1695773676
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2773,7 +2798,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8320826257965805907, guid: ab12c5912331c6f4fac69ee9f746ff3b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab12c5912331c6f4fac69ee9f746ff3b, type: 3}

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class MenuSystem : MonoBehaviour
 {
@@ -10,10 +11,12 @@ public class MenuSystem : MonoBehaviour
     public static GameMode gameMode;
     #endregion
     
+    [SerializeField] private TMP_Text gameModeText;
     [SerializeField] private MenuState currentState;
 
     void Awake(){
         currentState.Enter(); // Init state
+        gameModeText.text = gameMode.ToString();
     }
 
     // Change state
