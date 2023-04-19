@@ -9,15 +9,7 @@ public class CharAnimController : MonoBehaviour
     void Awake(){
         currentState.Enter(); // Init Animation state
     }
-
-    // void ChangeState(CharAnimState newState){
-    //     if (currentState != null){ // exit currentState
-    //         currentState.Exit();
-    //     }
-    //     currentState = newState;
-    //     currentState.Enter();
-    // }
-
+    
     // State Control
     public void ChangeState(CharAnimState newState){ 
         if (currentState == newState) return;

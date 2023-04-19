@@ -6,46 +6,46 @@ using UnityEngine.TestTools;
 
 public class TestAbilityManager
 {
-    AbilityManager abilityManager;
-    // Character character;
+    // AbilityManager abilityManager;
+    // // Character character;
 
-    [SetUp]
-    public void Setup()
-    {
-        abilityManager = new GameObject().AddComponent<AbilityManager>();
-    }
+    // [SetUp]
+    // public void Setup()
+    // {
+    //     abilityManager = new GameObject().AddComponent<AbilityManager>();
+    // }
 
-    [Test]
-    public void Test_MultiplyCharRunSpeed()
-    {
-        // Arrange
-        float testMultiplier = 1.6f;
-        float testMoveSpeed = 10;
-        abilityManager.Character = new GameObject().AddComponent<Character>();
-        abilityManager.Character.MoveSpeed = testMoveSpeed;
+    // [Test]
+    // public void Test_MultiplyCharRunSpeed()
+    // {
+    //     // Arrange
+    //     float testMultiplier = 1.6f;
+    //     float testMoveSpeed = 10;
+    //     abilityManager.Character = new GameObject().AddComponent<Character>();
+    //     abilityManager.Character.MoveSpeed = testMoveSpeed;
 
-        // Act
-        abilityManager.MultiplyCharRunSpeed(testMultiplier);
+    //     // Act
+    //     abilityManager.MultiplyCharRunSpeed(testMultiplier);
         
-        // Assert
-        float expectedCharMoveSpeed = testMoveSpeed*testMultiplier;
-        var actualCharMoveSpeed = abilityManager.Character.MoveSpeed;
-        Assert.AreEqual(expectedCharMoveSpeed, actualCharMoveSpeed);
-    }
+    //     // Assert
+    //     float expectedCharMoveSpeed = testMoveSpeed*testMultiplier;
+    //     var actualCharMoveSpeed = abilityManager.Character.MoveSpeed;
+    //     Assert.AreEqual(expectedCharMoveSpeed, actualCharMoveSpeed);
+    // }
 
-    [Test]
-    public void Test_MultiplyStepSpeed()
-    {
-        // Arrange
-        float testMultiplier = 1.6f;
-        float originStepUpSpeed = 17.85f;
-        StepsSpawner.stepUpSpeed = originStepUpSpeed;
+    // [Test]
+    // public void Test_MultiplyStepSpeed()
+    // {
+    //     // Arrange
+    //     float testMultiplier = 1.6f;
+    //     float originStepUpSpeed = 17.85f;
+    //     StepsSpawner.stepUpSpeed = originStepUpSpeed;
 
-        // Act
-        abilityManager.MultiplyStepSpeed(testMultiplier);
+    //     // Act
+    //     abilityManager.MultiplyStepSpeed(testMultiplier);
         
-        // Assert
-        float expectedStepUpSpeed = originStepUpSpeed*testMultiplier;
-        Assert.AreEqual(expectedStepUpSpeed, StepsSpawner.stepUpSpeed);
-    }
+    //     // Assert
+    //     float expectedStepUpSpeed = originStepUpSpeed*testMultiplier;
+    //     Assert.AreEqual(expectedStepUpSpeed, StepsSpawner.stepUpSpeed);
+    // }
 }

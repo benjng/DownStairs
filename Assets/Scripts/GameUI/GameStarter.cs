@@ -4,7 +4,6 @@ using TMPro;
 
 public class GameStarter : MonoBehaviour
 {
-    [HideInInspector]
     public static bool gameStarted = false;
 
     [SerializeField] private TMP_Text count;

@@ -18,7 +18,6 @@ public class Character : MonoBehaviour
     [SerializeField] private float moveSpeed = 10;
     private string currentState = "firstFall";
     public Animator animator;
-    private bool gameStarted = false;
     
     public float XInput { get; set; }
     public float ScreenLx { get; set; }
@@ -49,58 +48,12 @@ public class Character : MonoBehaviour
         }
     }
 
-    // void OnCollisionEnter2D(Collision2D other) {
-    //     if (currentState != "firstFall")
-    //         return;
-    
-    //     if (Rb.velocity.y > -0.01) {
-    //         currentState = "isIdle"; 
-    //         animator.SetBool(currentState, true);
-    //     }
-    // }
-
     void OnCollisionEnter2D(Collision2D other) {
         if (Rb.velocity.y > -0.01) {
             charAnimController.ChangeState(charAnimStates[0]); //IDLE
         }
     }
 
-    // public virtual void AnimationStateController()
-    // {
-    //     if (currentState == "firstFall"){
-    //         return;
-    //     }
-    //     if (Rb.velocity.y < -0.5)
-    //     {
-    //         if (isFalling) // Return if already isFalling
-    //             return;
-    //         animator.SetTrigger("startFalling");
-    //         isFalling = true;
-    //         return;
-    //     }
-
-    //     // Not falling
-    //     isFalling = false;
-    //     string newState;
-
-    //     if (XInput < 0) {
-    //         newState = "isWalkingLeft";
-    //     } else if (XInput > 0) {
-    //         newState = "isWalkingRight";
-    //     } else {
-    //         newState = "isIdle";
-    //     }
-
-    //     // Return if new is current
-    //     if (newState == currentState) {
-    //         return;
-    //     }
-
-    //     // Disable current and Enable new. Set new to current
-    //     animator.SetBool(currentState, false);
-    //     animator.SetBool(newState, true);
-    //     currentState = newState;
-    // }
     public virtual void AnimationStateController()
     {   
         if (Rb.velocity.y < -0.5) { 
@@ -151,11 +104,7 @@ public class Character : MonoBehaviour
     void FixedUpdate()
     {
         // Check if game has started by UI counter
-        if (!gameStarted)
-        {
-            gameStarted = GameStarter.gameStarted;
-            return;
-        }
+        if (!GameStarter.gameStarted) return;
 
         InitCharGravity(characterGravity);
         AnimationStateController();
@@ -164,38 +113,38 @@ public class Character : MonoBehaviour
     }
 
 
-    public class CharacterStub : Character 
-    {
-        public override void AnimationStateController()
-        {
-            if (currentState == "firstFall"){
-                return;
-            }
-            if (Rb.velocity.y < -0.5)
-            {
-                if (isFalling) // Return if already isFalling
-                    return;
-                isFalling = true;
-                return;
-            }
+    // public class CharacterStub : Character 
+    // {
+    //     public override void AnimationStateController()
+    //     {
+    //         if (currentState == "firstFall"){
+    //             return;
+    //         }
+    //         if (Rb.velocity.y < -0.5)
+    //         {
+    //             if (isFalling) // Return if already isFalling
+    //                 return;
+    //             isFalling = true;
+    //             return;
+    //         }
 
-            // Not falling
-            isFalling = false;
-            string newState;
+    //         // Not falling
+    //         isFalling = false;
+    //         string newState;
 
-            if (XInput < 0) {
-                newState = "isWalkingLeft";
-            } else if (XInput > 0) {
-                newState = "isWalkingRight";
-            } else {
-                newState = "isIdle";
-            }
+    //         if (XInput < 0) {
+    //             newState = "isWalkingLeft";
+    //         } else if (XInput > 0) {
+    //             newState = "isWalkingRight";
+    //         } else {
+    //             newState = "isIdle";
+    //         }
 
-            // Return if new is current
-            if (newState == currentState) {
-                return;
-            }
-            currentState = newState;
-        }
-    }
+    //         // Return if new is current
+    //         if (newState == currentState) {
+    //             return;
+    //         }
+    //         currentState = newState;
+    //     }
+    // }
 }

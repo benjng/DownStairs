@@ -11,6 +11,6 @@ public class FistAtkLeft : CharAnimState
 
     public override void Exit()
     {
-        throw new System.NotImplementedException();
+        
     }
 }
