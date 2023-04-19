@@ -9,7 +9,7 @@ public class SpikeSpawner : MonoBehaviour
     private int duplicateQty = 20;
     private float duplicateDist = 1.3f;
     private float xOffset = 0.3f;
-    private float yOffset = -1.5f;
+    private float yOffset = -1.0f;
 
     void Start()
     {

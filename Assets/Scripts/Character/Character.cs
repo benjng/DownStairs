@@ -6,101 +6,29 @@ using UnityEngine.SceneManagement;
 
 public class Character : MonoBehaviour
 {
+    public CharAnimState[] charAnimStates;
+
+    [SerializeField] private Animator animator;
     [SerializeField] private float characterGravity = 1.1f;
-    [SerializeField] private GameObject gameManager;
+    // [SerializeField] private GameObject gameManager;
     [SerializeField] private Joystick joystick;
     [SerializeField] private RuntimeAnimatorController[] animatorControllers;
     [SerializeField] private CharAnimController charAnimController;
-    public CharAnimState[] charAnimStates;
-
-
-    private bool isFalling = true;
     [SerializeField] private float moveSpeed = 10;
-    private string currentState = "firstFall";
-    public Animator animator;
-    
-    public float XInput { get; set; }
-    public float ScreenLx { get; set; }
-    public float ScreenRx { get; set; }
-    public Rigidbody2D Rb { get; set; }
+
+    private Rigidbody2D rb;
+    private float xInput;
+    private float screenLx, screenRx;
     public float MoveSpeed { get => moveSpeed; set => moveSpeed = value; }
-    public string CurrentState { get => currentState; set => currentState = value; }
-    public bool IsFalling { get => isFalling; set => isFalling = value; }
 
     void Start()
     {
-        Rb = GetComponent<Rigidbody2D>();
-        Rb.gravityScale = 0;
+        rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = 0;
         SelectAnimatorController();
         SetScreenLR();
     }
 
-    void SetScreenLR(){
-        ScreenRx = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0, 0)).x;
-        ScreenLx = -ScreenRx;
-    }
-
-    void SelectAnimatorController(){
-        if (MenuSystem.charSkin == CharSkin.Boy){
-            animator.runtimeAnimatorController = animatorControllers[0];
-        } else if (MenuSystem.charSkin == CharSkin.Girl) {
-            animator.runtimeAnimatorController = animatorControllers[1];
-        }
-    }
-
-    void OnCollisionEnter2D(Collision2D other) {
-        if (Rb.velocity.y > -0.01) {
-            charAnimController.ChangeState(charAnimStates[0]); //IDLE
-        }
-    }
-
-    public virtual void AnimationStateController()
-    {   
-        if (Rb.velocity.y < -0.5) { 
-            charAnimController.ChangeState(charAnimStates[5]); // StartFalling
-            return; // If char falling physically, no change allowed
-        }
-        if (XInput < 0) {
-            charAnimController.ChangeState(charAnimStates[1]); //LEFT
-        } else if (XInput > 0) {
-            charAnimController.ChangeState(charAnimStates[2]); //RIGHT
-        } else {
-            charAnimController.ChangeState(charAnimStates[0]); //IDLE
-        }
-    }
-
-    public void Movement()
-    {
-        XInput = joystick.Horizontal;
-        float currentMovement = XInput * moveSpeed * Time.fixedDeltaTime;
-        transform.position += new Vector3(currentMovement, 0, 0);
-        
-        // Character Warpping
-        if (transform.position.x < ScreenLx)
-        {
-            transform.position = new Vector3(ScreenRx, transform.position.y, transform.position.z);
-        } else if (transform.position.x > ScreenRx)
-        {
-            transform.position = new Vector3(ScreenLx, transform.position.y, transform.position.z);
-        }
-    }
-
-    public void InitCharGravity(float gravity){
-        // Character Gravity Init
-        if (Rb.gravityScale == 0)
-        {
-            Rb.gravityScale = gravity;
-        }
-    }
-
-    public void CheckCharSurvive(){
-        // When character touching bottom
-        if (transform.position.y <= -Camera.main.orthographicSize)
-        {
-            // SceneManager.LoadScene(3);
-        }
-    }
-    
     void FixedUpdate()
     {
         // Check if game has started by UI counter
@@ -111,7 +39,70 @@ public class Character : MonoBehaviour
         Movement();
         CheckCharSurvive();
     }
+    void SelectAnimatorController(){
+        if (MenuSystem.charSkin == CharSkin.Boy){
+            animator.runtimeAnimatorController = animatorControllers[0];
+        } else if (MenuSystem.charSkin == CharSkin.Girl) {
+            animator.runtimeAnimatorController = animatorControllers[1];
+        }
+    }
 
+    void SetScreenLR(){
+        screenRx = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0, 0)).x;
+        screenLx = -screenRx;
+    }
+
+    void InitCharGravity(float gravity){
+        // Character Gravity Init
+        if (rb.gravityScale == 0)
+        {
+            rb.gravityScale = gravity;
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D other) {
+        if (rb.velocity.y > -0.01) {
+            charAnimController.ChangeState(charAnimStates[0]); //IDLE
+        }
+    }
+
+    void AnimationStateController()
+    {   
+        if (rb.velocity.y < -0.5) { 
+            charAnimController.ChangeState(charAnimStates[5]); // StartFalling
+            return; // If char falling physically, no change allowed
+        }
+        if (xInput < 0) {
+            charAnimController.ChangeState(charAnimStates[1]); //LEFT
+        } else if (xInput > 0) {
+            charAnimController.ChangeState(charAnimStates[2]); //RIGHT
+        } else {
+            charAnimController.ChangeState(charAnimStates[0]); //IDLE
+        }
+    }
+
+    void Movement()
+    {
+        xInput = joystick.Horizontal;
+        transform.position += new Vector3(xInput * moveSpeed * Time.fixedDeltaTime, 0, 0);
+        
+        // Character Warpping
+        if (transform.position.x < screenLx)
+        {
+            transform.position = new Vector3(screenRx, transform.position.y, transform.position.z);
+        } else if (transform.position.x > screenRx)
+        {
+            transform.position = new Vector3(screenLx, transform.position.y, transform.position.z);
+        }
+    }
+
+    void CheckCharSurvive(){
+        // When character touching bottom
+        if (transform.position.y <= -Camera.main.orthographicSize)
+        {
+            // SceneManager.LoadScene(3);
+        }
+    }
 
     // public class CharacterStub : Character 
     // {

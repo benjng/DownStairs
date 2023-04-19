@@ -19,6 +19,10 @@ public class CharacterCombat : MonoBehaviour
     
     private Character character;
     private CharAnimController charAnimController;
+
+    [SerializeField] private int maxHeatlh = 10;
+    [SerializeField] private int currentHeatlh;
+    [SerializeField] private HealthBar healthBar;
     [SerializeField] private EquipmentData currentEquipment;
     [SerializeField] private Joystick joystick;
     [SerializeField] private Button equipmentBtn;
@@ -33,6 +37,8 @@ public class CharacterCombat : MonoBehaviour
         character = GetComponent<Character>();
         charAnimController = GetComponent<CharAnimController>();
         equipmentBtn.onClick.AddListener(UseEquipment);
+        currentHeatlh = maxHeatlh;
+        healthBar.SetMaxValue(maxHeatlh); // Init healthbar appearance to max hp
     }
 
     void Update()
@@ -42,6 +48,11 @@ public class CharacterCombat : MonoBehaviour
         } else if (joystick.Horizontal < 0){
             currentFaceDir = -1;
         }
+
+        if (Input.touchCount > 0){
+            TakeDamage(1);
+        }
+        
     }
 
     void AtkAnimation(){
@@ -68,5 +79,10 @@ public class CharacterCombat : MonoBehaviour
     public void UpdateEquipment(EquipmentData equipmentData){
         currentEquipment = equipmentData;
         equipmentBtn.GetComponent<Image>().sprite = equipmentData.icon;
+    }
+
+    void TakeDamage(int damage){
+        currentHeatlh -= damage;
+        healthBar.SetValue(currentHeatlh);
     }
 }
