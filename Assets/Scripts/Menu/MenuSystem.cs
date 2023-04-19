@@ -18,7 +18,7 @@ public class MenuSystem : MonoBehaviour
         gameModeText.text = gameMode.ToString();
     }
 
-    // Change state
+    // Btn ref
     public void ChangeState(MenuState newState){ 
         if (currentState != null){ // exit currentState if exists
             currentState.Exit();

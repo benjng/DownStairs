@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
-    // public static GameMode gameMode = GameMode.Normal;
     public Animator transition;
     public float transitionTime = 1f;
 

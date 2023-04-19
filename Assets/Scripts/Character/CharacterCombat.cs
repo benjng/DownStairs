@@ -42,12 +42,10 @@ public class CharacterCombat : MonoBehaviour
 
     void AtkAnimation(){
         if (currentFaceDir == 1){
-            Debug.Log("Attack right");
             charAnimator.SetTrigger("fistAtkRight");
             return;
         }
         if (currentFaceDir == -1){
-            Debug.Log("Attack left");
             charAnimator.SetTrigger("fistAtkLeft");
             return;
         }

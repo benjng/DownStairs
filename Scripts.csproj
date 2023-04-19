@@ -40,14 +40,16 @@
      <Compile Include="Assets\Scripts\Equipment.cs" />
      <Compile Include="Assets\Scripts\GameUI\Joystick\Joysticks\FixedJoystick.cs" />
      <Compile Include="Assets\Scripts\GameUI\Joystick\Joysticks\VariableJoystick.cs" />
+     <Compile Include="Assets\Scripts\Enums\GameMode.cs" />
      <Compile Include="Assets\Scripts\AbilityManager.cs" />
      <Compile Include="Assets\Scripts\GameUI\Spike.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjs\ItemData.cs" />
      <Compile Include="Assets\Scripts\StepsSpawner.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IPlayCollectSound.cs" />
      <Compile Include="Assets\Scripts\GameUI\DepthIndicator.cs" />
-     <Compile Include="Assets\Scripts\CharacterCombat.cs" />
+     <Compile Include="Assets\Scripts\Character\CharacterCombat.cs" />
      <Compile Include="Assets\Scripts\Interfaces\ICollectable.cs" />
+     <Compile Include="Assets\Scripts\Enums\CharSkin.cs" />
      <Compile Include="Assets\Scripts\SpikeSpawner.cs" />
      <Compile Include="Assets\Scripts\Menu\MenuSystem.cs" />
      <Compile Include="Assets\Scripts\Projectile.cs" />
@@ -57,7 +59,7 @@
      <Compile Include="Assets\Scripts\GameUI\Joystick\Editor\FloatingJoystickEditor.cs" />
      <Compile Include="Assets\Scripts\GameUI\Joystick\Base\Joystick.cs" />
      <Compile Include="Assets\Scripts\Menu\States\AtChar.cs" />
-     <Compile Include="Assets\Scripts\Character.cs" />
+     <Compile Include="Assets\Scripts\Character\Character.cs" />
      <Compile Include="Assets\Scripts\GameUI\GameStarter.cs" />
      <Compile Include="Assets\Scripts\Inventory.cs" />
      <Compile Include="Assets\Scripts\Menu\MenuState.cs" />
@@ -74,8 +76,14 @@
      <Compile Include="Assets\Scripts\ScriptableObjs\ProjectileData.cs" />
      <Compile Include="Assets\Scripts\Menu\States\AtMode.cs" />
      <Compile Include="Assets\Scripts\Item.cs" />
-     <Compile Include="Assets\Scripts\Enums\GameMode.cs" />
-     <Compile Include="Assets\Scripts\Enums\CharSkin.cs" />
+     <Compile Include="Assets\Scripts\Character\CharAnimation\CharAnimController.cs" />
+     <Compile Include="Assets\Scripts\Character\CharAnimation\CharAnimState.cs" />
+     <Compile Include="Assets\Scripts\Character\CharAnimation\States\StartFalling.cs" />
+     <Compile Include="Assets\Scripts\Character\CharAnimation\States\FistAtkLeft.cs" />
+     <Compile Include="Assets\Scripts\Character\CharAnimation\States\FistAtkRight.cs" />
+     <Compile Include="Assets\Scripts\Character\CharAnimation\States\IsWalkingLeft.cs" />
+     <Compile Include="Assets\Scripts\Character\CharAnimation\States\IsWalkingRight.cs" />
+     <Compile Include="Assets\Scripts\Character\CharAnimation\States\IsIdle.cs" />
      <None Include="Assets\Scripts\Scripts.asmdef" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.19f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>

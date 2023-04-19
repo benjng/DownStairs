@@ -10,6 +10,8 @@ public class Character : MonoBehaviour
     [SerializeField] private GameObject gameManager;
     [SerializeField] private Joystick joystick;
     [SerializeField] private RuntimeAnimatorController[] animatorControllers;
+    [SerializeField] private CharAnimController charAnimController;
+    [SerializeField] private CharAnimState[] charAnimStates;
 
 
     private bool isFalling = true;
@@ -47,51 +49,74 @@ public class Character : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D other) {
-        if (currentState != "firstFall")
-            return;
+    // void OnCollisionEnter2D(Collision2D other) {
+    //     if (currentState != "firstFall")
+    //         return;
     
-        if (Rb.velocity.y > -0.01) {
-            currentState = "isIdle"; 
-            animator.SetBool(currentState, true);
-        }
-    }
+    //     if (Rb.velocity.y > -0.01) {
+    //         currentState = "isIdle"; 
+    //         animator.SetBool(currentState, true);
+    //     }
+    // }
 
+    // void OnCollisionEnter2D(Collision2D other) {
+    //     if (currentState != "firstFall")
+    //         return;
+    
+    //     if (Rb.velocity.y > -0.01) {
+    //         // charAnimController.ChangeState(); IDLE
+    //     }
+    // }
+
+    // public virtual void AnimationStateController()
+    // {
+    //     if (currentState == "firstFall"){
+    //         return;
+    //     }
+    //     if (Rb.velocity.y < -0.5)
+    //     {
+    //         if (isFalling) // Return if already isFalling
+    //             return;
+    //         animator.SetTrigger("startFalling");
+    //         isFalling = true;
+    //         return;
+    //     }
+
+    //     // Not falling
+    //     isFalling = false;
+    //     string newState;
+
+    //     if (XInput < 0) {
+    //         newState = "isWalkingLeft";
+    //     } else if (XInput > 0) {
+    //         newState = "isWalkingRight";
+    //     } else {
+    //         newState = "isIdle";
+    //     }
+
+    //     // Return if new is current
+    //     if (newState == currentState) {
+    //         return;
+    //     }
+
+    //     // Disable current and Enable new. Set new to current
+    //     animator.SetBool(currentState, false);
+    //     animator.SetBool(newState, true);
+    //     currentState = newState;
+    // }
     public virtual void AnimationStateController()
     {
-        if (currentState == "firstFall"){
-            return;
-        }
-        if (Rb.velocity.y < -0.5)
-        {
-            if (isFalling) // Return if already isFalling
-                return;
-            animator.SetTrigger("startFalling");
-            isFalling = true;
-            return;
-        }
-
-        // Not falling
-        isFalling = false;
-        string newState;
-
+        // if (currentState == "firstFall"){
+        //     return;
+        // }
+        Debug.Log("XInput: "+XInput);
         if (XInput < 0) {
-            newState = "isWalkingLeft";
+            charAnimController.ChangeState(charAnimStates[1]); //LEFT
         } else if (XInput > 0) {
-            newState = "isWalkingRight";
+            charAnimController.ChangeState(charAnimStates[2]); //RIGHT
         } else {
-            newState = "isIdle";
+            charAnimController.ChangeState(charAnimStates[0]); //IDLE
         }
-
-        // Return if new is current
-        if (newState == currentState) {
-            return;
-        }
-
-        // Disable current and Enable new. Set new to current
-        animator.SetBool(currentState, false);
-        animator.SetBool(newState, true);
-        currentState = newState;
     }
 
     public void Movement()
