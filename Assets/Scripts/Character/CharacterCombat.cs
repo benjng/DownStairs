@@ -17,6 +17,8 @@ public class CharacterCombat : MonoBehaviour
     }
     #endregion
     
+    private Character character;
+    private CharAnimController charAnimController;
     [SerializeField] private EquipmentData currentEquipment;
     [SerializeField] private Joystick joystick;
     [SerializeField] private Button equipmentBtn;
@@ -28,6 +30,8 @@ public class CharacterCombat : MonoBehaviour
 
     void Start()
     {
+        character = GetComponent<Character>();
+        charAnimController = GetComponent<CharAnimController>();
         equipmentBtn.onClick.AddListener(UseEquipment);
     }
 
@@ -42,11 +46,11 @@ public class CharacterCombat : MonoBehaviour
 
     void AtkAnimation(){
         if (currentFaceDir == 1){
-            charAnimator.SetTrigger("fistAtkRight");
+            charAnimController.ChangeState(character.charAnimStates[4]); //fist right
             return;
         }
         if (currentFaceDir == -1){
-            charAnimator.SetTrigger("fistAtkLeft");
+            charAnimController.ChangeState(character.charAnimStates[3]); //fist left
             return;
         }
     }

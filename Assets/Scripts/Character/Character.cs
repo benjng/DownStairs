@@ -11,7 +11,7 @@ public class Character : MonoBehaviour
     [SerializeField] private Joystick joystick;
     [SerializeField] private RuntimeAnimatorController[] animatorControllers;
     [SerializeField] private CharAnimController charAnimController;
-    [SerializeField] private CharAnimState[] charAnimStates;
+    public CharAnimState[] charAnimStates;
 
 
     private bool isFalling = true;
@@ -59,14 +59,11 @@ public class Character : MonoBehaviour
     //     }
     // }
 
-    // void OnCollisionEnter2D(Collision2D other) {
-    //     if (currentState != "firstFall")
-    //         return;
-    
-    //     if (Rb.velocity.y > -0.01) {
-    //         // charAnimController.ChangeState(); IDLE
-    //     }
-    // }
+    void OnCollisionEnter2D(Collision2D other) {
+        if (Rb.velocity.y > -0.01) {
+            charAnimController.ChangeState(charAnimStates[0]); //IDLE
+        }
+    }
 
     // public virtual void AnimationStateController()
     // {
@@ -105,11 +102,11 @@ public class Character : MonoBehaviour
     //     currentState = newState;
     // }
     public virtual void AnimationStateController()
-    {
-        // if (currentState == "firstFall"){
-        //     return;
-        // }
-        Debug.Log("XInput: "+XInput);
+    {   
+        if (Rb.velocity.y < -0.5) { 
+            charAnimController.ChangeState(charAnimStates[5]); // StartFalling
+            return; // If char falling physically, no change allowed
+        }
         if (XInput < 0) {
             charAnimController.ChangeState(charAnimStates[1]); //LEFT
         } else if (XInput > 0) {
