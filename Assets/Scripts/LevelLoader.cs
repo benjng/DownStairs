@@ -36,5 +36,12 @@ public class LevelLoader : MonoBehaviour
         if (scene.buildIndex == 2){
             return;
         }
+        if (scene.buildIndex == 3){
+            return;
+        }
+    }
+
+    public void ResetToMainMenu(){
+        StartCoroutine(LoadLevel(0));
     }
 }
