@@ -49,9 +49,9 @@ public class CharacterCombat : MonoBehaviour
             currentFaceDir = -1;
         }
 
-        if (Input.touchCount > 0){
-            TakeDamage(1);
-        }
+        // if (Input.touchCount > 0){
+        //     TakeDamage(1);
+        // }
         
     }
 

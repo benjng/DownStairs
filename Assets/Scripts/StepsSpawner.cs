@@ -22,7 +22,7 @@ public class StepsSpawner : MonoBehaviour
     [SerializeField] private GameObject step;
     [SerializeField] private GameObject[] spawnItems;
     // Coin, Potion_R, Laser, Potion_F, Remote_Step, Poop
-    [SerializeField] private List<float> probabilities = new List<float> { 0.2f, 0.1f, 0.1f, 0.1f, 0.1f, 0.1f }; 
+    [SerializeField] private List<float> probabilities = new List<float> { 0.2f, 0.1f, 0.0f, 0.1f, 0.1f, 0.1f }; 
 
     [SerializeField] private float spawnInterval = 1;
 
@@ -40,15 +40,32 @@ public class StepsSpawner : MonoBehaviour
         stepUpSpeed += (1f * Time.fixedDeltaTime) / Time.realtimeSinceStartup;
     }
 
-    public virtual void CreateStep() // A set includes a step, and a possible spawn item
+    public Vector3 CreateStep() // A set includes a step, and a possible spawn item
     {
         GameObject thisStep = Instantiate(step, gameObject.transform);
+        float randWidth = Random.Range(0.0f, 1.0f);
+        thisStep.transform.localPosition = Camera.main.ViewportToWorldPoint(new Vector3(randWidth, 0, 0));
         thisStep.SetActive(true);
 
         // No item generate for simple mode
         if (MenuSystem.gameMode != GameMode.Simple) {
             CreateItemByChance(thisStep);
         }
+        return thisStep.transform.position;
+    }
+
+    // offset extra step from base step
+    public void CreateExtraStep(Vector3 baseStepPos){
+        float xOffset = 3;
+        if (Random.value < 0.5) {
+            xOffset *= -1;
+        }
+        GameObject thisStep = Instantiate(step, gameObject.transform);
+        thisStep.transform.position = baseStepPos;
+        thisStep.transform.position += new Vector3(xOffset, 0, 0);
+        thisStep.SetActive(true);
+        // Debug.Log(baseStepPos);
+        // Debug.Log(thisStep.transform.position.x);
     }
 
     public void CreateItemByChance(GameObject thisStep){
@@ -77,11 +94,11 @@ public class StepsSpawner : MonoBehaviour
     {
         while (true)
         {
-            if (Random.value < 0.3f)
+            Vector3 baseStepPos = CreateStep();
+            if (Random.value < 0.9f)
             {
-                CreateStep();
+                CreateExtraStep(baseStepPos);
             }
-            CreateStep();
             OnStepSpawn?.Invoke(); // broadcast OnStepSpawn event
             yield return new WaitForSeconds(spawnInterval);
         }

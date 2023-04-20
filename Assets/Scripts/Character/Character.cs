@@ -61,13 +61,22 @@ public class Character : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D other) {
+    ContactPoint2D[] contacts = new ContactPoint2D[10];  
+    void OnCollisionEnter2D(Collision2D collision) {
         if (rb.velocity.y > -0.01) {
             charAnimController.ChangeState(charAnimStates[0]); //IDLE
         }
-        if (other.collider.CompareTag("Step")){
-            TouchingStep = other.collider.gameObject;
+        
+
+        if (collision.collider.CompareTag("Step")){
+            TouchingStep = collision.collider.gameObject;
         }
+        // Debug.Log(collision.contactCount);
+        // collision.GetContacts(contacts);
+
+        // foreach (ContactPoint2D contact in contacts){
+        //     Debug.Log(contact.collider.gameObject.name);
+        // }
     }
 
     void AnimationStateController()

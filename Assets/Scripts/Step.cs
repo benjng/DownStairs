@@ -6,8 +6,8 @@ public class Step : MonoBehaviour
 
     void Start()
     {
-        float randWidth = Random.Range(0.0f, 1.0f);
-        transform.localPosition = Camera.main.ViewportToWorldPoint(new Vector3(randWidth, 0, 0));
+        // float randWidth = Random.Range(0.0f, 1.0f);
+        // transform.localPosition = Camera.main.ViewportToWorldPoint(new Vector3(randWidth, 0, 0));
     }
 
     void FixedUpdate()
