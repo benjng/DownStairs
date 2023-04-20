@@ -2,7 +2,7 @@ using UnityEngine;
 
 [CreateAssetMenu (fileName = "New Equipment", menuName = "Equipment")]
 
-public class EquipmentData : ScriptableObject, IPlayCollectSound
+public class EquipmentData : ScriptableObject, IPlayContactSound
 {
     public enum EqType {
         none,
@@ -17,7 +17,7 @@ public class EquipmentData : ScriptableObject, IPlayCollectSound
     public GameObject projectile;
     public AudioClip collectSound;
 
-    public void PlayCollectSound()
+    public void PlayContactSound()
     {
         FindObjectOfType<AudioManager>().Play(collectSound.name);
     }

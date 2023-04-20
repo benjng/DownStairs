@@ -17,7 +17,7 @@ public class Item : MonoBehaviour, ICollectable
         {
             inventory.AddItem(item);
             if (item.collectSound != null)
-                item.PlayCollectSound();
+                item.PlayContactSound();
             Destroy(gameObject);
         }
     }

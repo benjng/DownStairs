@@ -15,7 +15,7 @@ public class Equipment : MonoBehaviour, ICollectable
         {
             // Equip/Replace equipment to the equipment layout
             characterCombat.UpdateEquipment(equipment);
-            equipment.PlayCollectSound();
+            equipment.PlayContactSound();
             Destroy(gameObject);
         }
     }

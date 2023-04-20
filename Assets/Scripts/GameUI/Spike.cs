@@ -1,15 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class Spike : MonoBehaviour
+public class Spike : MonoBehaviour, IPlayContactSound
 {
+    [SerializeField] private Sprite bloodySpike;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            // SceneManager.LoadScene(4);
+            FindObjectOfType<Character>().TouchingStep.GetComponent<BoxCollider2D>().enabled = false;
+            GetComponent<SpriteRenderer>().sprite = bloodySpike;
+            PlayContactSound();
         }
+    }
+
+    public void PlayContactSound(){
+        // TODO: Playsound here
     }
 }

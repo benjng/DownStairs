@@ -20,6 +20,7 @@ public class Character : MonoBehaviour
     private float xInput;
     private float screenLx, screenRx;
     public float MoveSpeed { get => moveSpeed; set => moveSpeed = value; }
+    public GameObject TouchingStep { get; set; }
 
     void Start()
     {
@@ -63,6 +64,9 @@ public class Character : MonoBehaviour
     void OnCollisionEnter2D(Collision2D other) {
         if (rb.velocity.y > -0.01) {
             charAnimController.ChangeState(charAnimStates[0]); //IDLE
+        }
+        if (other.collider.CompareTag("Step")){
+            TouchingStep = other.collider.gameObject;
         }
     }
 

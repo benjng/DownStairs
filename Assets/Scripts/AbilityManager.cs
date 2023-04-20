@@ -15,8 +15,6 @@ public class AbilityManager : MonoBehaviour
 
     [SerializeField] private Character character;
 
-    public Character Character { get => character; set => character = value; }
-
     void Start(){
         stepsSpawner = StepsSpawner.instance;
     }

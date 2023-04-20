@@ -18,13 +18,13 @@ public class StepsSpawner : MonoBehaviour
     }
     #endregion
     
-    public GameObject step;
-    public GameObject[] spawnItems;
-    // Coin, Potion_R, Laser, Potion_F, Remote_Step, Poop
-    public List<float> probabilities = new List<float> { 0.2f, 0.1f, 0.1f, 0.1f, 0.1f, 0.1f }; 
-
-    public float spawnInterval = 1;
     public static float stepUpSpeed = 2;
+    [SerializeField] private GameObject step;
+    [SerializeField] private GameObject[] spawnItems;
+    // Coin, Potion_R, Laser, Potion_F, Remote_Step, Poop
+    [SerializeField] private List<float> probabilities = new List<float> { 0.2f, 0.1f, 0.1f, 0.1f, 0.1f, 0.1f }; 
+
+    [SerializeField] private float spawnInterval = 1;
 
     // Event Handler
     public delegate void StepSpawnEventHandler();
@@ -88,10 +88,10 @@ public class StepsSpawner : MonoBehaviour
     }
 }
 
-public class StepsSpawnerStub : StepsSpawner {
-    public override void CreateStep()
-    {
-        GameObject thisStep = Instantiate(step, gameObject.transform);
-        thisStep.SetActive(true);
-    }
-}
+// public class StepsSpawnerStub : StepsSpawner {
+//     public override void CreateStep()
+//     {
+//         GameObject thisStep = Instantiate(step, gameObject.transform);
+//         thisStep.SetActive(true);
+//     }
+// }
