@@ -25,6 +25,7 @@ public class StepsSpawner : MonoBehaviour
     [SerializeField] private List<float> probabilities = new List<float> { 0.2f, 0.1f, 0.0f, 0.1f, 0.1f, 0.1f }; 
 
     [SerializeField] private float spawnInterval = 1;
+    [SerializeField] private float extraStepProb = 0.9f;
 
     // Event Handler
     public delegate void StepSpawnEventHandler();
@@ -56,7 +57,7 @@ public class StepsSpawner : MonoBehaviour
 
     // offset extra step from base step
     public void CreateExtraStep(Vector3 baseStepPos){
-        float xOffset = 3;
+        float xOffset = Random.Range(2, 5);
         if (Random.value < 0.5) {
             xOffset *= -1;
         }
@@ -64,8 +65,6 @@ public class StepsSpawner : MonoBehaviour
         thisStep.transform.position = baseStepPos;
         thisStep.transform.position += new Vector3(xOffset, 0, 0);
         thisStep.SetActive(true);
-        // Debug.Log(baseStepPos);
-        // Debug.Log(thisStep.transform.position.x);
     }
 
     public void CreateItemByChance(GameObject thisStep){
@@ -95,7 +94,7 @@ public class StepsSpawner : MonoBehaviour
         while (true)
         {
             Vector3 baseStepPos = CreateStep();
-            if (Random.value < 0.9f)
+            if (Random.value < extraStepProb)
             {
                 CreateExtraStep(baseStepPos);
             }

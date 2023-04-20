@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Spike : MonoBehaviour, IPlayContactSound
@@ -7,12 +8,17 @@ public class Spike : MonoBehaviour, IPlayContactSound
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            GameObject touchingStep = FindObjectOfType<Character>().TouchingStep;
-            if (touchingStep != null){
-                touchingStep.GetComponent<BoxCollider2D>().enabled = false;
-            }
             GetComponent<SpriteRenderer>().sprite = bloodySpike;
-            
+
+            List<GameObject> touchingSteps = FindObjectOfType<Character>().TouchingSteps;
+            if (touchingSteps.Count != 0){
+                foreach (GameObject ts in touchingSteps){
+                    if (ts != null){
+                        ts.GetComponent<BoxCollider2D>().enabled = false;
+                    }
+                }
+            }
+
             PlayContactSound();
         }
     }

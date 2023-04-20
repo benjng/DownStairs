@@ -4,12 +4,6 @@ public class Step : MonoBehaviour
 {
     private float upSpeed;
 
-    void Start()
-    {
-        // float randWidth = Random.Range(0.0f, 1.0f);
-        // transform.localPosition = Camera.main.ViewportToWorldPoint(new Vector3(randWidth, 0, 0));
-    }
-
     void FixedUpdate()
     {
         upSpeed = StepsSpawner.stepUpSpeed;
