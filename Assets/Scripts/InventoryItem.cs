@@ -36,14 +36,17 @@ public class InventoryItem : MonoBehaviour
 
         // Ability check when used
         switch (Item.ability){
-            case ItemData.Abilities.MultiplyCharRunSpeed_110Per:
+            case Abilities.MultiplyCharRunSpeed_110Per:
                 AbilityManager.instance.MultiplyCharRunSpeed(1.05f);
                 break;
-            case ItemData.Abilities.MultiplyStepSpeed_110Per:
+            case Abilities.MultiplyStepSpeed_110Per:
                 AbilityManager.instance.MultiplyStepSpeed(1.05f);
                 break;
-            case ItemData.Abilities.InstantSpawn_1Step:
+            case Abilities.InstantSpawn_1Step:
                 AbilityManager.instance.InstantSpawn1Step();
+                break;
+            case Abilities.HPHeal_Plus1:
+                AbilityManager.instance.HPHealPlus1();
                 break;
         }
     }

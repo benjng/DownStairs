@@ -4,13 +4,6 @@ using UnityEngine;
 
 public class ItemData : ScriptableObject, IPlayContactSound
 {
-    public enum Abilities {
-        none,
-        MultiplyCharRunSpeed_110Per,
-        MultiplyStepSpeed_110Per,
-        InstantSpawn_1Step
-    }
-
     new public string name = "New Item";
     public Sprite icon;
     public bool isCollectable;

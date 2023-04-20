@@ -21,8 +21,8 @@ public class StepsSpawner : MonoBehaviour
     public static float stepUpSpeed = 2;
     [SerializeField] private GameObject step;
     [SerializeField] private GameObject[] spawnItems;
-    // Coin, Potion_R, Laser, Potion_F, Remote_Step, Poop
-    [SerializeField] private List<float> probabilities = new List<float> { 0.2f, 0.1f, 0.0f, 0.1f, 0.1f, 0.1f }; 
+    // Coin, Potion_R, Laser, Potion_F, Remote_Step, Poop, Potion_HP
+    [SerializeField] private List<float> probabilities = new List<float> { 0.2f, 0.1f, 0.0f, 0.1f, 0.1f, 0.1f, 0.1f }; 
 
     [SerializeField] private float spawnInterval = 1;
     [SerializeField] private float extraStepProb = 0.9f;

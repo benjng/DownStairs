@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CharacterCombat : MonoBehaviour
 {
@@ -37,8 +38,7 @@ public class CharacterCombat : MonoBehaviour
         character = GetComponent<Character>();
         charAnimController = GetComponent<CharAnimController>();
         equipmentBtn.onClick.AddListener(UseEquipment);
-        currentHeatlh = maxHeatlh;
-        healthBar.SetMaxValue(maxHeatlh); // Init healthbar appearance to max hp
+        InitHP();
     }
 
     void Update()
@@ -48,11 +48,11 @@ public class CharacterCombat : MonoBehaviour
         } else if (joystick.Horizontal < 0){
             currentFaceDir = -1;
         }
+    }
 
-        // if (Input.touchCount > 0){
-        //     TakeDamage(1);
-        // }
-        
+    void InitHP(){
+        currentHeatlh = maxHeatlh;
+        healthBar.SetMaxValue(maxHeatlh); // Init healthbar appearance to max hp
     }
 
     void AtkAnimation(){
@@ -81,8 +81,15 @@ public class CharacterCombat : MonoBehaviour
         equipmentBtn.GetComponent<Image>().sprite = equipmentData.icon;
     }
 
-    void TakeDamage(int damage){
+    public void TakeDamage(int damage){
         currentHeatlh -= damage;
+        healthBar.SetValue(currentHeatlh);
+        if (currentHeatlh <= 0)
+            SceneManager.LoadScene(3);
+    }
+    public void TakeHeal(int heal){
+        if (currentHeatlh == maxHeatlh) return;
+        currentHeatlh += heal;
         healthBar.SetValue(currentHeatlh);
     }
 }

@@ -292,10 +292,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
+  m_fontSize: 72
   m_fontSizeBase: 24
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -456,7 +456,6 @@ GameObject:
   - component: {fileID: 941285205}
   - component: {fileID: 941285204}
   - component: {fileID: 941285203}
-  - component: {fileID: 941285206}
   m_Layer: 5
   m_Name: RetryBtn
   m_TagString: Untagged
@@ -483,7 +482,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -40.000004}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 1193.6, y: 120.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &941285203
 MonoBehaviour:
@@ -529,7 +528,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 941285206}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
         m_MethodName: StartGame
         m_Mode: 1
@@ -579,18 +578,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 941285201}
   m_CullTransparentMesh: 1
---- !u!114 &941285206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 941285201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e59f5dcfd5ac5b1408a0b839d5d1f9dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1183106401
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,8 +681,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 27}
-  m_SizeDelta: {x: 302.28, y: 52.49}
+  m_AnchoredPosition: {x: 0, y: 200}
+  m_SizeDelta: {x: 999.5, y: 265.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1559298954
 MonoBehaviour:
@@ -744,10 +731,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0

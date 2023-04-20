@@ -619,7 +619,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 240, y: -40.55005}
+  m_AnchoredPosition: {x: 240, y: -40.549805}
   m_SizeDelta: {x: 336.04, y: 35.119995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &769859859
@@ -754,7 +754,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 240, y: -166.4}
+  m_AnchoredPosition: {x: 240, y: -166.40002}
   m_SizeDelta: {x: 336.04, y: 35.119995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &818119956
@@ -1252,6 +1252,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3a43ad0e2ede8f419a4d1890746f08c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1580111529 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1580111524, guid: 54658a8a81fe3054f88708926a7e4929, type: 3}
+  m_PrefabInstance: {fileID: 5146237269864918336}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98eec35ceaecd0a4d8c2262fd5ec3576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1653376579
 GameObject:
   m_ObjectHideFlags: 0
@@ -1470,6 +1481,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 1187674047}
+  charCombat: {fileID: 1580111529}
 --- !u!4 &1948028837
 Transform:
   m_ObjectHideFlags: 0
@@ -1534,7 +1546,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 240, y: -102.599976}
+  m_AnchoredPosition: {x: 240, y: -102.6001}
   m_SizeDelta: {x: 336.04, y: 35.119995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2141620964
@@ -1898,6 +1910,34 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 1963611039, guid: d1c8e54d9676cf241b6db4e6a7194829, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1963611039, guid: d1c8e54d9676cf241b6db4e6a7194829, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1963611039, guid: d1c8e54d9676cf241b6db4e6a7194829, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1963611039, guid: d1c8e54d9676cf241b6db4e6a7194829, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 288
+      objectReference: {fileID: 0}
+    - target: {fileID: 1963611039, guid: d1c8e54d9676cf241b6db4e6a7194829, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1102
+      objectReference: {fileID: 0}
+    - target: {fileID: 1963611039, guid: d1c8e54d9676cf241b6db4e6a7194829, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 288
+      objectReference: {fileID: 0}
+    - target: {fileID: 1963611039, guid: d1c8e54d9676cf241b6db4e6a7194829, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -551
+      objectReference: {fileID: 0}
     - target: {fileID: 300278650313852594, guid: d1c8e54d9676cf241b6db4e6a7194829, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2452,6 +2492,22 @@ PrefabInstance:
     - target: {fileID: 5791941003411773465, guid: d9897a87a893c1646a95344ad32e5b2f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5791941003411773670, guid: d9897a87a893c1646a95344ad32e5b2f, type: 3}
+      propertyPath: spawnItems.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5791941003411773670, guid: d9897a87a893c1646a95344ad32e5b2f, type: 3}
+      propertyPath: probabilities.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5791941003411773670, guid: d9897a87a893c1646a95344ad32e5b2f, type: 3}
+      propertyPath: spawnItems.Array.data[6]
+      value: 
+      objectReference: {fileID: 5721252602456165130, guid: 3d87da3ec645dd347b591ee142b75d75, type: 3}
+    - target: {fileID: 5791941003411773670, guid: d9897a87a893c1646a95344ad32e5b2f, type: 3}
+      propertyPath: probabilities.Array.data[6]
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5791941003411773671, guid: d9897a87a893c1646a95344ad32e5b2f, type: 3}
       propertyPath: m_Name

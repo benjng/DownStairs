@@ -14,6 +14,7 @@ public class AbilityManager : MonoBehaviour
     #endregion
 
     [SerializeField] private Character character;
+    [SerializeField] private CharacterCombat charCombat;
 
     void Start(){
         stepsSpawner = StepsSpawner.instance;
@@ -27,5 +28,8 @@ public class AbilityManager : MonoBehaviour
     }
     public void InstantSpawn1Step(){
         stepsSpawner.CreateStep();
+    }
+    public void HPHealPlus1(){
+        charCombat.TakeHeal(1);
     }
 }

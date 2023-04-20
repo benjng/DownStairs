@@ -10,7 +10,6 @@ public class Character : MonoBehaviour
 
     [SerializeField] private Animator animator;
     [SerializeField] private float characterGravity = 1.1f;
-    // [SerializeField] private GameObject gameManager;
     [SerializeField] private Joystick joystick;
     [SerializeField] private RuntimeAnimatorController[] animatorControllers;
     [SerializeField] private CharAnimController charAnimController;
@@ -68,6 +67,7 @@ public class Character : MonoBehaviour
             charAnimController.ChangeState(charAnimStates[0]); //IDLE
         }
         
+        // For spike Step removal sensing
         if (collision.collider.CompareTag("Step")){
             TouchingSteps.Add(collision.collider.gameObject);
         }
