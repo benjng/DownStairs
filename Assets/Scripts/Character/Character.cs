@@ -12,13 +12,14 @@ public class Character : MonoBehaviour
     [SerializeField] private Joystick joystick;
     [SerializeField] private RuntimeAnimatorController[] animatorControllers;
     [SerializeField] private CharAnimController charAnimController;
-    [SerializeField] private float moveSpeed = 10;
+    [SerializeField] private CharacterStatus charStatus;
+    // [SerializeField] private float moveSpeed = 10;
 
 
     private Rigidbody2D rb;
     private float xInput;
     private float screenLx, screenRx;
-    public float MoveSpeed { get => moveSpeed; set => moveSpeed = value; }
+    // public float MoveSpeed { get => moveSpeed; set => moveSpeed = value; }
     public GameObject TouchingStep { get; set; }
     public List<GameObject> TouchingSteps = new List<GameObject>();
 
@@ -82,7 +83,7 @@ public class Character : MonoBehaviour
     void Movement()
     {
         xInput = joystick.Horizontal;
-        transform.position += new Vector3(xInput * moveSpeed * Time.fixedDeltaTime, 0, 0);
+        transform.position += new Vector3(xInput * charStatus.MoveSpeed * Time.fixedDeltaTime, 0, 0);
         
         // Character Warpping
         if (transform.position.x < screenLx)

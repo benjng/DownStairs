@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RunBar : StatusBar
+public class SpeedBar : StatusBar
 {
-    public override void SetMaxValue(int maxSpeed){
+    public override void SetMaxValue(float maxSpeed){
         base.SetMaxValue(maxSpeed);
     }
 
-    public override void SetValue(int speed){
+    public override void SetValue(float speed){
         base.SetValue(speed);
     }
 }

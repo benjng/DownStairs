@@ -13,6 +13,12 @@ public class CharacterStatus : MonoBehaviour
     [SerializeField] private float maxGravity = 3f;
     [SerializeField] private GravityBar gravityBar;
 
+    [SerializeField] private float currentMoveSpeed = 5f;
+    [SerializeField] private float maxMoveSpeed = 20f;
+    [SerializeField] private SpeedBar speedBar;
+
+    public float MoveSpeed { get => currentMoveSpeed; set => currentMoveSpeed = value; }
+
     private Rigidbody2D rb;
     void Start()
     {
@@ -20,6 +26,7 @@ public class CharacterStatus : MonoBehaviour
         rb.gravityScale = 0; //  Gravity set to 0 before game starts
         InitHP();
         InitGravity();
+        InitMoveSpeed();
     }
 
     void FixedUpdate(){
@@ -41,6 +48,11 @@ public class CharacterStatus : MonoBehaviour
         gravityBar.SetValue(currentGravity); // 
     }
 
+    void InitMoveSpeed(){
+        speedBar.SetMaxValue(maxMoveSpeed);
+        speedBar.SetValue(currentMoveSpeed);
+    }
+
     public void TakeDamage(int damage){
         currentHeatlh -= damage;
         healthBar.SetValue(currentHeatlh);
@@ -56,5 +68,10 @@ public class CharacterStatus : MonoBehaviour
     public void MultiplyGravity(float multiplier){
         currentGravity *= multiplier;
         gravityBar.SetValue(currentGravity);
+    }
+
+    public void MultiplyMoveSpeed(float multiplier){
+        currentMoveSpeed *= multiplier;
+        speedBar.SetValue(currentMoveSpeed);
     }
 }

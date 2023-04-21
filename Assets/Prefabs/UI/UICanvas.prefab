@@ -1628,14 +1628,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 7667769853406095559}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15ef70c6fe39b2148ba4691756df2c47, type: 3}
+  m_Script: {fileID: 11500000, guid: e86925abb73b64a448dc5ad240090b8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 6919000107532798759}
   gradient:
     serializedVersion: 2
-    key0: {r: 0, g: 0.25571585, b: 0.3018868, a: 1}
-    key1: {r: 0, g: 0.84705883, b: 1, a: 1}
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}

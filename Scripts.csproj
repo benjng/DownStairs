@@ -43,22 +43,25 @@
      <Compile Include="Assets\Scripts\Character\CharAnimation\States\IsWalkingLeft.cs" />
      <Compile Include="Assets\Scripts\GameUI\Joystick\Joysticks\VariableJoystick.cs" />
      <Compile Include="Assets\Scripts\Enums\GameMode.cs" />
-     <Compile Include="Assets\Scripts\GameUI\StatusBars\RunBar.cs" />
      <Compile Include="Assets\Scripts\AbilityManager.cs" />
      <Compile Include="Assets\Scripts\GameUI\Spike.cs" />
      <Compile Include="Assets\Scripts\Enums\Abilities.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjs\ItemData.cs" />
+     <Compile Include="Assets\Scripts\Enums\EqType.cs" />
      <Compile Include="Assets\Scripts\StepsSpawner.cs" />
+     <Compile Include="Assets\Scripts\GameUI\StatusBars\SpeedBar.cs" />
      <Compile Include="Assets\Scripts\GameUI\StatusBars\StatusBar.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IPlayContactSound.cs" />
      <Compile Include="Assets\Scripts\GameUI\DepthIndicator.cs" />
      <Compile Include="Assets\Scripts\Character\CharacterCombat.cs" />
      <Compile Include="Assets\Scripts\Character\CharAnimation\States\IsWalkingRight.cs" />
+     <Compile Include="Assets\Scripts\GameUI\StatusBars\GravityBar.cs" />
      <Compile Include="Assets\Scripts\Interfaces\ICollectable.cs" />
      <Compile Include="Assets\Scripts\Enums\CharSkin.cs" />
      <Compile Include="Assets\Scripts\Character\CharAnimation\CharAnimState.cs" />
      <Compile Include="Assets\Scripts\SpikeSpawner.cs" />
      <Compile Include="Assets\Scripts\Menu\MenuSystem.cs" />
+     <Compile Include="Assets\Scripts\Character\CharacterStatus.cs" />
      <Compile Include="Assets\Scripts\Projectile.cs" />
      <Compile Include="Assets\Scripts\GameUI\InventoryUI.cs" />
      <Compile Include="Assets\Scripts\GameUI\Joystick\Editor\DynamicJoystickEditor.cs" />
@@ -88,9 +91,6 @@
      <Compile Include="Assets\Scripts\ScriptableObjs\ProjectileData.cs" />
      <Compile Include="Assets\Scripts\Menu\States\AtMode.cs" />
      <Compile Include="Assets\Scripts\Item.cs" />
-     <Compile Include="Assets\Scripts\GameUI\StatusBars\GravityBar.cs" />
-     <Compile Include="Assets\Scripts\Character\CharacterStatus.cs" />
-     <Compile Include="Assets\Scripts\Enums\EqType.cs" />
      <None Include="Assets\Scripts\Scripts.asmdef" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.19f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>

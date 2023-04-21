@@ -13,7 +13,6 @@ public class AbilityManager : MonoBehaviour
     }
     #endregion
 
-    [SerializeField] private Character character;
     [SerializeField] private CharacterStatus charStatus;
 
     void Start(){
@@ -23,7 +22,7 @@ public class AbilityManager : MonoBehaviour
     public void ApplyAbility(ItemData item){
         switch (item.ability){
             case Abilities.MultiplyCharRunSpeed_110Per:
-                MultiplyCharRunSpeed(1.05f);
+                MultiplyCharMoveSpeed(1.05f);
                 break;
             case Abilities.MultiplyStepSpeed_110Per:
                 MultiplyStepSpeed(1.05f);
@@ -40,8 +39,9 @@ public class AbilityManager : MonoBehaviour
         }
     }
 
-    public void MultiplyCharRunSpeed(float multiplier){
-        character.MoveSpeed *= multiplier;
+    public void MultiplyCharMoveSpeed(float multiplier){
+        // charStatus.MoveSpeed *= multiplier;
+        charStatus.MultiplyMoveSpeed(multiplier);
     }
     public void MultiplyStepSpeed(float multiplier){
         StepsSpawner.stepUpSpeed *= multiplier;
