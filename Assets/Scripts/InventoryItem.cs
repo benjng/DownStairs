@@ -48,6 +48,9 @@ public class InventoryItem : MonoBehaviour
             case Abilities.HPHeal_Plus1:
                 AbilityManager.instance.HPHealPlus1();
                 break;
+            case Abilities.MultiplyGravity_110Per:
+                AbilityManager.instance.MultiplyGravity(1.1f);
+                break;
         }
     }
 

@@ -142,6 +142,7 @@ GameObject:
   - component: {fileID: 5146237268904041213}
   - component: {fileID: 5146237268904041215}
   - component: {fileID: 5406409086659462709}
+  - component: {fileID: 3040207303585923489}
   - component: {fileID: 1580111524}
   - component: {fileID: 5146237268904041089}
   m_Layer: 0
@@ -298,16 +299,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fee9e10cf4ec62441bb754bb3bfc824e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterGravity: 1.4
-  gameManager: {fileID: 0}
+  charAnimStates: []
+  animator: {fileID: 5146237268904041088}
   joystick: {fileID: 0}
   animatorControllers:
   - {fileID: 9100000, guid: 65fe9b03ac5cdef46baf7f553d79a9c8, type: 2}
   - {fileID: 9100000, guid: 9482009b6135de8409d814d9ae8919d4, type: 2}
   charAnimController: {fileID: 0}
-  charAnimStates: []
   moveSpeed: 10
-  animator: {fileID: 5146237268904041088}
+  TouchingSteps: []
 --- !u!114 &5406409086659462709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,6 +321,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: {fileID: 0}
+--- !u!114 &3040207303585923489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5146237268904041210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d02c12aaf2b86f74e8f9ca86a4e1d409, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHeatlh: 0
+  maxHeatlh: 10
+  healthBar: {fileID: 0}
+  currentGravity: 1.1
+  maxGravity: 3
+  gravityBar: {fileID: 0}
 --- !u!114 &1580111524
 MonoBehaviour:
   m_ObjectHideFlags: 0

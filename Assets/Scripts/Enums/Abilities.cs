@@ -3,5 +3,6 @@ public enum Abilities{
     MultiplyCharRunSpeed_110Per,
     MultiplyStepSpeed_110Per,
     InstantSpawn_1Step,
-    HPHeal_Plus1
+    HPHeal_Plus1,
+    MultiplyGravity_110Per
 }
