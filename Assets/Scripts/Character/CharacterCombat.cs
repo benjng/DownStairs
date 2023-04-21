@@ -29,25 +29,49 @@ public class CharacterCombat : MonoBehaviour
     [SerializeField] private Button equipmentBtn;
     [SerializeField] private Animator charAnimator;
     [SerializeField] private GameObject projectilesHolder;
-    private int currentFaceDir = -1;
 
+    
+    [SerializeField] private float currentGravity = 1.1f;
+    [SerializeField] private float maxGravity = 3f;
+    [SerializeField] private GravityBar gravityBar;
+    
+    private Rigidbody2D rb;
+    private int currentFaceDir = -1;
     public int CurrentFaceDir { get => currentFaceDir; set => currentFaceDir = value; }
 
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = 0;
         character = GetComponent<Character>();
         charAnimController = GetComponent<CharAnimController>();
         equipmentBtn.onClick.AddListener(UseEquipment);
         InitHP();
+        InitGravity();
+    }
+
+    void FixedUpdate(){
+        if (!GameStarter.gameStarted) return;
+        UpdateGravity(currentGravity);
     }
 
     void Update()
     {
+        if (!GameStarter.gameStarted) return;
         if (joystick.Horizontal > 0){
             currentFaceDir = 1;
         } else if (joystick.Horizontal < 0){
             currentFaceDir = -1;
         }
+    }
+
+    void InitGravity(){
+        gravityBar.SetMaxValue(maxGravity); // Init max gravity appearance
+        gravityBar.SetValue(currentGravity); // 
+    }
+
+    void UpdateGravity(float gravity){
+        rb.gravityScale = gravity;
     }
 
     void InitHP(){

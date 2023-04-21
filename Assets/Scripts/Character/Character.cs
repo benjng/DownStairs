@@ -14,9 +14,6 @@ public class Character : MonoBehaviour
     [SerializeField] private CharAnimController charAnimController;
     [SerializeField] private float moveSpeed = 10;
 
-    [SerializeField] private float currentGravity = 1.1f;
-    [SerializeField] private float maxGravity = 3f;
-    [SerializeField] private GravityBar gravityBar;
 
     private Rigidbody2D rb;
     private float xInput;
@@ -28,27 +25,21 @@ public class Character : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.gravityScale = 0;
         SelectAnimatorController();
         SetScreenLR();
-        InitGravity();
     }
 
     void FixedUpdate()
     {
         // Check if game has started by UI counter
         if (!GameStarter.gameStarted) return;
-
-        UpdateGravity(currentGravity);
+        
         AnimationStateController();
         Movement();
         CheckCharSurvive();
     }
 
-    void InitGravity(){
-        gravityBar.SetMaxValue(maxGravity); // Init max gravity appearance
-        gravityBar.SetValue(currentGravity); // 
-    }
+    
 
     void SelectAnimatorController(){
         if (MenuSystem.charSkin == CharSkin.Boy){
@@ -63,9 +54,7 @@ public class Character : MonoBehaviour
         screenLx = -screenRx;
     }
 
-    void UpdateGravity(float gravity){
-        rb.gravityScale = gravity;
-    }
+    
 
     // public ContactPoint2D[] contacts = new ContactPoint2D[5];  
     void OnCollisionEnter2D(Collision2D collision) {
