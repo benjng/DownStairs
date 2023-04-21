@@ -47,6 +47,7 @@
      <Compile Include="Assets\Scripts\AbilityManager.cs" />
      <Compile Include="Assets\Scripts\GameUI\StatusBars\WeightBar.cs" />
      <Compile Include="Assets\Scripts\GameUI\Spike.cs" />
+     <Compile Include="Assets\Scripts\Enums\Abilities.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjs\ItemData.cs" />
      <Compile Include="Assets\Scripts\StepsSpawner.cs" />
      <Compile Include="Assets\Scripts\GameUI\StatusBars\StatusBar.cs" />
@@ -88,7 +89,6 @@
      <Compile Include="Assets\Scripts\ScriptableObjs\ProjectileData.cs" />
      <Compile Include="Assets\Scripts\Menu\States\AtMode.cs" />
      <Compile Include="Assets\Scripts\Item.cs" />
-     <Compile Include="Assets\Scripts\Enums\Abilities.cs" />
      <None Include="Assets\Scripts\Scripts.asmdef" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.19f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>

@@ -26,7 +26,7 @@ public class LevelLoader : MonoBehaviour
     IEnumerator LoadLevel(int levelIndex){
         transition.SetTrigger("Start");
         yield return new WaitForSeconds(transitionTime);
-        SceneManager.LoadScene(levelIndex);
+        SceneManager.LoadScene(levelIndex, LoadSceneMode.Single);
     }
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode){
@@ -42,6 +42,7 @@ public class LevelLoader : MonoBehaviour
     }
 
     public void ResetToMainMenu(){
+        GameStarter.gameStarted = false;
         StartCoroutine(LoadLevel(0));
     }
 }
