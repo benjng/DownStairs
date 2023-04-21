@@ -9,7 +9,7 @@ public class Character : MonoBehaviour
     public CharAnimState[] charAnimStates;
 
     [SerializeField] private Animator animator;
-    [SerializeField] private float characterGravity = 1.1f;
+    [SerializeField] private float charGravity = 1.1f;
     [SerializeField] private Joystick joystick;
     [SerializeField] private RuntimeAnimatorController[] animatorControllers;
     [SerializeField] private CharAnimController charAnimController;
@@ -35,7 +35,7 @@ public class Character : MonoBehaviour
         // Check if game has started by UI counter
         if (!GameStarter.gameStarted) return;
 
-        InitCharGravity(characterGravity);
+        CheckGravity(charGravity);
         AnimationStateController();
         Movement();
         CheckCharSurvive();
@@ -53,12 +53,8 @@ public class Character : MonoBehaviour
         screenLx = -screenRx;
     }
 
-    void InitCharGravity(float gravity){
-        // Character Gravity Init
-        if (rb.gravityScale == 0)
-        {
-            rb.gravityScale = gravity;
-        }
+    void CheckGravity(float gravity){
+        rb.gravityScale = gravity;
     }
 
     // public ContactPoint2D[] contacts = new ContactPoint2D[5];  
