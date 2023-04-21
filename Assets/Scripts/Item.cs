@@ -15,6 +15,11 @@ public class Item : MonoBehaviour, ICollectable
     {
         if (collision.CompareTag("Player") && item.isCollectable)
         {
+            if (item.isAutoConsume){
+                FindObjectOfType<AbilityManager>().ApplyAbility(item);
+                Destroy(gameObject);
+                return; // if autoConsume, no adding to inventory
+            }
             inventory.AddItem(item);
             if (item.collectSound != null)
                 item.PlayContactSound();

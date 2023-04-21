@@ -20,6 +20,26 @@ public class AbilityManager : MonoBehaviour
         stepsSpawner = StepsSpawner.instance;
     }
 
+    public void ApplyAbility(ItemData item){
+        switch (item.ability){
+            case Abilities.MultiplyCharRunSpeed_110Per:
+                MultiplyCharRunSpeed(1.05f);
+                break;
+            case Abilities.MultiplyStepSpeed_110Per:
+                MultiplyStepSpeed(1.05f);
+                break;
+            case Abilities.InstantSpawn_1Step:
+                InstantSpawn1Step();
+                break;
+            case Abilities.HPHeal_Plus1:
+                HPHealPlus1();
+                break;
+            case Abilities.MultiplyGravity_110Per:
+                MultiplyGravity(1.1f);
+                break;
+        }
+    }
+
     public void MultiplyCharRunSpeed(float multiplier){
         character.MoveSpeed *= multiplier;
     }

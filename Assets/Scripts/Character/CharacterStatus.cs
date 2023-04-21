@@ -17,7 +17,7 @@ public class CharacterStatus : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.gravityScale = 0;
+        rb.gravityScale = 0; //  Gravity set to 0 before game starts
         InitHP();
         InitGravity();
     }

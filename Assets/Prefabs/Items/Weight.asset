@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d55775495a0cd5d4e932b0a1b7b1a35c, type: 3}
-  m_Name: Potion_F
+  m_Name: Weight
   m_EditorClassIdentifier: 
   name: FallPotion
-  icon: {fileID: 21300000, guid: 258e2d3c3d9e7f24498caceb3ddb67af, type: 3}
+  icon: {fileID: 21300000, guid: 692c1272d38aa744c9a2776136959f1c, type: 3}
   isCollectable: 1
   isUsable: 1
-  ability: 2
+  ability: 5
   collectSound: {fileID: 8300000, guid: 176e7e29d21884b408bca2d23e74be1f, type: 3}

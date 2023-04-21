@@ -4,13 +4,6 @@ using UnityEngine;
 
 public class EquipmentData : ScriptableObject, IPlayContactSound
 {
-    public enum EqType {
-        none,
-        MeleeWeapon,
-        RangedWeapon,
-        Armor
-    }
-
     new public string name = "New Equipment";
     public Sprite icon;
     public EqType equipmentType = EqType.none;

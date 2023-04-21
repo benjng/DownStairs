@@ -33,13 +33,11 @@ public class Character : MonoBehaviour
     {
         // Check if game has started by UI counter
         if (!GameStarter.gameStarted) return;
-        
+
         AnimationStateController();
         Movement();
         CheckCharSurvive();
     }
-
-    
 
     void SelectAnimatorController(){
         if (MenuSystem.charSkin == CharSkin.Boy){
@@ -53,8 +51,6 @@ public class Character : MonoBehaviour
         screenRx = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0, 0)).x;
         screenLx = -screenRx;
     }
-
-    
 
     // public ContactPoint2D[] contacts = new ContactPoint2D[5];  
     void OnCollisionEnter2D(Collision2D collision) {

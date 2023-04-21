@@ -34,24 +34,7 @@ public class InventoryItem : MonoBehaviour
         Inventory.instance.SubtractItem(Item);
         // TODO: Play use sound here
 
-        // Ability check when used
-        switch (Item.ability){
-            case Abilities.MultiplyCharRunSpeed_110Per:
-                AbilityManager.instance.MultiplyCharRunSpeed(1.05f);
-                break;
-            case Abilities.MultiplyStepSpeed_110Per:
-                AbilityManager.instance.MultiplyStepSpeed(1.05f);
-                break;
-            case Abilities.InstantSpawn_1Step:
-                AbilityManager.instance.InstantSpawn1Step();
-                break;
-            case Abilities.HPHeal_Plus1:
-                AbilityManager.instance.HPHealPlus1();
-                break;
-            case Abilities.MultiplyGravity_110Per:
-                AbilityManager.instance.MultiplyGravity(1.1f);
-                break;
-        }
+        FindObjectOfType<AbilityManager>().ApplyAbility(Item);
     }
 
     // Clear slot when all items on that slot are used up
