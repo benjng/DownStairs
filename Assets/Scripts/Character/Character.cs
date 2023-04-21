@@ -9,11 +9,14 @@ public class Character : MonoBehaviour
     public CharAnimState[] charAnimStates;
 
     [SerializeField] private Animator animator;
-    [SerializeField] private float charGravity = 1.1f;
     [SerializeField] private Joystick joystick;
     [SerializeField] private RuntimeAnimatorController[] animatorControllers;
     [SerializeField] private CharAnimController charAnimController;
     [SerializeField] private float moveSpeed = 10;
+
+    [SerializeField] private float currentGravity = 1.1f;
+    [SerializeField] private float maxGravity = 3f;
+    [SerializeField] private GravityBar gravityBar;
 
     private Rigidbody2D rb;
     private float xInput;
@@ -28,6 +31,7 @@ public class Character : MonoBehaviour
         rb.gravityScale = 0;
         SelectAnimatorController();
         SetScreenLR();
+        InitGravity();
     }
 
     void FixedUpdate()
@@ -35,11 +39,17 @@ public class Character : MonoBehaviour
         // Check if game has started by UI counter
         if (!GameStarter.gameStarted) return;
 
-        CheckGravity(charGravity);
+        UpdateGravity(currentGravity);
         AnimationStateController();
         Movement();
         CheckCharSurvive();
     }
+
+    void InitGravity(){
+        gravityBar.SetMaxValue(maxGravity); // Init max gravity appearance
+        gravityBar.SetValue(currentGravity); // 
+    }
+
     void SelectAnimatorController(){
         if (MenuSystem.charSkin == CharSkin.Boy){
             animator.runtimeAnimatorController = animatorControllers[0];
@@ -53,7 +63,7 @@ public class Character : MonoBehaviour
         screenLx = -screenRx;
     }
 
-    void CheckGravity(float gravity){
+    void UpdateGravity(float gravity){
         rb.gravityScale = gravity;
     }
 
