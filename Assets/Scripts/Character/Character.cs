@@ -60,7 +60,7 @@ public class Character : MonoBehaviour
         }
         
         // For spike Step removal sensing
-        if (collision.collider.CompareTag("Step")){
+        if (collision.collider.CompareTag("Step") || collision.collider.CompareTag("ExtraStep")){
             TouchingSteps.Add(collision.collider.gameObject);
         }
     }

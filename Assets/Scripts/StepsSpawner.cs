@@ -19,12 +19,11 @@ public class StepsSpawner : MonoBehaviour
     #endregion
     
     public static float stepUpSpeed = 2;
+    public static float VPSpawnPosY = 0.15f;
     [SerializeField] private GameObject step;
     [SerializeField] private GameObject[] spawnItems;
     // Coin, Potion_R, Laser, Potion_F, Remote_Step, Poop, Potion_HP
     [SerializeField] private List<float> probabilities = new List<float> { 0.2f, 0.1f, 0.0f, 0.1f, 0.1f, 0.1f, 0.1f }; 
-
-    [SerializeField] private float spawnInterval = 1;
     [SerializeField] private float extraStepProb = 0.9f;
 
     // Event Handler
@@ -35,14 +34,15 @@ public class StepsSpawner : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(SpawnStepsAndItems());
+        SpawnStepsAndItems();
+        Step.SpawnStepEvent += SpawnStepsAndItems;
     }
 
     private void FixedUpdate()
     {
         stepUpSpeed += Time.fixedDeltaTime / Time.realtimeSinceStartup;
-        
-        Debug.Log(stepUpSpeed + ":" + spawnInterval);
+        // spawnInterval = stepUpSpeed/2;
+        // Debug.Log(stepUpSpeed + ":" + spawnInterval);
     }
 
     public Vector3 CreateStep() // A set includes a step, and a possible spawn item
@@ -68,6 +68,7 @@ public class StepsSpawner : MonoBehaviour
         GameObject thisStep = Instantiate(step, gameObject.transform);
         thisStep.transform.position = baseStepPos;
         thisStep.transform.position += new Vector3(xOffset, 0, 0);
+        thisStep.tag = "ExtraStep";
         thisStep.SetActive(true);
     }
 
@@ -93,21 +94,16 @@ public class StepsSpawner : MonoBehaviour
     }
 
     // Spawn steps with time interval
-    private IEnumerator SpawnStepsAndItems()
+    private void SpawnStepsAndItems()
     {
-        while (true)
+        Vector3 baseStepPos = CreateStep();
+        if (Random.value < extraStepProb)
         {
-            Vector3 baseStepPos = CreateStep();
-            if (Random.value < extraStepProb)
-            {
-                CreateExtraStep(baseStepPos);
-            }
-            CurrentFloor++;
-            if (CurrentFloor%5 == 0 && CurrentFloor != 0)
-                PrintFloor?.Invoke(); // broadcast PrintFloor event
-                spawnInterval *= 0.99f;
-            yield return new WaitForSeconds(spawnInterval);
+            CreateExtraStep(baseStepPos);
         }
+        CurrentFloor++;
+        if (CurrentFloor%5 == 0 && CurrentFloor != 0)
+            PrintFloor?.Invoke(); // broadcast PrintFloor event
     }
 }
 
