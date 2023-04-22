@@ -15,7 +15,7 @@ public class GameStarter : MonoBehaviour
 
     IEnumerator CountStart()
     {
-        count.fontSize = 700;
+        count.fontSize = 700; 
         count.text = "3";
         yield return new WaitForSeconds(1);
         count.text = "2";

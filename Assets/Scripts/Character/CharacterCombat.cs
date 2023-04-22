@@ -3,6 +3,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+// Takes care Character Equipment behaviors
 public class CharacterCombat : MonoBehaviour
 {
     #region Singleton

@@ -13,10 +13,10 @@ public class DepthIndicator : MonoBehaviour
 
         parentHeight = transform.parent.GetComponent<RectTransform>().rect.height;
         transform.localPosition = new Vector3(0, -(parentHeight/2) ,0);
-        depthTMP.text = "--- " + upSpeed.ToString("F1");
+        // depthTMP.text = "--- " + ((int)upSpeed).ToString();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         UpdatePointPos();
         if (transform.localPosition.y > 1400) Destroy(gameObject);
@@ -24,6 +24,6 @@ public class DepthIndicator : MonoBehaviour
 
     private void UpdatePointPos()
     {
-        transform.localPosition += new Vector3(0, upSpeed, 0) * Time.deltaTime;
+        transform.localPosition += new Vector3(0, upSpeed, 0) * Time.fixedDeltaTime;
     }
 }

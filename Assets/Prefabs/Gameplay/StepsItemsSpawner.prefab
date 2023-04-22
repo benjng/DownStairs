@@ -52,6 +52,7 @@ MonoBehaviour:
   - {fileID: 5721252602456165130, guid: 88d93c5516b095940ae577ed761f146e, type: 3}
   - {fileID: 5721252602456165130, guid: 5f6f7113c1c623447a6780d7bdcc2b34, type: 3}
   - {fileID: 7686644521437580815, guid: 5edd94746af52be43a9c8e4c31a79f6e, type: 3}
+  - {fileID: 5721252602456165130, guid: 3d87da3ec645dd347b591ee142b75d75, type: 3}
   probabilities:
   - 0.2
   - 0.1
@@ -59,4 +60,6 @@ MonoBehaviour:
   - 0.1
   - 0.1
   - 0.1
+  - 0.1
   spawnInterval: 1
+  extraStepProb: 0.3

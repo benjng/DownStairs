@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7288825517818268124}
   - component: {fileID: 7288825517818268127}
   - component: {fileID: 7288825517818268126}
-  - component: {fileID: 7288825517818268114}
   m_Layer: 5
   m_Name: BkGrdCanvas
   m_TagString: Background
@@ -102,19 +101,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &7288825517818268114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7288825517818268121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffe1e1f03b6edce418909b321fafd366, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  depthIndicator: {fileID: 3198044069341132467, guid: 622511bd41c5f1748b38273d4be008a0, type: 3}
 --- !u!1 &7288825517915312451
 GameObject:
   m_ObjectHideFlags: 0

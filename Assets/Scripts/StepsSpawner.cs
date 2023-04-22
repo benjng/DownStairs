@@ -38,7 +38,7 @@ public class StepsSpawner : MonoBehaviour
 
     private void FixedUpdate()
     {
-        stepUpSpeed += (1f * Time.fixedDeltaTime) / Time.realtimeSinceStartup;
+        stepUpSpeed += Time.fixedDeltaTime / Time.realtimeSinceStartup;
     }
 
     public Vector3 CreateStep() // A set includes a step, and a possible spawn item

@@ -1470,22 +1470,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5791941003411773670, guid: d9897a87a893c1646a95344ad32e5b2f, type: 3}
-      propertyPath: spawnItems.Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5791941003411773670, guid: d9897a87a893c1646a95344ad32e5b2f, type: 3}
-      propertyPath: probabilities.Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5791941003411773670, guid: d9897a87a893c1646a95344ad32e5b2f, type: 3}
-      propertyPath: spawnItems.Array.data[6]
-      value: 
-      objectReference: {fileID: 5721252602456165130, guid: 3d87da3ec645dd347b591ee142b75d75, type: 3}
-    - target: {fileID: 5791941003411773670, guid: d9897a87a893c1646a95344ad32e5b2f, type: 3}
-      propertyPath: probabilities.Array.data[6]
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 5791941003411773671, guid: d9897a87a893c1646a95344ad32e5b2f, type: 3}
       propertyPath: m_Name
       value: StepsItemsSpawner
@@ -1499,6 +1483,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 853141549}
     m_Modifications:
+    - target: {fileID: 7288825517818268114, guid: f04f1aacbb7ab48488749cdd675b49ba, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7288825517818268121, guid: f04f1aacbb7ab48488749cdd675b49ba, type: 3}
       propertyPath: m_Name
       value: BkGrdCanvas
@@ -1611,5 +1599,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7288825517818268114, guid: f04f1aacbb7ab48488749cdd675b49ba, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f04f1aacbb7ab48488749cdd675b49ba, type: 3}

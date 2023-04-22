@@ -86,7 +86,6 @@
      <Compile Include="Assets\Scripts\GameUI\Joystick\Joysticks\FloatingJoystick.cs" />
      <Compile Include="Assets\Scripts\InventoryItem.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjs\EquipmentData.cs" />
-     <Compile Include="Assets\Scripts\GameUI\Background.cs" />
      <Compile Include="Assets\Scripts\AudioManager\AudioManager.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjs\ProjectileData.cs" />
      <Compile Include="Assets\Scripts\Menu\States\AtMode.cs" />
