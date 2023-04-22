@@ -13,7 +13,7 @@ public class CharacterStatus : MonoBehaviour
     [SerializeField] private float maxGravity = 3f;
     [SerializeField] private GravityBar gravityBar;
 
-    [SerializeField] private float currentMoveSpeed = 5f;
+    [SerializeField] private float currentMoveSpeed = 3f;
     [SerializeField] private float maxMoveSpeed = 20f;
     [SerializeField] private SpeedBar speedBar;
 

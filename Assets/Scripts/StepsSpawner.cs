@@ -41,6 +41,8 @@ public class StepsSpawner : MonoBehaviour
     private void FixedUpdate()
     {
         stepUpSpeed += Time.fixedDeltaTime / Time.realtimeSinceStartup;
+        
+        Debug.Log(stepUpSpeed + ":" + spawnInterval);
     }
 
     public Vector3 CreateStep() // A set includes a step, and a possible spawn item
@@ -102,7 +104,8 @@ public class StepsSpawner : MonoBehaviour
             }
             CurrentFloor++;
             if (CurrentFloor%5 == 0 && CurrentFloor != 0)
-                PrintFloor?.Invoke(); // broadcast PrintFloor event <------------------------------
+                PrintFloor?.Invoke(); // broadcast PrintFloor event
+                spawnInterval *= 0.99f;
             yield return new WaitForSeconds(spawnInterval);
         }
     }

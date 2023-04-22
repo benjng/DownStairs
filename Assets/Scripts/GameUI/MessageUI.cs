@@ -12,8 +12,9 @@ public class MessageUI : MonoBehaviour
     }
 
     void UpdateFloor(){
+        countText.fontSize = 200;
         countText.color = new Color(countText.color.r, countText.color.g, countText.color.b, 1);
-        countText.text = StepsSpawner.CurrentFloor.ToString();
+        countText.text = StepsSpawner.CurrentFloor.ToString() + "/F";
         StartCoroutine(TextFadeOut());
     }
 
