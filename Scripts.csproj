@@ -52,7 +52,6 @@
      <Compile Include="Assets\Scripts\GameUI\StatusBars\SpeedBar.cs" />
      <Compile Include="Assets\Scripts\GameUI\StatusBars\StatusBar.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IPlayContactSound.cs" />
-     <Compile Include="Assets\Scripts\GameUI\DepthIndicator.cs" />
      <Compile Include="Assets\Scripts\Character\CharacterCombat.cs" />
      <Compile Include="Assets\Scripts\Character\CharAnimation\States\IsWalkingRight.cs" />
      <Compile Include="Assets\Scripts\GameUI\StatusBars\GravityBar.cs" />
