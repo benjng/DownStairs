@@ -955,6 +955,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3506685040644764716, guid: d1c8e54d9676cf241b6db4e6a7194829, type: 3}
+      propertyPath: countText
+      value: 
+      objectReference: {fileID: 2022294353}
     - target: {fileID: 3856841888266511933, guid: d1c8e54d9676cf241b6db4e6a7194829, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
