@@ -28,8 +28,10 @@ public class StepsSpawner : MonoBehaviour
     [SerializeField] private float extraStepProb = 0.9f;
 
     // Event Handler
-    public delegate void StepSpawnEventHandler();
-    public static event StepSpawnEventHandler OnStepSpawn;
+    public delegate void PrintFloorEventHandler();
+    public static event PrintFloorEventHandler PrintFloor;
+
+    public static int CurrentFloor = 0;
 
     void Start()
     {
@@ -98,7 +100,9 @@ public class StepsSpawner : MonoBehaviour
             {
                 CreateExtraStep(baseStepPos);
             }
-            OnStepSpawn?.Invoke(); // broadcast OnStepSpawn event
+            CurrentFloor++;
+            if (CurrentFloor%5 == 0)
+                PrintFloor?.Invoke(); // broadcast PrintFloor event <------------------------------
             yield return new WaitForSeconds(spawnInterval);
         }
     }
