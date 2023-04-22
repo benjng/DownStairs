@@ -101,7 +101,7 @@ public class StepsSpawner : MonoBehaviour
                 CreateExtraStep(baseStepPos);
             }
             CurrentFloor++;
-            if (CurrentFloor%5 == 0)
+            if (CurrentFloor%5 == 0 && CurrentFloor != 0)
                 PrintFloor?.Invoke(); // broadcast PrintFloor event <------------------------------
             yield return new WaitForSeconds(spawnInterval);
         }

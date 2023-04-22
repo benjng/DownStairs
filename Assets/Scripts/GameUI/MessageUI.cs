@@ -11,12 +11,16 @@ public class MessageUI : MonoBehaviour
         StepsSpawner.PrintFloor += UpdateFloor;
     }
 
-    void Update()
-    {
-        
+    void UpdateFloor(){
+        countText.color = new Color(countText.color.r, countText.color.g, countText.color.b, 1);
+        countText.text = StepsSpawner.CurrentFloor.ToString();
+        StartCoroutine(TextFadeOut());
     }
 
-    void UpdateFloor(){
-        countText.text = StepsSpawner.CurrentFloor.ToString();
+    IEnumerator TextFadeOut(){
+        for (int i=0; i<100; i++) {
+            countText.color -= new Color(0, 0, 0, 0.01f);
+            yield return new WaitForSeconds(0.01f);
+        }
     }
 }
