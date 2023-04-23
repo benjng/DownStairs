@@ -739,6 +739,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1057925245, guid: d1c8e54d9676cf241b6db4e6a7194829, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1057925246, guid: d1c8e54d9676cf241b6db4e6a7194829, type: 3}
       propertyPath: m_Camera
       value: 
@@ -746,6 +750,26 @@ PrefabInstance:
     - target: {fileID: 1057925246, guid: d1c8e54d9676cf241b6db4e6a7194829, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1057925246, guid: d1c8e54d9676cf241b6db4e6a7194829, type: 3}
+      propertyPath: m_OverrideSorting
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1963611038, guid: d1c8e54d9676cf241b6db4e6a7194829, type: 3}
+      propertyPath: m_Name
+      value: ItemsLayout
+      objectReference: {fileID: 0}
+    - target: {fileID: 1963611039, guid: d1c8e54d9676cf241b6db4e6a7194829, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1963611039, guid: d1c8e54d9676cf241b6db4e6a7194829, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1963611039, guid: d1c8e54d9676cf241b6db4e6a7194829, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 351
       objectReference: {fileID: 0}
     - target: {fileID: 558914643815395746, guid: d1c8e54d9676cf241b6db4e6a7194829, type: 3}
       propertyPath: m_AnchorMax.x
@@ -761,6 +785,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 558914643815395746, guid: d1c8e54d9676cf241b6db4e6a7194829, type: 3}
       propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1258473190416884404, guid: d1c8e54d9676cf241b6db4e6a7194829, type: 3}
+      propertyPath: m_Name
+      value: CoinsLayout
+      objectReference: {fileID: 0}
+    - target: {fileID: 3715340772563364764, guid: d1c8e54d9676cf241b6db4e6a7194829, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3856841888266511933, guid: d1c8e54d9676cf241b6db4e6a7194829, type: 3}
@@ -867,10 +899,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4780252262163496174, guid: d1c8e54d9676cf241b6db4e6a7194829, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4780252262163496174, guid: d1c8e54d9676cf241b6db4e6a7194829, type: 3}
+      propertyPath: m_ReferencePixelsPerUnit
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4780252262163496175, guid: d1c8e54d9676cf241b6db4e6a7194829, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 57044928764863133}
+    - target: {fileID: 7157058638958020042, guid: d1c8e54d9676cf241b6db4e6a7194829, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 304
+      objectReference: {fileID: 0}
     - target: {fileID: 8744894311409493073, guid: d1c8e54d9676cf241b6db4e6a7194829, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -896,6 +940,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 769859860}
+    - target: {fileID: 1580111524, guid: 54658a8a81fe3054f88708926a7e4929, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1580111524, guid: 54658a8a81fe3054f88708926a7e4929, type: 3}
       propertyPath: maxHeatlh
       value: 10
@@ -930,7 +978,7 @@ PrefabInstance:
       objectReference: {fileID: 818119956}
     - target: {fileID: 3040207303585923489, guid: 54658a8a81fe3054f88708926a7e4929, type: 3}
       propertyPath: currentMoveSpeed
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5146237268904041088, guid: 54658a8a81fe3054f88708926a7e4929, type: 3}
       propertyPath: m_Controller

@@ -19,7 +19,7 @@ public class StepsSpawner : MonoBehaviour
     #endregion
     
     public static float stepUpSpeed = 2;
-    public static float VPSpawnPosY = 0.15f;
+    public static float VPSpawnPosY = 0.15f; // Vertical Port Spawn Position Y
     [SerializeField] private GameObject step;
     [SerializeField] private GameObject[] spawnItems;
     // Coin, Potion_R, Laser, Potion_F, Remote_Step, Potion_HP
@@ -34,7 +34,7 @@ public class StepsSpawner : MonoBehaviour
 
     void Start()
     {
-        SpawnStepsAndItems();
+        SpawnStepsAndItems(); // Init
         Step.SpawnStepEvent += SpawnStepsAndItems;
     }
 
@@ -45,11 +45,13 @@ public class StepsSpawner : MonoBehaviour
         // Debug.Log(stepUpSpeed + ":" + spawnInterval);
     }
 
-    public Vector3 CreateStep() // A set includes a step, and a possible spawn item
+    public Vector3 CreateStep(bool isRemoteStep) // A step set includes a step, and a possible spawn item
     {
         GameObject thisStep = Instantiate(step, gameObject.transform);
         float randWidth = Random.Range(0.0f, 1.0f);
         thisStep.transform.localPosition = Camera.main.ViewportToWorldPoint(new Vector3(randWidth, 0, 0));
+        if (isRemoteStep)
+            thisStep.tag = "RemoteStep";
         thisStep.SetActive(true);
 
         // No item generate for simple mode
@@ -96,7 +98,7 @@ public class StepsSpawner : MonoBehaviour
     // Spawn steps with time interval
     private void SpawnStepsAndItems()
     {
-        Vector3 baseStepPos = CreateStep();
+        Vector3 baseStepPos = CreateStep(false);
         if (Random.value < extraStepProb)
         {
             CreateExtraStep(baseStepPos);

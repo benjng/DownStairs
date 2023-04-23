@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 // Takes care Character Equipment behaviors
+// !--- Currently not deployed - Future implmentation ---!
 public class CharacterCombat : MonoBehaviour
 {
     #region Singleton

@@ -50,7 +50,7 @@ public class AbilityManager : MonoBehaviour
         charStatus.MultiplyGravity(multiplier);
     }
     public void InstantSpawn1Step(){
-        stepsSpawner.CreateStep();
+        stepsSpawner.CreateStep(true);
     }
     public void HPHealPlus1(){
         charStatus.TakeHeal(1);

@@ -13,7 +13,7 @@ public class Step : MonoBehaviour
         transform.position += new Vector3(0, upSpeed, 0) * Time.fixedDeltaTime;
         if (tag == "Step" && !invokedSpawn && Camera.main.WorldToViewportPoint(transform.position).y > StepsSpawner.VPSpawnPosY){
             // Debug.Log(transform.position.y);
-            SpawnStepEvent?.Invoke();
+            SpawnStepEvent?.Invoke(); // Invoke step spawn if a typical step reaches spawn y position
             invokedSpawn = true;
         }
         if (transform.position.y >= Camera.main.ViewportToWorldPoint(new Vector3(0, 1, 0)).y)
