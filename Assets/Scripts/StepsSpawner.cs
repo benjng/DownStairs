@@ -22,8 +22,8 @@ public class StepsSpawner : MonoBehaviour
     public static float VPSpawnPosY = 0.15f;
     [SerializeField] private GameObject step;
     [SerializeField] private GameObject[] spawnItems;
-    // Coin, Potion_R, Laser, Potion_F, Remote_Step, Poop, Potion_HP
-    [SerializeField] private List<float> probabilities = new List<float> { 0.2f, 0.1f, 0.0f, 0.1f, 0.1f, 0.1f, 0.1f }; 
+    // Coin, Potion_R, Laser, Potion_F, Remote_Step, Potion_HP
+    [SerializeField] private List<float> probabilities = new List<float> { 0.2f, 0.1f, 0.0f, 0.1f, 0.1f, 0.1f }; 
     [SerializeField] private float extraStepProb = 0.9f;
 
     // Event Handler

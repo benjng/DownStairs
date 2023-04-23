@@ -12,7 +12,7 @@ public class Step : MonoBehaviour
         upSpeed = StepsSpawner.stepUpSpeed;
         transform.position += new Vector3(0, upSpeed, 0) * Time.fixedDeltaTime;
         if (tag == "Step" && !invokedSpawn && Camera.main.WorldToViewportPoint(transform.position).y > StepsSpawner.VPSpawnPosY){
-            Debug.Log(transform.position.y);
+            // Debug.Log(transform.position.y);
             SpawnStepEvent?.Invoke();
             invokedSpawn = true;
         }
