@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8981613686775255589}
   - component: {fileID: 5428207999517782761}
   - component: {fileID: 13676343}
+  - component: {fileID: 8066200115128410661}
   m_Layer: 0
   m_Name: Spike
   m_TagString: Spike
@@ -152,4 +153,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aad48f5caecd434b9beff2a2d74e0ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bloodySpike: {fileID: 21300000, guid: 7e4accefcd64b824495dc57f5a530afa, type: 3}
+  animator: {fileID: 8066200115128410661}
+--- !u!95 &8066200115128410661
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8981613686775255587}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6fc57d9aba9fb2a4fadac2f1a6884837, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

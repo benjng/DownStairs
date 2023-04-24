@@ -42,8 +42,4 @@ public class InventoryItem : MonoBehaviour
     void RemoveItem(){
         Destroy(gameObject);
     }
-
-    public void PlaySound(){
-        AudioManager.instance.Play("");
-    }
 }

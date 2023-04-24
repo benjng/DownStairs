@@ -3,13 +3,15 @@ using UnityEngine;
 
 public class Spike : MonoBehaviour, IPlayContactSound
 {
-    [SerializeField] private Sprite bloodySpike;
+    [SerializeField] private Animator animator;
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             FindObjectOfType<CharacterStatus>().TakeDamage(1);
-            GetComponent<SpriteRenderer>().sprite = bloodySpike;
+            if (!animator.enabled)
+                animator.enabled = true;
+            animator.SetTrigger("startBleeding");
             DisableStepCollider();
             PlayContactSound();
         }
