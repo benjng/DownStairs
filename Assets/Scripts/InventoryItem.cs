@@ -33,6 +33,7 @@ public class InventoryItem : MonoBehaviour
         ItemQty--;
         Inventory.instance.SubtractItem(Item);
         // TODO: Play use sound here
+        Item.PlayUseSound();
 
         FindObjectOfType<AbilityManager>().ApplyAbility(Item);
     }

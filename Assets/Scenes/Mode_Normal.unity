@@ -509,30 +509,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
-    - target: {fileID: 1353335038101142535, guid: 9b0f3bc89e04bf24bb83e541ba160cb6, type: 3}
-      propertyPath: sounds.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1353335038101142535, guid: 9b0f3bc89e04bf24bb83e541ba160cb6, type: 3}
-      propertyPath: sounds.Array.data[4].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 176e7e29d21884b408bca2d23e74be1f, type: 3}
-    - target: {fileID: 1353335038101142535, guid: 9b0f3bc89e04bf24bb83e541ba160cb6, type: 3}
-      propertyPath: sounds.Array.data[4].name
-      value: CollectDrink
-      objectReference: {fileID: 0}
-    - target: {fileID: 1353335038101142535, guid: 9b0f3bc89e04bf24bb83e541ba160cb6, type: 3}
-      propertyPath: sounds.Array.data[4].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1353335038101142535, guid: 9b0f3bc89e04bf24bb83e541ba160cb6, type: 3}
-      propertyPath: sounds.Array.data[0].volume
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1353335038101142535, guid: 9b0f3bc89e04bf24bb83e541ba160cb6, type: 3}
-      propertyPath: sounds.Array.data[4].volume
-      value: 0.621
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b0f3bc89e04bf24bb83e541ba160cb6, type: 3}
 --- !u!1001 &3842776940096495404

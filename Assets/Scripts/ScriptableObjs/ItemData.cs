@@ -11,7 +11,12 @@ public class ItemData : ScriptableObject, IPlayContactSound
     public bool isUsable;
     public Abilities ability = Abilities.none;
     public AudioClip collectSound;
+    public AudioClip useSound;
     public virtual void PlayContactSound(){
         AudioManager.instance.Play(collectSound.name);
+    }
+    public void PlayUseSound(){
+        if (useSound == null) return;
+        AudioManager.instance.Play(useSound.name);
     }
 }
