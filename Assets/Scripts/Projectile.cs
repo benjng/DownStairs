@@ -31,6 +31,6 @@ public class Projectile : MonoBehaviour
         if (!startShooting){
             return;
         }
-        transform.position += new Vector3(projectile.speed * shootDir, StepsSpawner.stepUpSpeed, 0) * Time.fixedDeltaTime;
+        transform.position += new Vector3(projectile.speed * shootDir, StepsSpawner.StepUpSpeed, 0) * Time.fixedDeltaTime;
     }
 }

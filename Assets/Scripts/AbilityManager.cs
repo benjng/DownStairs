@@ -44,7 +44,7 @@ public class AbilityManager : MonoBehaviour
         charStatus.MultiplyMoveSpeed(multiplier);
     }
     public void MultiplyStepSpeed(float multiplier){
-        StepsSpawner.stepUpSpeed *= multiplier;
+        StepsSpawner.StepUpSpeed *= multiplier;
     }
     public void MultiplyGravity(float multiplier){
         charStatus.MultiplyGravity(multiplier);

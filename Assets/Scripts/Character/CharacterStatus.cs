@@ -14,8 +14,12 @@ public class CharacterStatus : MonoBehaviour
     [SerializeField] private GravityBar gravityBar;
 
     [SerializeField] private float currentMoveSpeed = 6f; // Include init speed
+    [SerializeField] private float minMoveSpeed = 1f;
     [SerializeField] private float maxMoveSpeed = 20f;
     [SerializeField] private SpeedBar speedBar;
+    [SerializeField] private float speedDecayInterval = 1.0f;
+    [SerializeField] private float speedDecayAmount = 0.1f;
+
 
     public float MoveSpeed { get => currentMoveSpeed; set => currentMoveSpeed = value; }
 
@@ -23,55 +27,71 @@ public class CharacterStatus : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.gravityScale = 0; //  Gravity set to 0 before game starts
+        
         InitHP();
         InitGravity();
         InitMoveSpeed();
+        StartCoroutine(DecayingCharSpeed());
     }
 
     void FixedUpdate(){
         if (!GameStarter.gameStarted) return;
-        UpdateGravity(currentGravity);
+        UpdateCharGravity(currentGravity);
     }
 
-    void UpdateGravity(float gravity){
+    void UpdateCharGravity(float gravity){
         rb.gravityScale = gravity;
     }
 
-    void InitHP(){
-        currentHeatlh = maxHeatlh;
-        healthBar.SetMaxValue(maxHeatlh); // Init healthbar appearance to max hp
-    }
 
-    void InitGravity(){
-        gravityBar.SetMaxValue(maxGravity); // Init max gravity appearance
-        gravityBar.SetValue(currentGravity); // 
-    }
 
-    void InitMoveSpeed(){
-        speedBar.SetMaxValue(maxMoveSpeed);
-        speedBar.SetValue(currentMoveSpeed);
-    }
+    #region Init Status/Status bar
+        void InitHP(){
+            currentHeatlh = maxHeatlh;
+            healthBar.SetMaxValue(maxHeatlh);
+            healthBar.SetValue(currentHeatlh);
+        }
 
-    public void TakeDamage(int damage){
-        currentHeatlh -= damage;
-        healthBar.SetValue(currentHeatlh);
-        if (currentHeatlh <= 0)
-            SceneManager.LoadScene(3);
-    }
-    public void TakeHeal(int heal){
-        if (currentHeatlh == maxHeatlh) return;
-        currentHeatlh += heal;
-        healthBar.SetValue(currentHeatlh);
-    }
+        void InitGravity(){
+            rb.gravityScale = 0;
+            gravityBar.SetMaxValue(maxGravity);
+            gravityBar.SetValue(currentGravity);
+        }
 
-    public void MultiplyGravity(float multiplier){
-        currentGravity *= multiplier;
-        gravityBar.SetValue(currentGravity);
-    }
+        void InitMoveSpeed(){
+            speedBar.SetMaxValue(maxMoveSpeed);
+            speedBar.SetValue(currentMoveSpeed);
+        }
+    #endregion
 
-    public void MultiplyMoveSpeed(float multiplier){
-        currentMoveSpeed *= multiplier;
-        speedBar.SetValue(currentMoveSpeed);
-    }
+    #region Modify Status bar/ Losing condition
+        public void TakeDamage(int damage){
+            currentHeatlh -= damage;
+            healthBar.SetValue(currentHeatlh);
+            if (currentHeatlh <= 0)
+                SceneManager.LoadScene(3);
+        }
+        public void TakeHeal(int heal){
+            if (currentHeatlh == maxHeatlh) return;
+            currentHeatlh += heal;
+            healthBar.SetValue(currentHeatlh);
+        }
+
+        public void MultiplyGravity(float multiplier){
+            currentGravity *= multiplier;
+            gravityBar.SetValue(currentGravity);
+        }
+
+        public void MultiplyMoveSpeed(float multiplier){
+            currentMoveSpeed *= multiplier;
+            speedBar.SetValue(currentMoveSpeed);
+        }
+
+        IEnumerator DecayingCharSpeed(){
+            if (currentMoveSpeed < minMoveSpeed) yield return new WaitForSeconds(0);
+            currentMoveSpeed -= speedDecayAmount;
+            speedBar.SetValue(currentMoveSpeed);
+            yield return new WaitForSeconds(speedDecayInterval);
+        }
+    #endregion
 }

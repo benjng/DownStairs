@@ -39,13 +39,13 @@ public class TestAbilityManager
     //     // Arrange
     //     float testMultiplier = 1.6f;
     //     float originStepUpSpeed = 17.85f;
-    //     StepsSpawner.stepUpSpeed = originStepUpSpeed;
+    //     StepsSpawner.StepUpSpeed = originStepUpSpeed;
 
     //     // Act
     //     abilityManager.MultiplyStepSpeed(testMultiplier);
         
     //     // Assert
     //     float expectedStepUpSpeed = originStepUpSpeed*testMultiplier;
-    //     Assert.AreEqual(expectedStepUpSpeed, StepsSpawner.stepUpSpeed);
+    //     Assert.AreEqual(expectedStepUpSpeed, StepsSpawner.StepUpSpeed);
     // }
 }

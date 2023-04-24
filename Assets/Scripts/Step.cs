@@ -9,7 +9,7 @@ public class Step : MonoBehaviour
 
     void FixedUpdate()
     {
-        upSpeed = StepsSpawner.stepUpSpeed;
+        upSpeed = StepsSpawner.StepUpSpeed;
         transform.position += new Vector3(0, upSpeed, 0) * Time.fixedDeltaTime;
         if (tag == "Step" && !invokedSpawn && Camera.main.WorldToViewportPoint(transform.position).y > StepsSpawner.VPSpawnPosY){
             // Debug.Log(transform.position.y);

@@ -18,7 +18,7 @@ public class StepsSpawner : MonoBehaviour
     }
     #endregion
     
-    public static float stepUpSpeed = 2;
+    public static float StepUpSpeed = 3;
     public static float VPSpawnPosY = 0.15f; // Vertical Port Spawn Position Y
     [SerializeField] private GameObject step;
     [SerializeField] private GameObject[] spawnItems;
@@ -40,9 +40,9 @@ public class StepsSpawner : MonoBehaviour
 
     private void FixedUpdate()
     {
-        stepUpSpeed += Time.fixedDeltaTime / Time.realtimeSinceStartup;
-        // spawnInterval = stepUpSpeed/2;
-        // Debug.Log(stepUpSpeed + ":" + spawnInterval);
+        StepUpSpeed += Time.fixedDeltaTime / Time.realtimeSinceStartup;
+        // spawnInterval = StepUpSpeed/2;
+        // Debug.Log(StepUpSpeed + ":" + spawnInterval);
     }
 
     public Vector3 CreateStep(bool isRemoteStep) // A step set includes a step, and a possible spawn item
