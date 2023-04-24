@@ -21,7 +21,6 @@ public class Character : MonoBehaviour
     private float screenLx, screenRx;
     // public float MoveSpeed { get => moveSpeed; set => moveSpeed = value; }
     public GameObject TouchingStep { get; set; }
-    public List<GameObject> TouchingSteps = new List<GameObject>();
 
     void Start()
     {
@@ -60,8 +59,8 @@ public class Character : MonoBehaviour
         }
         
         // For spike Step removal sensing
-        if (collision.collider.CompareTag("Step") || collision.collider.CompareTag("ExtraStep")){
-            TouchingSteps.Add(collision.collider.gameObject);
+        if (collision.collider.CompareTag("Step") || collision.collider.CompareTag("ExtraStep") || collision.collider.CompareTag("RemoteStep")){
+            collision.collider.tag = "TouchingStep";
         }
     }
 
@@ -82,7 +81,6 @@ public class Character : MonoBehaviour
 
     void Movement()
     {
-        // Debug.Log(joystick.Horizontal);
         xInput = joystick.Horizontal;
         transform.position += new Vector3(xInput * charStatus.MoveSpeed * Time.fixedDeltaTime, 0, 0);
         

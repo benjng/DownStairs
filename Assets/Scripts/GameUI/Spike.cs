@@ -11,12 +11,11 @@ public class Spike : MonoBehaviour, IPlayContactSound
             FindObjectOfType<CharacterStatus>().TakeDamage(1);
             GetComponent<SpriteRenderer>().sprite = bloodySpike;
 
-            // TODO: Fix step bug/ old ts not removed bug
-            List<GameObject> touchingSteps = FindObjectOfType<Character>().TouchingSteps;
-            if (touchingSteps.Count != 0){
-                foreach (GameObject ts in touchingSteps){
-                    if (ts != null){
-                        ts.GetComponent<BoxCollider2D>().enabled = false;
+            Step[] allSteps = FindObjectsOfType<Step>();
+            if (allSteps.Length != 0){
+                foreach (Step s in allSteps){
+                    if (s != null && s.tag == "TouchingStep"){
+                        s.GetComponent<BoxCollider2D>().enabled = false;
                     }
                 }
             }
