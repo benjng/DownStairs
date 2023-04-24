@@ -43,6 +43,6 @@ public class InventoryItem : MonoBehaviour
     }
 
     public void PlaySound(){
-        FindObjectOfType<AudioManager>().Play("");
+        AudioManager.instance.Play("");
     }
 }

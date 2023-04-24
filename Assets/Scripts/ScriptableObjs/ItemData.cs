@@ -12,6 +12,6 @@ public class ItemData : ScriptableObject, IPlayContactSound
     public Abilities ability = Abilities.none;
     public AudioClip collectSound;
     public virtual void PlayContactSound(){
-        FindObjectOfType<AudioManager>().Play(collectSound.name);
+        AudioManager.instance.Play(collectSound.name);
     }
 }

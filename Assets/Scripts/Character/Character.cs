@@ -57,6 +57,11 @@ public class Character : MonoBehaviour
         
         // For spike Step removal sensing
         if (collision.collider.CompareTag("Step") || collision.collider.CompareTag("ExtraStep") || collision.collider.CompareTag("RemoteStep")){
+            if (Random.value > 0.4){
+                AudioManager.instance.Play("HitConcreteStep1");
+            } else {
+                AudioManager.instance.Play("HitConcreteStep2");
+            }
             collision.collider.tag = "TouchingStep";
         }
     }

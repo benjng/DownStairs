@@ -12,6 +12,6 @@ public class EquipmentData : ScriptableObject, IPlayContactSound
 
     public void PlayContactSound()
     {
-        FindObjectOfType<AudioManager>().Play(collectSound.name);
+        AudioManager.instance.Play(collectSound.name);
     }
 }

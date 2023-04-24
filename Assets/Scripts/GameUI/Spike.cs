@@ -28,9 +28,9 @@ public class Spike : MonoBehaviour, IPlayContactSound
 
     public void PlayContactSound(){
         if (Random.value > 0.4){
-            FindObjectOfType<AudioManager>().Play("HitSpike1");
+            AudioManager.instance.Play("HitSpike1");
         } else {
-            FindObjectOfType<AudioManager>().Play("HitSpike2");
+            AudioManager.instance.Play("HitSpike2");
         }
     }
 }
