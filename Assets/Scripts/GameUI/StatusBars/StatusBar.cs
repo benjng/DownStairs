@@ -12,7 +12,6 @@ public abstract class StatusBar : MonoBehaviour
     // int implmentation
     public virtual void SetMaxValue(int value){
         slider.maxValue = value;
-        // slider.value = value;
         fill.color = gradient.Evaluate(1f);
     }
     public virtual void SetValue(int value){
@@ -23,7 +22,6 @@ public abstract class StatusBar : MonoBehaviour
     // float implmentation
     public virtual void SetMaxValue(float value){
         slider.maxValue = value;
-        // slider.value = value;
         fill.color = gradient.Evaluate(1f);
     }
     public virtual void SetValue(float value){

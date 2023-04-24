@@ -43,8 +43,6 @@ public class CharacterStatus : MonoBehaviour
         rb.gravityScale = gravity;
     }
 
-
-
     #region Init Status/Status bar
         void InitHP(){
             currentHeatlh = maxHeatlh;
@@ -87,11 +85,18 @@ public class CharacterStatus : MonoBehaviour
             speedBar.SetValue(currentMoveSpeed);
         }
 
-        IEnumerator DecayingCharSpeed(){
-            if (currentMoveSpeed < minMoveSpeed) yield return new WaitForSeconds(0);
-            currentMoveSpeed -= speedDecayAmount;
+        public void Add1MoveSpeed(){
+            currentMoveSpeed += 1;
             speedBar.SetValue(currentMoveSpeed);
-            yield return new WaitForSeconds(speedDecayInterval);
+        }
+
+        IEnumerator DecayingCharSpeed(){
+            while (true){
+                if (currentMoveSpeed < minMoveSpeed) yield return new WaitForSeconds(0);
+                currentMoveSpeed -= speedDecayAmount;
+                speedBar.SetValue(currentMoveSpeed);
+                yield return new WaitForSeconds(speedDecayInterval);
+            }
         }
     #endregion
 }
