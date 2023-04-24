@@ -13,13 +13,11 @@ public class Character : MonoBehaviour
     [SerializeField] private RuntimeAnimatorController[] animatorControllers;
     [SerializeField] private CharAnimController charAnimController;
     [SerializeField] private CharacterStatus charStatus;
-    // [SerializeField] private float moveSpeed = 10;
 
 
     private Rigidbody2D rb;
     private float xInput;
     private float screenLx, screenRx;
-    // public float MoveSpeed { get => moveSpeed; set => moveSpeed = value; }
     public GameObject TouchingStep { get; set; }
 
     void Start()
@@ -52,7 +50,6 @@ public class Character : MonoBehaviour
         screenLx = -screenRx;
     }
 
-    // public ContactPoint2D[] contacts = new ContactPoint2D[5];  
     void OnCollisionEnter2D(Collision2D collision) {
         if (rb.velocity.y > -0.01) {
             charAnimController.ChangeState(charAnimStates[0]); //IDLE

@@ -230,7 +230,7 @@ Animator:
   m_GameObject: {fileID: 5146237268904041210}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 65fe9b03ac5cdef46baf7f553d79a9c8, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9482009b6135de8409d814d9ae8919d4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -299,15 +299,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fee9e10cf4ec62441bb754bb3bfc824e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charAnimStates: []
+  charAnimStates:
+  - {fileID: 3343626511137148778}
+  - {fileID: 618455353106601425}
+  - {fileID: 8740482319328854412}
+  - {fileID: 7070309611811443182}
+  - {fileID: 7070250027245093929}
+  - {fileID: 8200514056922086837}
   animator: {fileID: 5146237268904041088}
   joystick: {fileID: 0}
   animatorControllers:
   - {fileID: 9100000, guid: 65fe9b03ac5cdef46baf7f553d79a9c8, type: 2}
   - {fileID: 9100000, guid: 9482009b6135de8409d814d9ae8919d4, type: 2}
-  charAnimController: {fileID: 0}
-  moveSpeed: 10
-  TouchingSteps: []
+  charAnimController: {fileID: 5406409086659462709}
+  charStatus: {fileID: 3040207303585923489}
 --- !u!114 &5406409086659462709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,7 +325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3a43ad0e2ede8f419a4d1890746f08c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: {fileID: 0}
+  currentState: {fileID: 8200514056922086837}
 --- !u!114 &3040207303585923489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,6 +344,12 @@ MonoBehaviour:
   currentGravity: 1.1
   maxGravity: 3
   gravityBar: {fileID: 0}
+  currentMoveSpeed: 6
+  minMoveSpeed: 1
+  maxMoveSpeed: 20
+  speedBar: {fileID: 0}
+  speedDecayInterval: 1
+  speedDecayAmount: 0.1
 --- !u!114 &1580111524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -346,7 +357,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5146237268904041210}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 98eec35ceaecd0a4d8c2262fd5ec3576, type: 3}
   m_Name: 

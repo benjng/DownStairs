@@ -41,8 +41,6 @@ public class StepsSpawner : MonoBehaviour
     private void FixedUpdate()
     {
         StepUpSpeed += Time.fixedDeltaTime / Time.realtimeSinceStartup;
-        // spawnInterval = StepUpSpeed/2;
-        // Debug.Log(StepUpSpeed + ":" + spawnInterval);
     }
 
     public Vector3 CreateStep(bool isRemoteStep) // A step set includes a step, and a possible spawn item
@@ -51,6 +49,7 @@ public class StepsSpawner : MonoBehaviour
         float randWidth = Random.Range(0.0f, 1.0f);
         thisStep.transform.localPosition = Camera.main.ViewportToWorldPoint(new Vector3(randWidth, 0, 0));
         if (isRemoteStep)
+            // TODO: Change the remote step sprite here
             thisStep.tag = "RemoteStep";
         thisStep.SetActive(true);
 
@@ -63,13 +62,13 @@ public class StepsSpawner : MonoBehaviour
 
     // offset extra step from base step
     public void CreateExtraStep(Vector3 baseStepPos){
-        float xOffset = Random.Range(2, 5);
+        float xOffset = Random.Range(2.0f, 5.0f);
         if (Random.value < 0.5) {
             xOffset *= -1;
         }
         GameObject thisStep = Instantiate(step, gameObject.transform);
-        thisStep.transform.position = baseStepPos;
-        thisStep.transform.position += new Vector3(xOffset, 0, 0);
+        thisStep.transform.position = baseStepPos + new Vector3(xOffset, 0, 0);
+        // thisStep.transform.position += new Vector3(xOffset, 0, 0);
         thisStep.tag = "ExtraStep";
         thisStep.SetActive(true);
     }

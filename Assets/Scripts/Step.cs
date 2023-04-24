@@ -18,8 +18,6 @@ public class Step : MonoBehaviour
         }
         if (transform.position.y >= Camera.main.ViewportToWorldPoint(new Vector3(0, 1, 0)).y)
         {
-            // TODO: also destroy the same object in TouchingSteps list
-            // Character.TouchingSteps.Find(gameObject);
             Destroy(gameObject);
         }
     }
