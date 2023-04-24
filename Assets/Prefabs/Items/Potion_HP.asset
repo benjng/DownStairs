@@ -15,6 +15,7 @@ MonoBehaviour:
   name: Potion_HP
   icon: {fileID: 21300000, guid: 8a77781632b43f148b51214b0526ff89, type: 3}
   isCollectable: 1
+  isAutoConsume: 0
   isUsable: 1
-  ability: 4
+  ability: 3
   collectSound: {fileID: 8300000, guid: 176e7e29d21884b408bca2d23e74be1f, type: 3}

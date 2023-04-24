@@ -40,7 +40,7 @@ public class Inventory : MonoBehaviour
     public void SubtractItem(ItemData item){
         if (items.ContainsKey(item.name)){
             items[item.name]--;
-            Debug.Log("Item "+ item.name+ " subtracted. Current value: " + items[item.name]);
+            // Debug.Log("Item "+ item.name+ " subtracted. Current value: " + items[item.name]);
             if (items[item.name] <= 0) {
                 RemoveItem(item);
             }
@@ -52,6 +52,6 @@ public class Inventory : MonoBehaviour
     public void RemoveItem(ItemData item)
     {
         items.Remove(item.name);
-        Debug.Log("Item "+ item.name+ " deleted.");
+        // Debug.Log("Item "+ item.name+ " deleted.");
     }
 }

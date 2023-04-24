@@ -66,8 +66,8 @@ public class CharacterStatus : MonoBehaviour
         public void TakeDamage(int damage){
             currentHeatlh -= damage;
             healthBar.SetValue(currentHeatlh);
-            if (currentHeatlh <= 0)
-                SceneManager.LoadScene(3);
+            // if (currentHeatlh <= 0)
+                // SceneManager.LoadScene(3);
         }
         public void TakeHeal(int heal){
             if (currentHeatlh == maxHeatlh) return;
@@ -85,8 +85,8 @@ public class CharacterStatus : MonoBehaviour
             speedBar.SetValue(currentMoveSpeed);
         }
 
-        public void Add1MoveSpeed(){
-            currentMoveSpeed += 1;
+        public void AddMoveSpeed(float amount){
+            currentMoveSpeed += amount;
             speedBar.SetValue(currentMoveSpeed);
         }
 

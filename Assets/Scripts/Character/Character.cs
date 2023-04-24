@@ -9,7 +9,7 @@ public class Character : MonoBehaviour
     public CharAnimState[] charAnimStates;
 
     [SerializeField] private Animator animator;
-    [SerializeField] private Joystick joystick;
+    [SerializeField] private FloatingJoystick joystick;
     [SerializeField] private RuntimeAnimatorController[] animatorControllers;
     [SerializeField] private CharAnimController charAnimController;
     [SerializeField] private CharacterStatus charStatus;
@@ -82,6 +82,7 @@ public class Character : MonoBehaviour
 
     void Movement()
     {
+        // Debug.Log(joystick.Horizontal);
         xInput = joystick.Horizontal;
         transform.position += new Vector3(xInput * charStatus.MoveSpeed * Time.fixedDeltaTime, 0, 0);
         
