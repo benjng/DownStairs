@@ -6,7 +6,7 @@ public class CharAnimController : MonoBehaviour
 {
     [SerializeField] private CharAnimState currentState;
 
-    void Awake(){
+    void Start(){
         currentState.Enter(); // Init Animation state
     }
     
