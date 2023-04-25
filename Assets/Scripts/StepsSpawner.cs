@@ -53,11 +53,11 @@ public class StepsSpawner : MonoBehaviour
             // TODO: Change the remote step sprite here
             thisStep.tag = "RemoteStep";
         thisStep.SetActive(true);
-
-        // No item generate for simple mode
-        if (MenuSystem.gameMode != GameMode.Simple) {
-            CreateItemByChance(thisStep);
-        }
+        CreateItemByChance(thisStep);
+        
+        // if (MenuSystem.gameMode != GameMode.Simple) {
+        //     CreateItemByChance(thisStep);
+        // }
         return thisStep.transform.position;
     }
 

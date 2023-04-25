@@ -13,14 +13,15 @@ public class LevelLoader : MonoBehaviour
 
     public void StartGame()
     {
-        if (MenuSystem.gameMode == GameMode.Simple){
             StartCoroutine(LoadLevel(1));
-            return;
-        } 
-        if (MenuSystem.gameMode == GameMode.Normal){
-            StartCoroutine(LoadLevel(2));
-            return;
-        }
+        // if (MenuSystem.gameMode == GameMode.Simple){
+        //     StartCoroutine(LoadLevel(1));
+        //     return;
+        // } 
+        // if (MenuSystem.gameMode == GameMode.Normal){
+        //     StartCoroutine(LoadLevel(2));
+        //     return;
+        // }
     }
 
     IEnumerator LoadLevel(int levelIndex){

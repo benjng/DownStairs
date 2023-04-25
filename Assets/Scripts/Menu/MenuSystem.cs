@@ -6,8 +6,8 @@ using TMPro;
 public class MenuSystem : MonoBehaviour
 {
     #region Game Parameters
-    public static CharSkin charSkin;
-    public static GameMode gameMode;
+        public static CharSkin charSkin;
+        // public static GameMode gameMode;
     #endregion
     
     [SerializeField] private TMP_Text gameModeText;
@@ -15,7 +15,7 @@ public class MenuSystem : MonoBehaviour
 
     void Awake(){
         currentState.Enter(); // Init state
-        gameModeText.text = gameMode.ToString();
+        // gameModeText.text = gameMode.ToString();
     }
 
     // Btn ref

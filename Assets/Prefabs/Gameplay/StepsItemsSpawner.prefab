@@ -60,3 +60,4 @@ MonoBehaviour:
   - 0.1
   - 0.1
   extraStepProb: 0.3
+  spawnSensor: {fileID: 2788816346085797154, guid: 3dab5e2c8883f02428205100fded233b, type: 3}

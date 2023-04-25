@@ -20,5 +20,4 @@ public class SpawnSensor : Step
     }
 
     public override void GenerateItem(GameObject item){}
-    // public override void CheckIfDestroySelf(){}
 }

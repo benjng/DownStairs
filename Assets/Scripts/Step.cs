@@ -3,6 +3,8 @@ using UnityEngine;
 public class Step : MonoBehaviour
 {
     private float upSpeed;
+    [SerializeField] private float itemYOffset = 0.2f;
+    [SerializeField] private float itemXOffset = 0.4f;
 
     public void FixedUpdate()
     {
@@ -22,6 +24,6 @@ public class Step : MonoBehaviour
     public virtual void GenerateItem(GameObject item)
     {
         GameObject thisItem = Instantiate(item, transform);
-        thisItem.transform.localPosition = new Vector3(0, 0.2f, 0);
+        thisItem.transform.localPosition = new Vector3(Random.Range(-itemXOffset, itemXOffset), itemYOffset, 0);
     }
 }

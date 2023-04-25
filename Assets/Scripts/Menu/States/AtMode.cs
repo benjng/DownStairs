@@ -20,17 +20,17 @@ public class AtMode : MenuState
         gameObject.SetActive(false);
     }
 
-    void Start(){
-        simpleBtn.onClick.AddListener(OnSimpleClicked);
-        normalBtn.onClick.AddListener(OnNormalClicked);
-    }
+    // void Start(){
+    //     simpleBtn.onClick.AddListener(OnSimpleClicked);
+    //     normalBtn.onClick.AddListener(OnNormalClicked);
+    // }
 
-    void OnSimpleClicked(){
-        MenuSystem.gameMode = GameMode.Simple;
-        gameModeText.text = GameMode.Simple.ToString();
-    }
-    void OnNormalClicked(){
-        MenuSystem.gameMode = GameMode.Normal;
-        gameModeText.text = GameMode.Normal.ToString();
-    }
+    // void OnSimpleClicked(){
+    //     MenuSystem.gameMode = GameMode.Simple;
+    //     gameModeText.text = GameMode.Simple.ToString();
+    // }
+    // void OnNormalClicked(){
+    //     MenuSystem.gameMode = GameMode.Normal;
+    //     gameModeText.text = GameMode.Normal.ToString();
+    // }
 }

@@ -64,13 +64,14 @@ public class CharacterStatus : MonoBehaviour
 
     #region Modify Status bar/ Losing condition
         public void TakeDamage(int damage){
+            if (currentHeatlh < 1) return;
             currentHeatlh -= damage;
             healthBar.SetValue(currentHeatlh);
             // if (currentHeatlh <= 0)
                 // SceneManager.LoadScene(3);
         }
         public void TakeHeal(int heal){
-            if (currentHeatlh == maxHeatlh) return;
+            if (currentHeatlh >= maxHeatlh) return;
             currentHeatlh += heal;
             healthBar.SetValue(currentHeatlh);
         }
@@ -92,11 +93,14 @@ public class CharacterStatus : MonoBehaviour
 
         IEnumerator DecayingCharSpeed(){
             while (true){
-                if (currentMoveSpeed < minMoveSpeed) yield return new WaitForSeconds(0);
-                currentMoveSpeed -= speedDecayAmount;
-                speedBar.SetValue(currentMoveSpeed);
-                yield return new WaitForSeconds(speedDecayInterval);
-            }
+                while (currentMoveSpeed > minMoveSpeed){
+                    currentMoveSpeed -= speedDecayAmount;
+                    speedBar.SetValue(currentMoveSpeed);
+                    yield return new WaitForSeconds(speedDecayInterval);
+                }
+                yield return new WaitForSeconds(0.1f);
+                // yield return new WaitUntil(() => currentMoveSpeed > minMoveSpeed);
+            }  
         }
     #endregion
 }
