@@ -25,6 +25,7 @@ public class StepsSpawner : MonoBehaviour
     // Coin, Potion_R, Laser, Potion_F, Remote_Step, Potion_HP
     [SerializeField] private List<float> probabilities = new List<float> { 0.2f, 0.1f, 0.0f, 0.1f, 0.1f, 0.1f }; 
     [SerializeField] private float extraStepProb = 0.9f;
+    [SerializeField] private GameObject spawnSensor;
 
     // Event Handler
     public delegate void PrintFloorEventHandler();
@@ -35,7 +36,7 @@ public class StepsSpawner : MonoBehaviour
     void Start()
     {
         SpawnStepsAndItems(); // Init
-        Step.SpawnStepEvent += SpawnStepsAndItems;
+        SpawnSensor.SpawnStepEvent += SpawnStepsAndItems;
     }
 
     private void FixedUpdate()
@@ -94,10 +95,16 @@ public class StepsSpawner : MonoBehaviour
         }
     }
 
+    // Spawn sensor tells when to spawn the next step
+    void CreateSpawnSensor(Vector3 baseStepPos){
+        Instantiate(spawnSensor, baseStepPos, new Quaternion(), transform);
+    }
+
     // Spawn steps with time interval
     private void SpawnStepsAndItems()
     {
         Vector3 baseStepPos = CreateStep(false);
+        CreateSpawnSensor(baseStepPos);
         if (Random.value < extraStepProb)
         {
             CreateExtraStep(baseStepPos);
