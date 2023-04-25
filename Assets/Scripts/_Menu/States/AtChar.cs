@@ -24,9 +24,9 @@ public class AtChar : MenuState
     }
 
     void OnBoyClicked(){
-        MenuSystem.charSkin = CharSkin.Boy;
+        SkinManager.charSkin = CharSkin.Boy;
     }
     void OnGirlClicked(){
-        MenuSystem.charSkin = CharSkin.Girl;
+        SkinManager.charSkin = CharSkin.Girl;
     }
 }

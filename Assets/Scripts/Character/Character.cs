@@ -38,9 +38,9 @@ public class Character : MonoBehaviour
     }
 
     void SelectAnimatorController(){
-        if (MenuSystem.charSkin == CharSkin.Boy){
+        if (SkinManager.charSkin == CharSkin.Boy){
             animator.runtimeAnimatorController = animatorControllers[0];
-        } else if (MenuSystem.charSkin == CharSkin.Girl) {
+        } else if (SkinManager.charSkin == CharSkin.Girl) {
             animator.runtimeAnimatorController = animatorControllers[1];
         }
     }
