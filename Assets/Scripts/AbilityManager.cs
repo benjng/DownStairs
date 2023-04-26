@@ -13,14 +13,14 @@ public class AbilityManager : MonoBehaviour
     #endregion
 
     [SerializeField] private CharacterStatus charStatus;
-    private StepsSpawner stepsSpawner;
+    [SerializeField] private StepsSpawner stepsSpawner;
 
     [SerializeField] private int healAmount = 1;
     [SerializeField] private float moveSpeedAmount = 1.0f;
 
-    void Start(){
-        stepsSpawner = StepsSpawner.instance;
-    }
+    // void Start(){
+    //     stepsSpawner = StepsSpawner.instance;
+    // }
 
     public void ApplyAbility(ItemData item){
         switch (item.ability){

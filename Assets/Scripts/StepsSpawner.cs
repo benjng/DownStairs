@@ -5,18 +5,21 @@ using TMPro;
 
 public class StepsSpawner : MonoBehaviour
 {
-    #region Singleton
-    public static StepsSpawner instance;
-    private void Awake()
-    {
-        if (instance != null)
-        {
-            Debug.LogWarning("More than one instance of StepsSpawner found!");
-            return;
-        }
-        instance = this; // Create the unique instance of StepsSpawner
-    }
-    #endregion
+    // #region Singleton
+    // public static StepsSpawner instance;
+    // private void Awake()
+    // {
+    //     if (instance != null)
+    //     {
+    //         Debug.LogWarning("More than one instance of StepsSpawner found!");
+    //         Destroy(instance.gameObject);
+    //         return;
+    //     } else {
+    //         Debug.Log("No existing ss instance found. Creating a new one.");
+    //     }
+    //     instance = this; // Create the unique instance of StepsSpawner
+    // }
+    // #endregion
     
     public static float StepUpSpeed = 3;
     public static float VPSpawnPosY = 0.15f; // Vertical Port Spawn Position Y
@@ -37,6 +40,10 @@ public class StepsSpawner : MonoBehaviour
     {
         SpawnStepsAndItems(); // Init
         SpawnSensor.SpawnStepEvent += SpawnStepsAndItems;
+    }
+
+    void OnDestroy() {
+        SpawnSensor.SpawnStepEvent -= SpawnStepsAndItems;
     }
 
     private void FixedUpdate()

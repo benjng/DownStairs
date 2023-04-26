@@ -67,8 +67,8 @@ public class CharacterStatus : MonoBehaviour
             if (currentHeatlh < 1) return;
             currentHeatlh -= damage;
             healthBar.SetValue(currentHeatlh);
-            // if (currentHeatlh <= 0)
-                // SceneManager.LoadScene(3);
+            if (currentHeatlh <= 0)
+                StartCoroutine(LevelLoader.instance.LoadLevel(2));
         }
         public void TakeHeal(int heal){
             if (currentHeatlh >= maxHeatlh) return;

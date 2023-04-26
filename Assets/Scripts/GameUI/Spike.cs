@@ -4,11 +4,13 @@ using UnityEngine;
 public class Spike : MonoBehaviour, IPlayContactSound
 {
     [SerializeField] private Animator animator;
+    [SerializeField] private int spikeDmg = 10;
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            FindObjectOfType<CharacterStatus>().TakeDamage(1);
+            FindObjectOfType<CharacterStatus>().TakeDamage(spikeDmg);
             if (!animator.enabled)
                 animator.enabled = true;
             animator.SetTrigger("startBleeding");

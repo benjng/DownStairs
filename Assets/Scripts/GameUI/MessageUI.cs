@@ -11,6 +11,10 @@ public class MessageUI : MonoBehaviour
         StepsSpawner.PrintFloor += UpdateFloor;
     }
 
+    void OnDestroy() {
+        StepsSpawner.PrintFloor -= UpdateFloor;
+    }
+
     void UpdateFloor(){
         countText.fontSize = 200;
         countText.color = new Color(countText.color.r, countText.color.g, countText.color.b, 1);
