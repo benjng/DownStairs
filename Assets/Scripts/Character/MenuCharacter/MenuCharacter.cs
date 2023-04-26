@@ -38,7 +38,7 @@ public class MenuCharacter : MonoBehaviour
     void SelectAnimatorController(int index){
         animator.runtimeAnimatorController = animatorControllers[index]; // [0]:Boy controller [1]:Girl controller
     }
-
+    
     void Movement()
     {
         xInput = joystick.Horizontal;
@@ -57,6 +57,7 @@ public class MenuCharacter : MonoBehaviour
                 currentACIndex = animatorControllers.Length-1;
         } else return;
         SelectAnimatorController(currentACIndex);
+        SkinManager.charSkin = (CharSkin)currentACIndex;
     }
 
     void FixedUpdate(){
