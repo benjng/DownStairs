@@ -30,7 +30,7 @@ public class Character : MonoBehaviour
     void FixedUpdate()
     {
         // Check if game has started by UI counter
-        if (!GameStarter.gameStarted) return;
+        if (!GameStarter.GameStarted) return;
 
         AnimationStateController();
         Movement();

@@ -38,6 +38,7 @@ public class StepsSpawner : MonoBehaviour
 
     void Start()
     {
+        CurrentFloor = 0;
         SpawnStepsAndItems(); // Init
         SpawnSensor.SpawnStepEvent += SpawnStepsAndItems;
     }

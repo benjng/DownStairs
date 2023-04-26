@@ -41,7 +41,7 @@ public class CharacterCombat : MonoBehaviour
 
     void Update()
     {
-        if (!GameStarter.gameStarted) return;
+        if (!GameStarter.GameStarted) return;
         if (joystick.Horizontal > 0){
             currentFaceDir = 1;
         } else if (joystick.Horizontal < 0){

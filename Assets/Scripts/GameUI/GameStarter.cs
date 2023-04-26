@@ -4,12 +4,13 @@ using TMPro;
 
 public class GameStarter : MonoBehaviour
 {
-    public static bool gameStarted = false;
+    public static bool GameStarted = false;
 
     [SerializeField] private TMP_Text count;
 
     void Start()
     {
+        GameStarted = false;
         StartCoroutine(CountStart());
     }
 
@@ -24,7 +25,7 @@ public class GameStarter : MonoBehaviour
         yield return new WaitForSeconds(1);
         count.fontSize = 200;
         count.text = "Start!";
-        gameStarted = true;
+        GameStarted = true;
         yield return new WaitForSeconds(1);
         count.text = "";
     }

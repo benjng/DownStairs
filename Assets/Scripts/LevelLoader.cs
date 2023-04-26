@@ -19,25 +19,24 @@ public class LevelLoader : MonoBehaviour
     void Awake(){
         if (instance != null){
             Debug.LogWarning("Duplicated LevelLoader instance found.");
-            Destroy(instance.gameObject);
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
-        // Debug.Log("Has current Player: "+ PlayerPrefs.HasKey("CurrentPlayer"));
-        
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
+    // OnDestroy(){ SceneManager.sceneLoaded -= OnSceneLoaded; }
     void Start(){
         // Debug.Log("Current Player: "+ PlayerPrefs.GetString("CurrentPlayer"));
         if (PlayerPrefs.HasKey("CurrentPlayer")){
             currentPlayer = PlayerPrefs.GetString("CurrentPlayer");
             playerNamePH.text = currentPlayer;
         } else {
-            playerNamePH.text = "???";
+            playerNamePH.text = "testing";
         }
     }
 
+    // StartBtn ref
     public void StartGame()
     {   
         if (playerName.text != null){
@@ -55,6 +54,10 @@ public class LevelLoader : MonoBehaviour
         yield return new WaitForSeconds(transitionTime);
         transition.SetTrigger("FadeIn");
         SceneManager.LoadScene(levelIndex, LoadSceneMode.Single);
+        if (levelIndex == 0){
+            Destroy(gameObject);
+            instance = null;
+        }
     }
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode){
@@ -74,7 +77,7 @@ public class LevelLoader : MonoBehaviour
     }
 
     public void ResetToMainMenu(){
-        GameStarter.gameStarted = false;
+        GameStarter.GameStarted = false;
         StartCoroutine(LoadLevel(0));
     }
 }
