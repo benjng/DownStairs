@@ -12,11 +12,13 @@ public class MenuCharacter : MonoBehaviour
     [SerializeField] private float moveSpeed;
     private float xInput;
     private float screenLx, screenRx;
+    
+    [SerializeField] private int currentACIndex = 0;
 
 
     void Start()
     {
-        SelectAnimatorController();
+        SelectAnimatorController(0);
         SetScreenLR();
     }
 
@@ -24,15 +26,6 @@ public class MenuCharacter : MonoBehaviour
         screenRx = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0, 0)).x;
         screenLx = -screenRx;
     }
-
-    void SelectAnimatorController(){
-        if (SkinManager.charSkin == CharSkin.Boy){
-            animator.runtimeAnimatorController = animatorControllers[0]; // Boy controller
-        } else if (SkinManager.charSkin == CharSkin.Girl) {
-            animator.runtimeAnimatorController = animatorControllers[1]; // Girl controller
-        }
-    }
-
     void AnimationStateController(){
         if (xInput < 0) {
             charAnimController.ChangeState(charAnimStates[1]); //LEFT
@@ -42,6 +35,9 @@ public class MenuCharacter : MonoBehaviour
             charAnimController.ChangeState(charAnimStates[0]); //IDLE
         }
     }
+    void SelectAnimatorController(int index){
+        animator.runtimeAnimatorController = animatorControllers[index]; // [0]:Boy controller [1]:Girl controller
+    }
 
     void Movement()
     {
@@ -49,13 +45,18 @@ public class MenuCharacter : MonoBehaviour
         transform.position += new Vector3(xInput * moveSpeed * Time.fixedDeltaTime, 0, 0);
         
         // Character Warpping
-        if (transform.position.x < screenLx)
-        {
+        if (transform.position.x < screenLx){
             transform.position = new Vector3(screenRx, transform.position.y, transform.position.z);
-        } else if (transform.position.x > screenRx)
-        {
+            currentACIndex++;
+            if (currentACIndex > animatorControllers.Length-1)
+                currentACIndex = 0;
+        } else if (transform.position.x > screenRx){
             transform.position = new Vector3(screenLx, transform.position.y, transform.position.z);
-        }
+            currentACIndex--;
+            if (currentACIndex < 0) 
+                currentACIndex = animatorControllers.Length-1;
+        } else return;
+        SelectAnimatorController(currentACIndex);
     }
 
     void FixedUpdate(){
