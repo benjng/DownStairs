@@ -11,9 +11,9 @@ public class LevelLoader : MonoBehaviour
 
     public Animator transition;
     public float transitionTime = 1f;
-    [SerializeField] private TMP_Text playerName;
+    [SerializeField] private TMP_InputField playerInputField;
+    // [SerializeField] private TMP_Text playerInput;
     [SerializeField] private TMP_Text playerNamePH;
-    [SerializeField] private GameObject retryBtn;
     private string currentPlayer;
 
     void Awake(){
@@ -27,34 +27,35 @@ public class LevelLoader : MonoBehaviour
 
     // OnDestroy(){ SceneManager.sceneLoaded -= OnSceneLoaded; }
     void Start(){
-        // Debug.Log("Current Player: "+ PlayerPrefs.GetString("CurrentPlayer"));
-        if (PlayerPrefs.HasKey("CurrentPlayer")){
-            currentPlayer = PlayerPrefs.GetString("CurrentPlayer");
-            playerNamePH.text = currentPlayer;
-        } else {
-            playerNamePH.text = "testing";
-        }
+        InitNameField();
+    }
+
+    void InitNameField(){
+        currentPlayer = PlayerPrefs.GetString("CurrentPlayer", playerNamePH.text);
+        Debug.Log(currentPlayer);
+        playerInputField.text = currentPlayer; // Init StartMenu name field 
     }
 
     // StartBtn ref
     public void StartGame()
     {   
-        if (playerName.text != null){
-            PlayerPrefs.SetString("CurrentPlayer", playerName.text);
-        } else {
-            PlayerPrefs.SetString("CurrentPlayer", playerNamePH.text);
-        }
+        currentPlayer = playerInputField.text;
+        PlayerPrefs.SetString("CurrentPlayer", currentPlayer);
         PlayerPrefs.Save();
 
         StartCoroutine(LoadLevel(1));
     }
 
     public IEnumerator LoadLevel(int levelIndex){
+        // Transition animation
         transition.SetTrigger("FadeOut");
         yield return new WaitForSeconds(transitionTime);
         transition.SetTrigger("FadeIn");
+
         SceneManager.LoadScene(levelIndex, LoadSceneMode.Single);
-        if (levelIndex == 0){
+        
+        // renew LevelLoader cycle
+        if (levelIndex == 0){ 
             Destroy(gameObject);
             instance = null;
         }
@@ -71,7 +72,7 @@ public class LevelLoader : MonoBehaviour
         }
         if (scene.buildIndex == 2){ // End Menu
             // Debug.Log("EndMenu");
-            Debug.Log(PlayerPrefs.GetString("CurrentPlayer"));
+            Debug.Log("EndMenu Player: "+PlayerPrefs.GetString("CurrentPlayer"));
             return;
         }
     }

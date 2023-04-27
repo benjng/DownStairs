@@ -1100,19 +1100,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8170153792821263258, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8170153792821263258, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8170153792821263258, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8170153792821263258, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8170153792821263258, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
       propertyPath: m_LocalScale.x
@@ -1128,7 +1128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8170153792821263258, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000015258788
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8170153792821263258, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1693,7 +1693,7 @@ MonoBehaviour:
   m_CharacterValidation: 0
   m_RegexValue: 
   m_GlobalPointSize: 14
-  m_CharacterLimit: 0
+  m_CharacterLimit: 10
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls: []
@@ -2440,16 +2440,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 8043583921615932801, guid: ab12c5912331c6f4fac69ee9f746ff3b, type: 3}
+      propertyPath: input
+      value: 
+      objectReference: {fileID: 1587144118}
+    - target: {fileID: 8043583921615932801, guid: ab12c5912331c6f4fac69ee9f746ff3b, type: 3}
       propertyPath: playerName
       value: 
       objectReference: {fileID: 214077267}
     - target: {fileID: 8043583921615932801, guid: ab12c5912331c6f4fac69ee9f746ff3b, type: 3}
+      propertyPath: playerInput
+      value: 
+      objectReference: {fileID: 1587144118}
+    - target: {fileID: 8043583921615932801, guid: ab12c5912331c6f4fac69ee9f746ff3b, type: 3}
       propertyPath: playerNamePH
       value: 
       objectReference: {fileID: 2030291130}
+    - target: {fileID: 8043583921615932801, guid: ab12c5912331c6f4fac69ee9f746ff3b, type: 3}
+      propertyPath: playerInputField
+      value: 
+      objectReference: {fileID: 1587144118}
     - target: {fileID: 8320826256569568950, guid: ab12c5912331c6f4fac69ee9f746ff3b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8320826257965805906, guid: ab12c5912331c6f4fac69ee9f746ff3b, type: 3}
       propertyPath: m_RootOrder
