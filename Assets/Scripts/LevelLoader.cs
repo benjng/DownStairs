@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 using TMPro;
 
 public class LevelLoader : MonoBehaviour
@@ -17,6 +18,7 @@ public class LevelLoader : MonoBehaviour
     private string currentPlayer;
 
     void Awake(){
+        // PlayerPrefs.DeleteAll();
         if (instance != null){
             Debug.LogWarning("Duplicated LevelLoader instance found.");
         }
@@ -71,23 +73,17 @@ public class LevelLoader : MonoBehaviour
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode){
         if (scene.buildIndex == 0){
-            Debug.Log("Loaded scene[0]: StartMenu");
+            // Debug.Log("Loaded scene[0]: StartMenu");
             return;
         }
         if (scene.buildIndex == 1){
-            Debug.Log("Loaded scene[1]: Normal");
+            // Debug.Log("Loaded scene[1]: Normal");
             return;
         }
         if (scene.buildIndex == 2){ // End Menu
-            Debug.Log("Loaded scene[2]: EndMenu");
+            // Debug.Log("Loaded scene[2]: EndMenu");
             return;
         }
-    }
-
-    void RankCurrentPlayer(){
-        // TODO: Loop through existing ranks (1-5)
-        // TODO: Compare each rank and assign current player floor count
-        // TODO: 
     }
 
     public void OnPlayerDeath(){
@@ -95,6 +91,26 @@ public class LevelLoader : MonoBehaviour
         PlayerPrefs.SetInt("CurrentFloorCount", StepsSpawner.CurrentFloor);
         RankCurrentPlayer();
         StartCoroutine(LoadLevel(2));
+    }
+    void RankCurrentPlayer(){
+        // Add current player to SortedRanks for order check
+        KeyValuePair<string, int> currentPlayer = new KeyValuePair<string, int>(PlayerPrefs.GetString("CurrentPlayer"), PlayerPrefs.GetInt("CurrentFloorCount"));
+        ScoreKeeper.SortedRanks.Add(currentPlayer);
+        ScoreKeeper.SortedRanks.Sort((x, y) => y.Value.CompareTo(x.Value));
+
+        // Update PlayerPrefs with the SortedRanks & SAVE it
+        int i=1;
+        foreach (KeyValuePair<string, int> pair in ScoreKeeper.SortedRanks)
+        {
+            
+            string playerName = pair.Key;
+            int playerScore = pair.Value;
+            PlayerPrefs.SetString("Rank_"+i.ToString()+"_Name", playerName);
+            PlayerPrefs.SetInt("Rank_"+i.ToString()+"_Floor", playerScore);
+            i++;
+            if (i >= 6) break; // Retrieve top 5 from sorted SortedRanks
+        } 
+        PlayerPrefs.Save();
     }
 
     public void ResetToMainMenu(){
