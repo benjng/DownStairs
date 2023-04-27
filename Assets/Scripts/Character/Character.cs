@@ -42,6 +42,8 @@ public class Character : MonoBehaviour
             animator.runtimeAnimatorController = animatorControllers[0];
         } else if (SkinManager.charSkin == CharSkin.Girl) {
             animator.runtimeAnimatorController = animatorControllers[1];
+        } else if (SkinManager.charSkin == CharSkin.Baby) {
+            animator.runtimeAnimatorController = animatorControllers[2];
         }
     }
 

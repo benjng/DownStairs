@@ -1,4 +1,5 @@
 public enum CharSkin{
     Boy,
-    Girl
+    Girl,
+    Baby
 }

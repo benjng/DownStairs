@@ -824,6 +824,10 @@ PrefabInstance:
       propertyPath: gravityBar
       value: 
       objectReference: {fileID: 818119956}
+    - target: {fileID: 5146237268904041088, guid: 54658a8a81fe3054f88708926a7e4929, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: a85a559e3c81cfb489323470ead262e5, type: 2}
     - target: {fileID: 5146237268904041089, guid: 54658a8a81fe3054f88708926a7e4929, type: 3}
       propertyPath: inventoryUI
       value: 
@@ -880,6 +884,10 @@ PrefabInstance:
       propertyPath: joystick
       value: 
       objectReference: {fileID: 143205757}
+    - target: {fileID: 5146237268904041215, guid: 54658a8a81fe3054f88708926a7e4929, type: 3}
+      propertyPath: animatorControllers.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54658a8a81fe3054f88708926a7e4929, type: 3}
 --- !u!1001 &5431935282929637752
