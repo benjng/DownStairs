@@ -1,18 +1,37 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class MessageUI : MonoBehaviour
+public class GameCounter : MonoBehaviour
 {
+    public static bool GameStarted = false;
+
     [SerializeField] private TMP_Text msgText;
+
     void Start()
     {
+        GameStarted = false;
         StepsSpawner.PrintFloor += UpdateFloor;
+        StartCoroutine(CountStart());
     }
 
     void OnDestroy() {
         StepsSpawner.PrintFloor -= UpdateFloor;
+    }
+
+    IEnumerator CountStart()
+    {
+        msgText.fontSize = 700; 
+        for (int i = 3; i > 0; i--){
+            msgText.text = i.ToString();
+            yield return new WaitForSeconds(1);
+        }
+        
+        msgText.fontSize = 200;
+        msgText.text = "Start!";
+        GameStarted = true;
+        yield return new WaitForSeconds(1);
+        msgText.text = "";
     }
 
     void UpdateFloor(){

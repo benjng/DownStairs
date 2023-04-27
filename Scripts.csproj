@@ -46,6 +46,7 @@
      <Compile Include="Assets\Scripts\_Menu\States\MenuState.cs" />
      <Compile Include="Assets\Scripts\Enums\GameMode.cs" />
      <Compile Include="Assets\Scripts\AbilityManager.cs" />
+     <Compile Include="Assets\Scripts\EndMenu.cs" />
      <Compile Include="Assets\Scripts\GameUI\Spike.cs" />
      <Compile Include="Assets\Scripts\Enums\Abilities.cs" />
      <Compile Include="Assets\Scripts\SkinManager.cs" />
@@ -74,7 +75,6 @@
      <Compile Include="Assets\Scripts\Character\CharAnimation\States\FistAtkRight.cs" />
      <Compile Include="Assets\Scripts\Character\Character.cs" />
      <Compile Include="Assets\Scripts\GameUI\StatusBars\HealthBar.cs" />
-     <Compile Include="Assets\Scripts\GameUI\GameStarter.cs" />
      <Compile Include="Assets\Scripts\Inventory.cs" />
      <Compile Include="Assets\Scripts\Character\MenuCharacter\MenuCharacter.cs" />
      <Compile Include="Assets\Scripts\Character\CharAnimation\States\IsIdle.cs" />
@@ -88,11 +88,10 @@
      <Compile Include="Assets\Scripts\InventoryItem.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjs\EquipmentData.cs" />
      <Compile Include="Assets\Scripts\AudioManager\AudioManager.cs" />
-     <Compile Include="Assets\Scripts\GameUI\MessageUI.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjs\ProjectileData.cs" />
      <Compile Include="Assets\Scripts\_Menu\States\AtMode.cs" />
      <Compile Include="Assets\Scripts\Item.cs" />
-     <Compile Include="Assets\Scripts\EndMenu.cs" />
+     <Compile Include="Assets\Scripts\GameUI\GameCounter.cs" />
      <None Include="Assets\Scripts\Scripts.asmdef" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.19f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>

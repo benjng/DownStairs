@@ -35,7 +35,7 @@ public class CharacterStatus : MonoBehaviour
     }
 
     void FixedUpdate(){
-        if (!GameStarter.GameStarted) return;
+        if (!GameCounter.GameStarted) return;
         UpdateCharGravity(currentGravity);
     }
 

@@ -77,7 +77,7 @@ public class LevelLoader : MonoBehaviour
     }
 
     public void ResetToMainMenu(){
-        GameStarter.GameStarted = false;
+        GameCounter.GameStarted = false;
         StartCoroutine(LoadLevel(0));
     }
 }
