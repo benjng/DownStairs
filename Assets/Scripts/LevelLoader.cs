@@ -41,6 +41,9 @@ public class LevelLoader : MonoBehaviour
     {   
         currentPlayer = playerInputField.text;
         PlayerPrefs.SetString("CurrentPlayer", currentPlayer);
+        PlayerPrefs.SetInt("CurrentCoinCount", 0);
+        PlayerPrefs.SetInt("CurrentFloorCount", 0);
+
         PlayerPrefs.Save();
 
         StartCoroutine(LoadLevel(1));
@@ -53,7 +56,7 @@ public class LevelLoader : MonoBehaviour
         transition.SetTrigger("FadeIn");
 
         SceneManager.LoadScene(levelIndex, LoadSceneMode.Single);
-        
+
         // renew LevelLoader cycle
         if (levelIndex == 0){ 
             Destroy(gameObject);

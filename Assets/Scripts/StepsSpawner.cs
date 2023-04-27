@@ -45,11 +45,13 @@ public class StepsSpawner : MonoBehaviour
 
     void OnDestroy() {
         SpawnSensor.SpawnStepEvent -= SpawnStepsAndItems;
+        StepUpSpeed = 3; // Reset for next game cycle
     }
 
     private void FixedUpdate()
     {
         StepUpSpeed += Time.fixedDeltaTime / Time.realtimeSinceStartup;
+        Debug.Log(StepUpSpeed);
     }
 
     public Vector3 CreateStep(bool isRemoteStep) // A step set includes a step, and a possible spawn item

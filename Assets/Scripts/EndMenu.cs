@@ -14,8 +14,8 @@ public class EndMenu : MonoBehaviour
     {
         retryBtn.onClick.AddListener(Reset);
         currentPlayer.text = PlayerPrefs.GetString("CurrentPlayer");
-        coinCount.text = PlayerPrefs.GetString("CurrentCoinCount", "9999c");
-        floorCount.text = PlayerPrefs.GetString("CurrentFloorCount", "9999f");
+        coinCount.text = "+ " + PlayerPrefs.GetInt("CurrentCoinCount", 9999).ToString();
+        floorCount.text = PlayerPrefs.GetInt("CurrentFloorCount", 9999).ToString() + "/F";
     }
 
     // TODO: Add player info to leaderboard

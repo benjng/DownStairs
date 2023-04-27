@@ -25,9 +25,11 @@ public class Inventory : MonoBehaviour
 
     public Dictionary<string, int> Items { get => items; set => items = value; }
     public InventoryUI InventoryUI { get => inventoryUI; set => inventoryUI = value; }
+    private int currentCoinCount = 0;
 
     public void AddItem(ItemData item)
     {
+        UpdatePlayerCoinCount(item);
         if (items.ContainsKey(item.name)){
             items[item.name]++; // Add 1 to existing item
         } else {
@@ -53,5 +55,12 @@ public class Inventory : MonoBehaviour
     {
         items.Remove(item.name);
         // Debug.Log("Item "+ item.name+ " deleted.");
+    }
+
+    void UpdatePlayerCoinCount(ItemData item){
+        if (item.name != "Coin") return;
+        currentCoinCount = PlayerPrefs.GetInt("CurrentCoinCount" , 0);
+        Debug.Log("Adding 1 coin to PlayerPrefs CurrentCoinCount");
+        PlayerPrefs.SetInt("CurrentCoinCount", currentCoinCount + 1);
     }
 }
