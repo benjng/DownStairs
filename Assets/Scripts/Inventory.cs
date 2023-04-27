@@ -50,7 +50,6 @@ public class Inventory : MonoBehaviour
     public void RemoveItem(ItemData item)
     {
         items.Remove(item.name);
-        // Debug.Log("Item "+ item.name+ " deleted.");
     }
 
     void UpdatePlayerCoinCount(ItemData item){

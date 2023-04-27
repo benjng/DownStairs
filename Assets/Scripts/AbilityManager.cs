@@ -18,10 +18,6 @@ public class AbilityManager : MonoBehaviour
     [SerializeField] private int healAmount = 1;
     [SerializeField] private float moveSpeedAmount = 1.0f;
 
-    // void Start(){
-    //     stepsSpawner = StepsSpawner.instance;
-    // }
-
     public void ApplyAbility(ItemData item){
         switch (item.ability){
             case Abilities.TimePause:

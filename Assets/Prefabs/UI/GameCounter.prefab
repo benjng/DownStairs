@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 6997255294581279265}
   - component: {fileID: 4787402591003236001}
   m_Layer: 0
-  m_Name: GameStarter
+  m_Name: GameCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

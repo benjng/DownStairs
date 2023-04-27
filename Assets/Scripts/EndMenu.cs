@@ -12,13 +12,21 @@ public class EndMenu : MonoBehaviour
     [SerializeField] private TMP_Text floorCount;
     void Start()
     {
-        retryBtn.onClick.AddListener(Reset);
+        StartCoroutine(ActivateRetryBtn());
         currentPlayer.text = PlayerPrefs.GetString("CurrentPlayer");
         coinCount.text = "+ " + PlayerPrefs.GetInt("CurrentCoinCount", 9999).ToString();
         floorCount.text = PlayerPrefs.GetInt("CurrentFloorCount", 9999).ToString() + "/F";
     }
 
     // TODO: Add player info to leaderboard
+
+    // Retry btn function
+    IEnumerator ActivateRetryBtn(){
+        retryBtn.interactable = false;
+        yield return new WaitForSeconds(1);
+        retryBtn.interactable = true;
+        retryBtn.onClick.AddListener(Reset);
+    }
 
     // Retry btn ref
     void Reset(){

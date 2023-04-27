@@ -84,8 +84,16 @@ public class LevelLoader : MonoBehaviour
         }
     }
 
+    void RankCurrentPlayer(){
+        // TODO: Loop through existing ranks (1-5)
+        // TODO: Compare each rank and assign current player floor count
+        // TODO: 
+    }
+
     public void OnPlayerDeath(){
         GameCounter.GameStarted = false;
+        PlayerPrefs.SetInt("CurrentFloorCount", StepsSpawner.CurrentFloor);
+        RankCurrentPlayer();
         StartCoroutine(LoadLevel(2));
     }
 

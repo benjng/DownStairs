@@ -99,7 +99,6 @@ public class CharacterStatus : MonoBehaviour
                     yield return new WaitForSeconds(speedDecayInterval);
                 }
                 yield return new WaitForSeconds(0.1f);
-                // yield return new WaitUntil(() => currentMoveSpeed > minMoveSpeed);
             }  
         }
     #endregion
