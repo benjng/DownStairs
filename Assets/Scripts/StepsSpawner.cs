@@ -38,20 +38,19 @@ public class StepsSpawner : MonoBehaviour
 
     void Start()
     {
+        // Init static members
+        StepUpSpeed = 3;
         CurrentFloor = 0;
-        SpawnStepsAndItems(); // Init
+
+        SpawnStepsAndItems(); // Init first step
         SpawnSensor.SpawnStepEvent += SpawnStepsAndItems;
     }
 
-    void OnDestroy() {
-        SpawnSensor.SpawnStepEvent -= SpawnStepsAndItems;
-        StepUpSpeed = 3; // Reset for next game cycle
-    }
+    void OnDestroy() {SpawnSensor.SpawnStepEvent -= SpawnStepsAndItems;}
 
     private void FixedUpdate()
     {
         StepUpSpeed += Time.fixedDeltaTime / Time.realtimeSinceStartup;
-        Debug.Log(StepUpSpeed);
     }
 
     public Vector3 CreateStep(bool isRemoteStep) // A step set includes a step, and a possible spawn item

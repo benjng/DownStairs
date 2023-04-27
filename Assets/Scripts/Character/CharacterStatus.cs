@@ -68,7 +68,7 @@ public class CharacterStatus : MonoBehaviour
             currentHeatlh -= damage;
             healthBar.SetValue(currentHeatlh);
             if (currentHeatlh <= 0)
-                StartCoroutine(LevelLoader.instance.LoadLevel(2));
+                LevelLoader.instance.OnPlayerDeath();
         }
         public void TakeHeal(int heal){
             if (currentHeatlh >= maxHeatlh) return;

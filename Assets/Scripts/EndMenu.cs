@@ -20,6 +20,7 @@ public class EndMenu : MonoBehaviour
 
     // TODO: Add player info to leaderboard
 
+    // Retry btn ref
     void Reset(){
         LevelLoader.instance.ResetToMainMenu();
     }

@@ -100,10 +100,8 @@ public class Character : MonoBehaviour
 
     void CheckCharSurvive(){
         // When character touching bottom
-        if (transform.position.y <= -Camera.main.orthographicSize)
-        {
-            // SceneManager.LoadScene(3);
-        }
+        if (transform.position.y > -Camera.main.orthographicSize) return;
+        LevelLoader.instance.OnPlayerDeath();
     }
 
     // public class CharacterStub : Character 

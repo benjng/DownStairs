@@ -25,27 +25,30 @@ public class LevelLoader : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    // OnDestroy(){ SceneManager.sceneLoaded -= OnSceneLoaded; }
     void Start(){
         InitNameField();
     }
 
+    void OnDestroy(){ SceneManager.sceneLoaded -= OnSceneLoaded; }
+
     void InitNameField(){
         currentPlayer = PlayerPrefs.GetString("CurrentPlayer", playerNamePH.text);
-        Debug.Log(currentPlayer);
+        Debug.Log("PP CurrentPlayer: "+currentPlayer);
         playerInputField.text = currentPlayer; // Init StartMenu name field 
+    }
+
+    void InitAndSavePlayerInfo(){
+        currentPlayer = playerInputField.text;
+        PlayerPrefs.SetString("CurrentPlayer", currentPlayer);
+        PlayerPrefs.SetInt("CurrentCoinCount", 0);
+        PlayerPrefs.SetInt("CurrentFloorCount", 0);
+        PlayerPrefs.Save();
     }
 
     // StartBtn ref
     public void StartGame()
     {   
-        currentPlayer = playerInputField.text;
-        PlayerPrefs.SetString("CurrentPlayer", currentPlayer);
-        PlayerPrefs.SetInt("CurrentCoinCount", 0);
-        PlayerPrefs.SetInt("CurrentFloorCount", 0);
-
-        PlayerPrefs.Save();
-
+        InitAndSavePlayerInfo();
         StartCoroutine(LoadLevel(1));
     }
 
@@ -55,33 +58,38 @@ public class LevelLoader : MonoBehaviour
         yield return new WaitForSeconds(transitionTime);
         transition.SetTrigger("FadeIn");
 
+        // Load level
         SceneManager.LoadScene(levelIndex, LoadSceneMode.Single);
 
-        // renew LevelLoader cycle
+        // If loading into StartMenu(0), destroy self for next levelloader
         if (levelIndex == 0){ 
             Destroy(gameObject);
             instance = null;
+            Debug.Log("Current LevelLoader destroyed");
         }
     }
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode){
         if (scene.buildIndex == 0){
-            // Debug.Log("StartMenu");
+            Debug.Log("Loaded scene[0]: StartMenu");
             return;
         }
         if (scene.buildIndex == 1){
-            // Debug.Log("Game");
+            Debug.Log("Loaded scene[1]: Normal");
             return;
         }
         if (scene.buildIndex == 2){ // End Menu
-            // Debug.Log("EndMenu");
-            Debug.Log("EndMenu Player: "+PlayerPrefs.GetString("CurrentPlayer"));
+            Debug.Log("Loaded scene[2]: EndMenu");
             return;
         }
     }
 
-    public void ResetToMainMenu(){
+    public void OnPlayerDeath(){
         GameCounter.GameStarted = false;
+        StartCoroutine(LoadLevel(2));
+    }
+
+    public void ResetToMainMenu(){
         StartCoroutine(LoadLevel(0));
     }
 }

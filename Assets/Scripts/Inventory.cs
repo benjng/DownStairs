@@ -17,9 +17,6 @@ public class Inventory : MonoBehaviour
     }
     #endregion
 
-    // public delegate void InventoryChangedEventHandler();
-    // public event InventoryChangedEventHandler OnInventoryChanged;
-
     [SerializeField] private InventoryUI inventoryUI;
     private Dictionary<string, int> items = new Dictionary<string, int>();
 
@@ -35,7 +32,6 @@ public class Inventory : MonoBehaviour
         } else {
             items.Add(item.name, 1); // Add new item to player inventory
         }
-        // OnInventoryChanged?.Invoke(); // Inform there is a change in inventory list, so inventoryUI can update
         inventoryUI.UpdateUI(item);
     }
 
