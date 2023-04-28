@@ -339,15 +339,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d02c12aaf2b86f74e8f9ca86a4e1d409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHeatlh: 0
+  currentHeatlh: 10
   maxHeatlh: 10
   healthBar: {fileID: 0}
   currentGravity: 1.1
   maxGravity: 3
   gravityBar: {fileID: 0}
-  currentMoveSpeed: 6
+  currentMoveSpeed: 5
   minMoveSpeed: 1
-  maxMoveSpeed: 20
+  maxMoveSpeed: 10
   speedBar: {fileID: 0}
   speedDecayInterval: 1
   speedDecayAmount: 0.1

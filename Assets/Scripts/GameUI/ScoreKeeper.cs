@@ -30,11 +30,11 @@ public class ScoreKeeper : MonoBehaviour
         // Sort the rank before ScoreBoard renders
         SortedRanks.Sort((x, y) => y.Value.CompareTo(x.Value));
         
-        Debug.Log("Pre-game SortedRanks: ");
-        // Print the sorted list
-        foreach (KeyValuePair<string, int> kvp in SortedRanks)
-        {
-            Debug.Log(kvp.Key + " - " + kvp.Value);
-        }
+        // Debug.Log("Pre-game SortedRanks: ");
+        // // Print the sorted list
+        // foreach (KeyValuePair<string, int> kvp in SortedRanks)
+        // {
+        //     Debug.Log(kvp.Key + " - " + kvp.Value);
+        // }
     }
 }

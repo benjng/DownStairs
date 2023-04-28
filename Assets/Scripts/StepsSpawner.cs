@@ -4,30 +4,14 @@ using UnityEngine;
 using TMPro;
 
 public class StepsSpawner : MonoBehaviour
-{
-    // #region Singleton
-    // public static StepsSpawner instance;
-    // private void Awake()
-    // {
-    //     if (instance != null)
-    //     {
-    //         Debug.LogWarning("More than one instance of StepsSpawner found!");
-    //         Destroy(instance.gameObject);
-    //         return;
-    //     } else {
-    //         Debug.Log("No existing ss instance found. Creating a new one.");
-    //     }
-    //     instance = this; // Create the unique instance of StepsSpawner
-    // }
-    // #endregion
-    
+{    
     public static float StepUpSpeed = 3;
     public static float VPSpawnPosY = 0.15f; // Vertical Port Spawn Position Y
     [SerializeField] private GameObject step;
     [SerializeField] private GameObject[] spawnItems;
     // Coin, Potion_R, Laser, Potion_F, Remote_Step, Potion_HP
-    [SerializeField] private List<float> probabilities = new List<float> { 0.2f, 0.1f, 0.0f, 0.1f, 0.1f, 0.1f }; 
-    [SerializeField] private float extraStepProb = 0.9f;
+    [SerializeField] private List<float> probabilities = new List<float> {}; 
+    [SerializeField] private float extraStepProb;
     [SerializeField] private GameObject spawnSensor;
 
     // Event Handler

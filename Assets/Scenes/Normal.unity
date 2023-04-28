@@ -328,17 +328,15 @@ MonoBehaviour:
   spawnItems:
   - {fileID: 6986224345202343726, guid: 1bbb465f952a6344aadb80a9f25fb652, type: 3}
   - {fileID: 5721252602456165130, guid: 1e6cfaa02a7d3694293b47329e4c5306, type: 3}
-  - {fileID: 4939185341357209996, guid: bc3de5bbe531183468ccd71506ae6122, type: 3}
   - {fileID: 5721252602456165130, guid: 88d93c5516b095940ae577ed761f146e, type: 3}
   - {fileID: 5721252602456165130, guid: 5f6f7113c1c623447a6780d7bdcc2b34, type: 3}
   - {fileID: 5721252602456165130, guid: 3d87da3ec645dd347b591ee142b75d75, type: 3}
   probabilities:
-  - 0.2
-  - 0.1
-  - 0.1
-  - 0.1
-  - 0.1
-  - 0.1
+  - 0.15
+  - 0.05
+  - 0.05
+  - 0.05
+  - 0.25
   extraStepProb: 0.3
   spawnSensor: {fileID: 2788816346085797154, guid: 3dab5e2c8883f02428205100fded233b, type: 3}
 --- !u!4 &972541824
@@ -446,7 +444,7 @@ MonoBehaviour:
   charStatus: {fileID: 1580111535}
   stepsSpawner: {fileID: 972541823}
   healAmount: 1
-  moveSpeedAmount: 1
+  moveSpeedAmount: 1.5
 --- !u!4 &1948028837
 Transform:
   m_ObjectHideFlags: 0

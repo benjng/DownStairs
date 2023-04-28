@@ -154,6 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 8066200115128410661}
+  spikeDmg: 1
 --- !u!95 &8066200115128410661
 Animator:
   serializedVersion: 5

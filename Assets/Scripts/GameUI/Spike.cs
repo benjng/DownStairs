@@ -4,7 +4,7 @@ using UnityEngine;
 public class Spike : MonoBehaviour, IPlayContactSound
 {
     [SerializeField] private Animator animator;
-    [SerializeField] private int spikeDmg = 10;
+    [SerializeField] private int spikeDmg = 1;
 
     void OnTriggerEnter2D(Collider2D collision)
     {

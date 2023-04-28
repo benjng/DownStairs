@@ -55,7 +55,6 @@ public class Inventory : MonoBehaviour
     void UpdatePlayerCoinCount(ItemData item){
         if (item.name != "Coin") return;
         currentCoinCount = PlayerPrefs.GetInt("CurrentCoinCount" , 0);
-        Debug.Log("Adding 1 coin to PlayerPrefs CurrentCoinCount");
         PlayerPrefs.SetInt("CurrentCoinCount", currentCoinCount + 1);
     }
 }
