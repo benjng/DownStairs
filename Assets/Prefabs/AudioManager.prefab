@@ -48,7 +48,7 @@ MonoBehaviour:
   sounds:
   - name: Bgm
     clip: {fileID: 8300000, guid: 1f09e42882ac52b46aff1c74e3134b5e, type: 3}
-    volume: 0
+    volume: 0.3
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
@@ -57,7 +57,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: CollectCoin
     clip: {fileID: 8300000, guid: be91ab44c1cd2cc49a32b7350df7a644, type: 3}
-    volume: 0.354
+    volume: 0.4
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
@@ -66,7 +66,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: CollectPoop
     clip: {fileID: 8300000, guid: f30413bf1a224c245aef9fda13e2f991, type: 3}
-    volume: 0.621
+    volume: 0
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
@@ -75,7 +75,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: CollectRemote
     clip: {fileID: 8300000, guid: 91521dda2441ba84682cf5d058178266, type: 3}
-    volume: 0.621
+    volume: 0.4
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
@@ -84,7 +84,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: CollectDrink
     clip: {fileID: 8300000, guid: 176e7e29d21884b408bca2d23e74be1f, type: 3}
-    volume: 0.621
+    volume: 0.4
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
@@ -93,7 +93,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: HitSpike1
     clip: {fileID: 8300000, guid: cd746019f8ceeb14b965d8d3a6690a45, type: 3}
-    volume: 0.621
+    volume: 0.4
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: HitSpike2
     clip: {fileID: 8300000, guid: d3b2708d57cff0349902a0580d5c076b, type: 3}
-    volume: 0.621
+    volume: 0.4
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
@@ -111,7 +111,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: HitConcreteStep1
     clip: {fileID: 8300000, guid: 9f38dcd5655971a4d994d03dfe295dd9, type: 3}
-    volume: 0.621
+    volume: 0.5
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
@@ -120,7 +120,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: HitConcreteStep2
     clip: {fileID: 8300000, guid: 1833485f4b168874f8d0150f87842ecf, type: 3}
-    volume: 0.621
+    volume: 0.5
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
@@ -129,7 +129,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: UseDrink
     clip: {fileID: 8300000, guid: 936214f578458db4d9f3c0f5ab22929b, type: 3}
-    volume: 0.621
+    volume: 0.6
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
@@ -138,7 +138,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: UseRemoteBeep
     clip: {fileID: 8300000, guid: c2397a24293f10247a51e122e8ca867d, type: 3}
-    volume: 0.621
+    volume: 0.6
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0

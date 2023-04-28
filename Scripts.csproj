@@ -65,6 +65,7 @@
      <Compile Include="Assets\Scripts\SpikeSpawner.cs" />
      <Compile Include="Assets\Scripts\Character\CharacterStatus.cs" />
      <Compile Include="Assets\Scripts\Projectile.cs" />
+     <Compile Include="Assets\Scripts\GameUI\ScoreBoard.cs" />
      <Compile Include="Assets\Scripts\GameUI\InventoryUI.cs" />
      <Compile Include="Assets\Scripts\GameUI\Joystick\Editor\DynamicJoystickEditor.cs" />
      <Compile Include="Assets\Scripts\GameUI\Joystick\Joysticks\DynamicJoystick.cs" />
@@ -82,6 +83,7 @@
      <Compile Include="Assets\Scripts\AudioManager\Sound.cs" />
      <Compile Include="Assets\Scripts\Step.cs" />
      <Compile Include="Assets\Scripts\Character\CharAnimation\States\FistAtkLeft.cs" />
+     <Compile Include="Assets\Scripts\GameUI\ScoreKeeper.cs" />
      <Compile Include="Assets\Scripts\GameUI\Joystick\Editor\JoystickEditor.cs" />
      <Compile Include="Assets\Scripts\LevelLoader.cs" />
      <Compile Include="Assets\Scripts\GameUI\Joystick\Joysticks\FloatingJoystick.cs" />
@@ -92,8 +94,6 @@
      <Compile Include="Assets\Scripts\ScriptableObjs\ProjectileData.cs" />
      <Compile Include="Assets\Scripts\_Menu\States\AtMode.cs" />
      <Compile Include="Assets\Scripts\Item.cs" />
-     <Compile Include="Assets\Scripts\GameUI\ScoreBoard.cs" />
-     <Compile Include="Assets\Scripts\GameUI\ScoreKeeper.cs" />
      <None Include="Assets\Scripts\Scripts.asmdef" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.19f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
