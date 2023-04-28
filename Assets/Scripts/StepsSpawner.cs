@@ -13,6 +13,7 @@ public class StepsSpawner : MonoBehaviour
     [SerializeField] private List<float> probabilities = new List<float> {}; 
     [SerializeField] private float extraStepProb;
     [SerializeField] private GameObject spawnSensor;
+    [SerializeField] private Sprite remoteSprite;
 
     // Event Handler
     public delegate void PrintFloorEventHandler();
@@ -44,13 +45,10 @@ public class StepsSpawner : MonoBehaviour
         thisStep.transform.localPosition = Camera.main.ViewportToWorldPoint(new Vector3(randWidth, 0, 0));
         if (isRemoteStep)
             // TODO: Change the remote step sprite here
+            thisStep.GetComponent<SpriteRenderer>().sprite = remoteSprite;
             thisStep.tag = "RemoteStep";
         thisStep.SetActive(true);
         CreateItemByChance(thisStep);
-        
-        // if (MenuSystem.gameMode != GameMode.Simple) {
-        //     CreateItemByChance(thisStep);
-        // }
         return thisStep.transform.position;
     }
 

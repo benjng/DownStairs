@@ -147,7 +147,16 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: CollectWeight
     clip: {fileID: 8300000, guid: c9cfb33eca415d7409f5969c1c9544db, type: 3}
-    volume: 1
+    volume: 0.6
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: OnDeathScream
+    clip: {fileID: 8300000, guid: b1f5dfdb2adb7ac40bd5793e3d0aa81b, type: 3}
+    volume: 0.6
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0

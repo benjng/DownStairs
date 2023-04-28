@@ -18,9 +18,6 @@ public class EndMenu : MonoBehaviour
         floorCount.text = PlayerPrefs.GetInt("CurrentFloorCount", 9999).ToString() + "/F";
     }
 
-    // TODO: Add player info to leaderboard
-    
-
     // Retry btn function
     IEnumerator ActivateRetryBtn(){
         retryBtn.interactable = false;

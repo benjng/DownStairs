@@ -35,7 +35,7 @@ public class LevelLoader : MonoBehaviour
 
     void InitNameField(){
         currentPlayer = PlayerPrefs.GetString("CurrentPlayer", playerNamePH.text);
-        Debug.Log("PP CurrentPlayer: "+currentPlayer);
+        Debug.Log("PlayerPrefs CurrentPlayer: "+currentPlayer);
         playerInputField.text = currentPlayer; // Init StartMenu name field 
     }
 
@@ -88,6 +88,7 @@ public class LevelLoader : MonoBehaviour
 
     public void OnPlayerDeath(){
         GameCounter.GameStarted = false;
+        AudioManager.instance.Play("OnDeathScream");
         PlayerPrefs.SetInt("CurrentFloorCount", StepsSpawner.CurrentFloor);
         RankCurrentPlayer();
         StartCoroutine(LoadLevel(2));
