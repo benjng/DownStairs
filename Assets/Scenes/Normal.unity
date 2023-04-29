@@ -331,12 +331,14 @@ MonoBehaviour:
   - {fileID: 5721252602456165130, guid: 88d93c5516b095940ae577ed761f146e, type: 3}
   - {fileID: 5721252602456165130, guid: 5f6f7113c1c623447a6780d7bdcc2b34, type: 3}
   - {fileID: 5721252602456165130, guid: 3d87da3ec645dd347b591ee142b75d75, type: 3}
+  - {fileID: 5721252602456165130, guid: 63c8e781c3bce774782b7ad5e709d8ff, type: 3}
   probabilities:
   - 0.15
   - 0.07
   - 0.05
   - 0.05
   - 0.05
+  - 0.03
   extraStepProb: 0.3
   spawnSensor: {fileID: 2788816346085797154, guid: 3dab5e2c8883f02428205100fded233b, type: 3}
   remoteSprite: {fileID: 21300000, guid: d206b7ee28c6b9941a195aef9282d31b, type: 3}
@@ -865,6 +867,10 @@ PrefabInstance:
       propertyPath: gravityBar
       value: 
       objectReference: {fileID: 818119956}
+    - target: {fileID: 3689244071294101917, guid: 54658a8a81fe3054f88708926a7e4929, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5146237268904041089, guid: 54658a8a81fe3054f88708926a7e4929, type: 3}
       propertyPath: inventoryUI
       value: 

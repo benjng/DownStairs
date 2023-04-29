@@ -18,7 +18,8 @@ public class Item : MonoBehaviour, ICollectable
         {
             if (item.isAutoConsume) {
                 FindObjectOfType<AbilityManager>().ApplyAbility(item);
-                item.PlayCharEffect();
+                if (item.effect != CharEffect.none)
+                    item.PlayCharEffect();
             } else {
                 inventory.AddItem(item);
             }

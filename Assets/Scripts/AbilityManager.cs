@@ -33,6 +33,9 @@ public class AbilityManager : MonoBehaviour
             case Abilities.IncreaseGravity:
                 charStatus.MultiplyGravity(1.1f);
                 break;
+            case Abilities.DecreaseGravity:
+                charStatus.MultiplyGravity(0.9f);
+                break;
             case Abilities.IncreaseMoveSpeed:
                 charStatus.AddMoveSpeed(moveSpeedAmount);
                 break;

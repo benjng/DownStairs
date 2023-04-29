@@ -3,5 +3,6 @@ public enum CharEffect{
     none,
     triggerSpeedUp,
     triggerHPUp,
-    triggerWeightUp
+    triggerWeightUp,
+    triggerWeightDown
 }
