@@ -1,5 +1,7 @@
 public enum CharEffect{
+    // Must match with CharacterEffect trigger names
     none,
     triggerSpeedUp,
-    triggerHPUp
+    triggerHPUp,
+    triggerWeightUp
 }

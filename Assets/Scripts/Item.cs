@@ -11,12 +11,14 @@ public class Item : MonoBehaviour, ICollectable
         // ability.OnInventoryChanged += Check;
     }
 
+    // When Player collect the item
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") && item.isCollectable)
         {
             if (item.isAutoConsume) {
                 FindObjectOfType<AbilityManager>().ApplyAbility(item);
+                item.PlayCharEffect();
             } else {
                 inventory.AddItem(item);
             }

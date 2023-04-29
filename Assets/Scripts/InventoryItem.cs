@@ -27,7 +27,7 @@ public class InventoryItem : MonoBehaviour
         }
     }
 
-    // Item button reference
+    // When Player use the item from inventory UI (Item btn ref)
     public void UseItem(){
         // Deduct 1 from item slot
         ItemQty--;

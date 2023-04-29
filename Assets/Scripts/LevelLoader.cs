@@ -36,6 +36,13 @@ public class LevelLoader : MonoBehaviour
 
     void OnDestroy(){ SceneManager.sceneLoaded -= OnSceneLoaded; }
 
+    // StartBtn ref
+    public void StartGame()
+    {   
+        InitAndSavePlayerInfo();
+        StartCoroutine(LoadLevel(1));
+    }
+    
     void InitNameField(){
         currentPlayer = PlayerPrefs.GetString("CurrentPlayer", playerNamePH.text);
         Debug.Log("PlayerPrefs CurrentPlayer: "+currentPlayer);
@@ -48,13 +55,6 @@ public class LevelLoader : MonoBehaviour
         PlayerPrefs.SetInt("CurrentCoinCount", 0);
         PlayerPrefs.SetInt("CurrentFloorCount", 0);
         PlayerPrefs.Save();
-    }
-
-    // StartBtn ref
-    public void StartGame()
-    {   
-        InitAndSavePlayerInfo();
-        StartCoroutine(LoadLevel(1));
     }
 
     public IEnumerator LoadLevel(int levelIndex){

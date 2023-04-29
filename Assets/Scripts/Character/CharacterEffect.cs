@@ -19,7 +19,6 @@ public class CharacterEffect : MonoBehaviour
     public Animator animator;
 
     public void PlayEffect(CharEffect effect){
-        Debug.Log("Playing effect: " + effect.ToString());
         animator.SetTrigger(effect.ToString());
     }
 }
