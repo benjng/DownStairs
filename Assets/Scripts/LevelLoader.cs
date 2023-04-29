@@ -18,6 +18,9 @@ public class LevelLoader : MonoBehaviour
     private string currentPlayer;
 
     void Awake(){
+        Debug.Log(Screen.currentResolution.refreshRate);
+        Application.targetFrameRate = 60;
+
         // PlayerPrefs.DeleteAll();
         if (instance != null){
             Debug.LogWarning("Duplicated LevelLoader instance found.");

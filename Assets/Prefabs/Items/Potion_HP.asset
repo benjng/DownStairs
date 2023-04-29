@@ -18,5 +18,6 @@ MonoBehaviour:
   isAutoConsume: 0
   isUsable: 1
   ability: 3
+  effect: 2
   collectSound: {fileID: 8300000, guid: 176e7e29d21884b408bca2d23e74be1f, type: 3}
   useSound: {fileID: 8300000, guid: 936214f578458db4d9f3c0f5ab22929b, type: 3}

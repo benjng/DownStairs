@@ -10,6 +10,7 @@ public class ItemData : ScriptableObject, IPlayContactSound
     public bool isAutoConsume;
     public bool isUsable;
     public Abilities ability = Abilities.none;
+    public CharEffect effect = CharEffect.none;
     public AudioClip collectSound;
     public AudioClip useSound;
     public virtual void PlayContactSound(){
@@ -18,5 +19,8 @@ public class ItemData : ScriptableObject, IPlayContactSound
     public void PlayUseSound(){
         if (useSound == null) return;
         AudioManager.instance.Play(useSound.name);
+    }
+    public void PlayCharEffect(){
+        CharacterEffect.instance.PlayEffect(effect);
     }
 }
