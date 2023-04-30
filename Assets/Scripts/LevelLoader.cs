@@ -27,7 +27,7 @@ public class LevelLoader : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        // SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     void Start(){
@@ -35,15 +35,9 @@ public class LevelLoader : MonoBehaviour
         InitCoinField();
     }
 
-    void OnDestroy(){ SceneManager.sceneLoaded -= OnSceneLoaded; }
+    // void OnDestroy(){ SceneManager.sceneLoaded -= OnSceneLoaded; }
 
-    // StartBtn ref
-    public void StartGame()
-    {   
-        InitAndSavePlayerInfo();
-        StartCoroutine(LoadLevel(1));
-    }
-    
+    #region On StartMenu Start
     void InitNameField(){
         currentPlayer = PlayerPrefs.GetString("CurrentPlayer", playerNamePH.text);
         Debug.Log("PlayerPrefs CurrentPlayer: "+currentPlayer);
@@ -53,6 +47,15 @@ public class LevelLoader : MonoBehaviour
     void InitCoinField(){
         totalCoinText.text = PlayerPrefs.GetInt("TotalCoin", 0).ToString(); // Init StartMenu coin field
     }
+    #endregion
+
+    #region On Actual Game Start
+    // StartBtn ref
+    public void StartGame()
+    {   
+        InitAndSavePlayerInfo();
+        StartCoroutine(LoadLevel(1));
+    }
 
     void InitAndSavePlayerInfo(){
         currentPlayer = playerInputField.text;
@@ -61,40 +64,9 @@ public class LevelLoader : MonoBehaviour
         PlayerPrefs.SetInt("CurrentFloorCount", 0);
         PlayerPrefs.Save();
     }
+    #endregion
 
-    public IEnumerator LoadLevel(int levelIndex){
-        // Transition animation
-        transition.SetTrigger("FadeOut");
-        yield return new WaitForSeconds(transitionTime);
-        transition.SetTrigger("FadeIn");
-
-        // Load level
-        SceneManager.LoadScene(levelIndex, LoadSceneMode.Single);
-
-        // If loading into StartMenu(0), destroy self for next levelloader
-        if (levelIndex == 0){ 
-            Destroy(gameObject);
-            instance = null;
-            Debug.Log("Current LevelLoader destroyed");
-        }
-    }
-
-    public void OnSceneLoaded(Scene scene, LoadSceneMode mode){
-        if (scene.buildIndex == 0){
-            // Debug.Log("Loaded scene[0]: StartMenu");
-            return;
-        }
-        if (scene.buildIndex == 1){
-            // Debug.Log("Loaded scene[1]: Normal");
-            return;
-        }
-        if (scene.buildIndex == 2){ // End Menu
-            // Debug.Log("Loaded scene[2]: EndMenu");
-            return;
-        }
-    }
-
-    #region On Game Finish
+    #region On Game Finish (Player dead)
     public void OnPlayerDeath(){
         GameCounter.GameStarted = false;
         AudioManager.instance.Play("OnDeathScream");
@@ -131,6 +103,38 @@ public class LevelLoader : MonoBehaviour
         PlayerPrefs.Save();
     }
     #endregion
+
+    public IEnumerator LoadLevel(int levelIndex){
+        // Transition animation
+        transition.SetTrigger("FadeOut");
+        yield return new WaitForSeconds(transitionTime);
+        transition.SetTrigger("FadeIn");
+
+        // Load level
+        SceneManager.LoadScene(levelIndex, LoadSceneMode.Single);
+
+        // If loading into StartMenu(0), destroy self for next levelloader
+        if (levelIndex == 0){ 
+            Destroy(gameObject);
+            instance = null;
+            Debug.Log("Current LevelLoader destroyed");
+        }
+    }
+
+    // public void OnSceneLoaded(Scene scene, LoadSceneMode mode){
+    //     if (scene.buildIndex == 0){
+    //         // Debug.Log("Loaded scene[0]: StartMenu");
+    //         return;
+    //     }
+    //     if (scene.buildIndex == 1){
+    //         // Debug.Log("Loaded scene[1]: Normal");
+    //         return;
+    //     }
+    //     if (scene.buildIndex == 2){ // End Menu
+    //         // Debug.Log("Loaded scene[2]: EndMenu");
+    //         return;
+    //     }
+    // }
 
     public void ResetToMainMenu(){
         StartCoroutine(LoadLevel(0));
