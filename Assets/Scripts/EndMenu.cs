@@ -13,6 +13,10 @@ public class EndMenu : MonoBehaviour
     void Start()
     {
         StartCoroutine(ActivateRetryBtn());
+        RenderEndUI();
+    }
+
+    void RenderEndUI(){
         currentPlayer.text = PlayerPrefs.GetString("CurrentPlayer");
         coinCount.text = "+ " + PlayerPrefs.GetInt("CurrentCoinCount", 9999).ToString();
         floorCount.text = PlayerPrefs.GetInt("CurrentFloorCount", 9999).ToString() + "/F";
@@ -21,7 +25,7 @@ public class EndMenu : MonoBehaviour
     // Retry btn function
     IEnumerator ActivateRetryBtn(){
         retryBtn.interactable = false;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         retryBtn.interactable = true;
         retryBtn.onClick.AddListener(Reset);
     }

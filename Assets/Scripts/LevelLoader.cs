@@ -13,6 +13,7 @@ public class LevelLoader : MonoBehaviour
     public Animator transition;
     public float transitionTime = 1f;
     [SerializeField] private TMP_InputField playerInputField;
+    [SerializeField] private TMP_Text totalCoinText;
     // [SerializeField] private TMP_Text playerInput;
     [SerializeField] private TMP_Text playerNamePH;
     private string currentPlayer;
@@ -31,6 +32,7 @@ public class LevelLoader : MonoBehaviour
 
     void Start(){
         InitNameField();
+        InitCoinField();
     }
 
     void OnDestroy(){ SceneManager.sceneLoaded -= OnSceneLoaded; }
@@ -46,6 +48,10 @@ public class LevelLoader : MonoBehaviour
         currentPlayer = PlayerPrefs.GetString("CurrentPlayer", playerNamePH.text);
         Debug.Log("PlayerPrefs CurrentPlayer: "+currentPlayer);
         playerInputField.text = currentPlayer; // Init StartMenu name field 
+    }
+
+    void InitCoinField(){
+        totalCoinText.text = PlayerPrefs.GetInt("TotalCoin", 0).ToString(); // Init StartMenu coin field
     }
 
     void InitAndSavePlayerInfo(){
@@ -88,13 +94,22 @@ public class LevelLoader : MonoBehaviour
         }
     }
 
+    #region On Game Finish
     public void OnPlayerDeath(){
         GameCounter.GameStarted = false;
         AudioManager.instance.Play("OnDeathScream");
         PlayerPrefs.SetInt("CurrentFloorCount", StepsSpawner.CurrentFloor);
+        
+        AddCoinCountToTotal();
         RankCurrentPlayer();
         StartCoroutine(LoadLevel(2));
     }
+
+    void AddCoinCountToTotal(){
+        int totalCoin = PlayerPrefs.GetInt("TotalCoin", 0);
+        PlayerPrefs.SetInt("TotalCoin", totalCoin + PlayerPrefs.GetInt("CurrentCoinCount", 0));
+    }
+
     void RankCurrentPlayer(){
         // Add current player to SortedRanks for order check
         KeyValuePair<string, int> currentPlayer = new KeyValuePair<string, int>(PlayerPrefs.GetString("CurrentPlayer"), PlayerPrefs.GetInt("CurrentFloorCount"));
@@ -115,6 +130,7 @@ public class LevelLoader : MonoBehaviour
         } 
         PlayerPrefs.Save();
     }
+    #endregion
 
     public void ResetToMainMenu(){
         StartCoroutine(LoadLevel(0));
