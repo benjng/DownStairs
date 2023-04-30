@@ -867,6 +867,14 @@ PrefabInstance:
       propertyPath: gravityBar
       value: 
       objectReference: {fileID: 818119956}
+    - target: {fileID: 3040207303585923489, guid: 54658a8a81fe3054f88708926a7e4929, type: 3}
+      propertyPath: maxGravity
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3040207303585923489, guid: 54658a8a81fe3054f88708926a7e4929, type: 3}
+      propertyPath: currentMoveSpeed
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3689244071294101917, guid: 54658a8a81fe3054f88708926a7e4929, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 0

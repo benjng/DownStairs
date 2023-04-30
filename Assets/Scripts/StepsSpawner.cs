@@ -5,7 +5,7 @@ using TMPro;
 
 public class StepsSpawner : MonoBehaviour
 {    
-    public static float StepUpSpeed = 3;
+    public static float StepUpSpeed = 3.5f;
     public static float VPSpawnPosY = 0.15f; // Vertical Port Spawn Position Y
     [SerializeField] private GameObject step;
     [SerializeField] private GameObject[] spawnItems;
@@ -20,12 +20,17 @@ public class StepsSpawner : MonoBehaviour
     public static event PrintFloorEventHandler PrintFloor;
 
     public static int CurrentFloor = 0;
+    private float startTime;
+    private float baseAddOnSpeed = 0.0005f;
 
     void Start()
     {
         // Init static members
-        StepUpSpeed = 3;
+        StepUpSpeed = 3.5f;
         CurrentFloor = 0;
+
+        // Capture Start time
+        startTime = Time.realtimeSinceStartup;
 
         SpawnStepsAndItems(); // Init first step
         SpawnSensor.SpawnStepEvent += SpawnStepsAndItems;
@@ -35,7 +40,15 @@ public class StepsSpawner : MonoBehaviour
 
     private void FixedUpdate()
     {
-        StepUpSpeed += Time.fixedDeltaTime / Time.realtimeSinceStartup;
+        CalculateStepUpSpeed();
+    }
+
+    void CalculateStepUpSpeed(){
+        float timeSinceGameStart = Time.realtimeSinceStartup - startTime;
+        float extraAddOnSpeed = Time.fixedDeltaTime / (10 + timeSinceGameStart/1.5f);
+
+        StepUpSpeed += baseAddOnSpeed + extraAddOnSpeed;
+        Debug.Log("StepUpSpeed: " + StepUpSpeed + "; totalAddOnSpeed: " + (baseAddOnSpeed + extraAddOnSpeed));
     }
 
     public Vector3 CreateStep(bool isRemoteStep) // A step set includes a step, and a possible spawn item
@@ -44,7 +57,7 @@ public class StepsSpawner : MonoBehaviour
         float randWidth = Random.Range(0.0f, 1.0f);
         thisStep.transform.localPosition = Camera.main.ViewportToWorldPoint(new Vector3(randWidth, 0, 0));
         if (isRemoteStep)
-            // TODO: Change the remote step sprite here
+            // Change the remote step sprite here
             thisStep.GetComponent<SpriteRenderer>().sprite = remoteSprite;
             thisStep.tag = "RemoteStep";
         thisStep.SetActive(true);
