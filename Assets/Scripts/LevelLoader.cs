@@ -14,7 +14,6 @@ public class LevelLoader : MonoBehaviour
     public float transitionTime = 1f;
     [SerializeField] private TMP_InputField playerInputField;
     [SerializeField] private TMP_Text totalCoinText;
-    // [SerializeField] private TMP_Text playerInput;
     [SerializeField] private TMP_Text playerNamePH;
     private string currentPlayer;
 
@@ -30,6 +29,7 @@ public class LevelLoader : MonoBehaviour
         // SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
+    // Only runs once on StartMenu stage
     void Start(){
         InitNameField();
         InitCoinField();
@@ -90,9 +90,7 @@ public class LevelLoader : MonoBehaviour
 
         // Update PlayerPrefs with the SortedRanks & SAVE it
         int i=1;
-        foreach (KeyValuePair<string, int> pair in ScoreKeeper.SortedRanks)
-        {
-            
+        foreach (KeyValuePair<string, int> pair in ScoreKeeper.SortedRanks){
             string playerName = pair.Key;
             int playerScore = pair.Value;
             PlayerPrefs.SetString("Rank_"+i.ToString()+"_Name", playerName);
